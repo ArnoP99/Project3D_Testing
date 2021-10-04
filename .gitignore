@@ -19,6 +19,7 @@ sysinfo.txt
 [Ee]xportedObj/
 *.booproj
 *.csproj
+**/*.log
 *.sln
 *.suo
 *.svd
