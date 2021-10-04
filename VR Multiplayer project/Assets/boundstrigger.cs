@@ -22,5 +22,9 @@ public class boundstrigger : MonoBehaviour
         GameObject.FindGameObjectWithTag("PlayerHUD").GetComponent<Image>().color = new Color(0, 0, 0, 255);
         Debug.Log("Trigger");
     }
-
+    private void OnTriggerExit(Collider other)
+    {
+        GameObject.FindGameObjectWithTag("PlayerHUD").GetComponent<Image>().color = new Color(0, 0, 0, 0);
+        Debug.Log("Trigger");
+    }
 }
