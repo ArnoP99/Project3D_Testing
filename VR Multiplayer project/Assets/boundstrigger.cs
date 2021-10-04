@@ -19,7 +19,7 @@ public class boundstrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        GameObject.FindGameObjectWithTag("PlayerHUD").GetComponentInChildren<Image>().color = new Color(0, 0, 0, 255);
+        GameObject.FindGameObjectWithTag("PlayerHUD").GetComponent<Image>().color = new Color(0, 0, 0, 255);
         Debug.Log("Trigger");
     }
 
