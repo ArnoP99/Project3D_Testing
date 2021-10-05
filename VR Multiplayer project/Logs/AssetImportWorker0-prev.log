@@ -15,12 +15,12 @@ C:/NXT School/3D Dev/HideAndSeek/Project3D_Testing/VR Multiplayer project
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-51538
+50629
 Successfully changed project path to: C:/NXT School/3D Dev/HideAndSeek/Project3D_Testing/VR Multiplayer project
 C:/NXT School/3D Dev/HideAndSeek/Project3D_Testing/VR Multiplayer project
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 75.28 ms, found 18 plugins.
-Preloading 1 native plugins for Editor in 1.53 ms.
+Refreshing native plugins compatible for Editor in 74.48 ms, found 18 plugins.
+Preloading 1 native plugins for Editor in 1.87 ms.
 Initialize engine version: 2020.3.18f1 (a7d1c678663c)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.18f1/Editor/Data/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path C:/NXT School/3D Dev/HideAndSeek/Project3D_Testing/VR Multiplayer project/Assets
@@ -35,49 +35,49 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.18f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.18f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.18f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56124
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56760
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Registered in 0.002080 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 52.55 ms, found 18 plugins.
-Preloading 1 native plugins for Editor in 0.17 ms.
+Refreshing native plugins compatible for Editor in 53.58 ms, found 18 plugins.
+Preloading 1 native plugins for Editor in 0.14 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.765 seconds
+- Completed reload, in  1.693 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1765ms)
-		BeginReloadAssembly (56ms)
+	ReloadAssembly (1694ms)
+		BeginReloadAssembly (51ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (386ms)
-			LoadAssemblies (53ms)
+		EndReloadAssembly (387ms)
+			LoadAssemblies (48ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (130ms)
+			SetupTypeCache (129ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (25ms)
+			RebuildScriptCaches (26ms)
 			SetupLoadedEditorAssemblies (164ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (53ms)
-				BeforeProcessingInitializeOnLoad (18ms)
-				ProcessInitializeOnLoadAttributes (65ms)
-				ProcessInitializeOnLoadMethodAttributes (24ms)
+				RefreshPlugins (54ms)
+				BeforeProcessingInitializeOnLoad (15ms)
+				ProcessInitializeOnLoadAttributes (66ms)
+				ProcessInitializeOnLoadMethodAttributes (25ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.030062 seconds.
+Registered in 0.017534 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 53.34 ms, found 18 plugins.
-Preloading 1 native plugins for Editor in 0.15 ms.
+Refreshing native plugins compatible for Editor in 53.02 ms, found 18 plugins.
+Preloading 1 native plugins for Editor in 0.14 ms.
 [XR] [Mixed Reality OpenXR Mesh]: RegisterLifecycleProvider.
 [XR] [Mixed Reality OpenXR Input]: RegisterLifecycleProvider.
 Added DLL directory C:\NXT School\3D Dev\HideAndSeek\Project3D_Testing\VR Multiplayer project\Library\PackageCache\com.microsoft.mixedreality.input@371f8e9b8158-1633427855123\Plugins\Windows\x64 to the user search path.
@@ -92,45 +92,45 @@ UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
 (Filename: Library/PackageCache/com.microsoft.mixedreality.input@371f8e9b8158-1633427855123/Editor/Microsoft.MixedReality.Input.Init.cs Line: 88)
 
 Mono: successfully reloaded assembly
-- Completed reload, in  1.312 seconds
+- Completed reload, in  1.318 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1317ms)
-		BeginReloadAssembly (129ms)
+	ReloadAssembly (1319ms)
+		BeginReloadAssembly (130ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (3ms)
+			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (18ms)
-		EndReloadAssembly (1124ms)
+		EndReloadAssembly (1128ms)
 			LoadAssemblies (94ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (286ms)
+			SetupTypeCache (287ms)
 			ReleaseScriptCaches (1ms)
 			RebuildScriptCaches (51ms)
-			SetupLoadedEditorAssemblies (569ms)
+			SetupLoadedEditorAssemblies (573ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (54ms)
-				BeforeProcessingInitializeOnLoad (90ms)
-				ProcessInitializeOnLoadAttributes (403ms)
-				ProcessInitializeOnLoadMethodAttributes (11ms)
+				RefreshPlugins (53ms)
+				BeforeProcessingInitializeOnLoad (94ms)
+				ProcessInitializeOnLoadAttributes (404ms)
+				ProcessInitializeOnLoadMethodAttributes (10ms)
 				AfterProcessingInitializeOnLoad (7ms)
-				EditorAssembliesLoaded (1ms)
+				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (5ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 1.11 ms, found 18 plugins.
+Refreshing native plugins compatible for Editor in 1.14 ms, found 18 plugins.
 Preloading 1 native plugins for Editor in 0.16 ms.
 Unloading 2690 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 110.3 MB.
+System memory in use before: 110.4 MB.
 System memory in use after: 110.5 MB.
 
 Unloading 54 unused Assets to reduce memory usage. Loaded Objects now: 3136.
-Total: 4.109500 ms (FindLiveObjects: 0.357500 ms CreateObjectMapping: 0.127000 ms MarkObjects: 3.541600 ms  DeleteObjects: 0.081500 ms)
+Total: 4.342600 ms (FindLiveObjects: 0.392200 ms CreateObjectMapping: 0.130200 ms MarkObjects: 3.726700 ms  DeleteObjects: 0.091000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -145,49 +145,9 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/please-turn-around-rubber-stamp-text-inside-illustration-92111096.jpg
-  artifactKey: Guid(da6d083f566fc524f95a020cedbceaf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/please-turn-around-rubber-stamp-text-inside-illustration-92111096.jpg using Guid(da6d083f566fc524f95a020cedbceaf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd72278bbfe57daef415797034986f149') in 0.088356 seconds 
-  Import took 0.092375 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000432 seconds.
-  path: Assets/InputSystem.inputsettings.asset
-  artifactKey: Guid(8ba3f2c8cb77d6640a9cd232213742d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/InputSystem.inputsettings.asset using Guid(8ba3f2c8cb77d6640a9cd232213742d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12569fca59309bebdd6aa2f88ee2f760') in 0.006213 seconds 
-  Import took 0.010032 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000397 seconds.
-  path: Assets/New Material.mat
-  artifactKey: Guid(11758718da6d6c24681c5a191d6abe68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/New Material.mat using Guid(11758718da6d6c24681c5a191d6abe68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4700488d1a595781b1c10844fc54c053') in 0.284158 seconds 
-  Import took 0.288105 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 95.999120 seconds.
-  path: Assets
-  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42d402b061de3733987d63b9cc3b64de') in 0.004163 seconds 
-  Import took 0.009793 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.340114 seconds.
-  path: Assets/Models
-  artifactKey: Guid(51a1133a8d13a7541a4e2a8822639528) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models using Guid(51a1133a8d13a7541a4e2a8822639528) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'facf407d4407765c41b8cc7a84cf9862') in 0.003535 seconds 
-  Import took 0.008052 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 22.816011 seconds.
   path: Assets/Models/HospitalRoom.fbx
   artifactKey: Guid(59e0d73392c556a46b9ff2eda35c0933) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/HospitalRoom.fbx using Guid(59e0d73392c556a46b9ff2eda35c0933) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd0398ddec12da93daf54ce2485dc4c5') in 0.407645 seconds 
-  Import took 0.412384 seconds .
+Start importing Assets/Models/HospitalRoom.fbx using Guid(59e0d73392c556a46b9ff2eda35c0933) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4a4f5a7d06d9bc217f03d6418e106ea') in 0.312287 seconds 
+  Import took 0.316591 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
