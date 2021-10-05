@@ -150,3 +150,4 @@ Received Import Request.
 Start importing Assets/Models/HospitalRoom.fbx using Guid(59e0d73392c556a46b9ff2eda35c0933) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4a4f5a7d06d9bc217f03d6418e106ea') in 0.312287 seconds 
   Import took 0.316591 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
