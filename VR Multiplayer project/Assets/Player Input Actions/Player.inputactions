@@ -52,6 +52,17 @@
                 },
                 {
                     "name": "",
+                    "id": "9936cd00-2f91-4edc-8633-6ba7a388f09f",
+                    "path": "<HPMixedRealityController>{LeftHand}/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "LeftTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "4c5aea11-976a-45cf-8f9c-d07584f5c680",
                     "path": "<XRController>{LeftHand}/triggerPressed",
                     "interactions": "",
