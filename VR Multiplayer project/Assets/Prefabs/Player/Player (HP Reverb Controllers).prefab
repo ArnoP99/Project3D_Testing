@@ -1170,7 +1170,7 @@ GameObject:
   - component: {fileID: 1047357985693757463}
   m_Layer: 8
   m_Name: Player (HP Reverb Controllers)
-  m_TagString: Untagged
+  m_TagString: VRplayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1506,6 +1506,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261382824632662450, guid: b8b3db4d94947074f95543cd83ac90eb,
+        type: 3}
+      propertyPath: m_TagString
+      value: LeftController
       objectReference: {fileID: 0}
     - target: {fileID: 1870997956503366559, guid: b8b3db4d94947074f95543cd83ac90eb,
         type: 3}
