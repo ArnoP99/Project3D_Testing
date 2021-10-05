@@ -1419,10 +1419,10 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.9339623, g: 0.6449797, b: 0.2511125, a: 1}
-  m_Intensity: 10
+  m_Color: {r: 0.5764507, g: 0.9622642, b: 0.670342, a: 1}
+  m_Intensity: 5
   m_Range: 15.3
-  m_SpotAngle: 73.28803
+  m_SpotAngle: 177.07242
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
@@ -1478,7 +1478,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1276719159}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 6.53, z: -0.4}
+  m_LocalPosition: {x: 0.434, y: 6.53, z: -0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1651,7 +1651,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b96e21645b251fa479556d095018ee5a, type: 2}
+      objectReference: {fileID: 2100000, guid: 979c8f80b930fde4e9099ea6f282c66a, type: 2}
     - target: {fileID: -2896989766998674460, guid: 59e0d73392c556a46b9ff2eda35c0933,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2256,7 +2256,6 @@ GameObject:
   - component: {fileID: 1772198978}
   - component: {fileID: 1772198977}
   - component: {fileID: 1772198976}
-  - component: {fileID: 1772198979}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2331,18 +2330,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1772198979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772198975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b1fa4d0413ac7344a73e19159c1741a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1850864351
 GameObject:
   m_ObjectHideFlags: 0
