@@ -476,7 +476,19 @@ MonoBehaviour:
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3675244148519706464}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_DeviceRegainedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -520,6 +532,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 55cdca12-e537-4e55-9412-bc27e76fbfbb
     m_ActionName: Player/MoveLeft
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0f35c56f-6931-4855-9863-4bfc73a79abe
+    m_ActionName: Player/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: XR
   m_DefaultActionMap: Player
@@ -679,6 +695,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8b3db4d94947074f95543cd83ac90eb, type: 3}
+--- !u!1 &3675244148519706464 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1261382824632662450, guid: b8b3db4d94947074f95543cd83ac90eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 2486061668142655186}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6989520575166233211 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4791689283252165801, guid: b8b3db4d94947074f95543cd83ac90eb,
