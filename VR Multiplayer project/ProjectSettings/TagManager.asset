@@ -8,6 +8,7 @@ TagManager:
   - PlayerHUD
   - VRplayer
   - LeftController
+  - RightController
   layers:
   - Default
   - TransparentFX

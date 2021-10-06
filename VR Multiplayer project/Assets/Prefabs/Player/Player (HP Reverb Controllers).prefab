@@ -1623,6 +1623,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2874701982357180808, guid: cf3130c43f3a029419da6f1c4e36751c,
+        type: 3}
+      propertyPath: m_TagString
+      value: RightController
+      objectReference: {fileID: 0}
     - target: {fileID: 4101238782127868349, guid: cf3130c43f3a029419da6f1c4e36751c,
         type: 3}
       propertyPath: m_RootOrder
