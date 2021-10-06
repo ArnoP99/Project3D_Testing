@@ -9,6 +9,7 @@ TagManager:
   - VRplayer
   - LeftController
   - RightController
+  - ChoicePopUp
   layers:
   - Default
   - TransparentFX
