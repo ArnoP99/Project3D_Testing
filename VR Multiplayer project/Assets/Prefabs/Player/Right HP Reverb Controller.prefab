@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -6561805733252490092}
   - component: {fileID: -2849087099254503278}
   - component: {fileID: 7772280307379158432}
+  - component: {fileID: -8820101371753820235}
   m_Layer: 0
   m_Name: Right HP Reverb Controller
   m_TagString: Untagged
@@ -100,3 +101,16 @@ MonoBehaviour:
   m_TrackingType: 0
   m_UpdateType: 0
   m_UseRelativeTransform: 0
+--- !u!65 &-8820101371753820235
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2874701982357180808}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
