@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class TriggerEvents : MonoBehaviour
 {
 
@@ -11,7 +11,7 @@ public class TriggerEvents : MonoBehaviour
         if (collision.gameObject.tag == "LeftController" || collision.gameObject.tag == "RightController")
         {
             
-            gameObject.GetComponent<TextMesh>().color = Color.red;
+            gameObject.GetComponent<TextMeshPro>().color = Color.red;
         }
         Debug.Log("Tag: " + collision.gameObject.tag);
         Debug.Log("TriggerEnter");
@@ -21,7 +21,7 @@ public class TriggerEvents : MonoBehaviour
     {
         if (collision.gameObject.tag == "LeftController" || collision.gameObject.tag == "RightController")
         {
-            gameObject.GetComponent<TextMesh>().color = Color.white;
+            gameObject.GetComponent<TextMeshPro>().color = Color.white;
         }
         Debug.Log("Tag: " + collision.gameObject.tag);
         Debug.Log("TriggerExit");
