@@ -9,10 +9,12 @@ using UnityEngine.XR.Management;
 public class HPReverbControls : MonoBehaviour
 {
 
-    GameObject textPopUp = new GameObject();
+    GameObject textPopUp; 
+
 
     public void Start()
     {
+
         textPopUp = GameObject.FindGameObjectWithTag("ChoicePopUp");
         textPopUp.SetActive(false);
     }
