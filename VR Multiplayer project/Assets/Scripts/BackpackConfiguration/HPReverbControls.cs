@@ -8,21 +8,23 @@ using UnityEngine.XR.Management;
 
 public class HPReverbControls : MonoBehaviour
 {
-    bool textPopUp = false;
+    GameObject textPopUp = GameObject.FindGameObjectWithTag("ChoicePopUp");
+
+    public void Start()
+    {
+        textPopUp.SetActive(false);
+    }
     public void PressTrigger(InputAction.CallbackContext context)
     {
         Debug.Log("Trigger");
-        if (textPopUp == false)
+        if (textPopUp.activeInHierarchy == false)
         {
-            GameObject.FindGameObjectWithTag("ChoicePopUp").SetActive(true);
-            textPopUp = true;
+            textPopUp.SetActive(true);
         }        
         else
         {
-            GameObject.FindGameObjectWithTag("ChoicePopUp").SetActive(false);
-            textPopUp = false;
+            textPopUp.SetActive(false);
         }
-
     }
 
     public void Joystick(InputAction.CallbackContext context)
