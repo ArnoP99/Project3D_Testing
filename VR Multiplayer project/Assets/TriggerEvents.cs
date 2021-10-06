@@ -8,10 +8,6 @@ public class TriggerEvents : MonoBehaviour
     [SerializeField] Material defaultMaterial;
     [SerializeField] Material highlightMaterial;
 
-    [SerializeField] GameObject gameObject;
-
-
-
     // Start is called before the first frame update
     void OnCollisionEnter(Collision collision)
     {
