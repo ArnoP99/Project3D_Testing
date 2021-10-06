@@ -13,9 +13,10 @@ public class TriggerEvents : MonoBehaviour
     {
         if (collision.gameObject.tag == "LeftController" || collision.gameObject.tag == "RightController")
         {
-            Debug.Log("Tag: " + collision.gameObject.tag);
+            
             gameObject.GetComponent<MeshRenderer>().material = highlightMaterial;
         }
+        Debug.Log("Tag: " + collision.gameObject.tag);
         Debug.Log("TriggerEnter");
     }
 
@@ -25,6 +26,7 @@ public class TriggerEvents : MonoBehaviour
         {
             gameObject.GetComponent<MeshRenderer>().material = defaultMaterial;
         }
+        Debug.Log("Tag: " + collision.gameObject.tag);
         Debug.Log("TriggerExit");
     }
 }
