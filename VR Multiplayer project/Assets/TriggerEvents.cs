@@ -5,16 +5,13 @@ using UnityEngine;
 public class TriggerEvents : MonoBehaviour
 {
 
-    [SerializeField] Material defaultMaterial;
-    [SerializeField] Material highlightMaterial;
-
     // Start is called before the first frame update
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "LeftController" || collision.gameObject.tag == "RightController")
         {
             
-            gameObject.GetComponent<MeshRenderer>().material = highlightMaterial;
+            gameObject.GetComponent<TextMesh>().color = Color.red;
         }
         Debug.Log("Tag: " + collision.gameObject.tag);
         Debug.Log("TriggerEnter");
@@ -24,7 +21,7 @@ public class TriggerEvents : MonoBehaviour
     {
         if (collision.gameObject.tag == "LeftController" || collision.gameObject.tag == "RightController")
         {
-            gameObject.GetComponent<MeshRenderer>().material = defaultMaterial;
+            gameObject.GetComponent<TextMesh>().color = Color.white;
         }
         Debug.Log("Tag: " + collision.gameObject.tag);
         Debug.Log("TriggerExit");
