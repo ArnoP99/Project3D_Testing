@@ -13,7 +13,7 @@ public class TriggerEvents : MonoBehaviour
 
 
     // Start is called before the first frame update
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "LeftController" || collision.gameObject.tag == "RightController")
         {
@@ -23,7 +23,7 @@ public class TriggerEvents : MonoBehaviour
         Debug.Log("TriggerEnter");
     }
 
-    private void OnCollisionExit(Collision collision)
+    void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == "LeftController" || collision.gameObject.tag == "RightController")
         {
