@@ -20,6 +20,7 @@ public class TriggerEvents : MonoBehaviour
             Debug.Log("Tag: " + collision.gameObject.tag);
             gameObject.GetComponent<MeshRenderer>().material = highlightMaterial;
         }
+        Debug.Log("TriggerEnter");
     }
 
     private void OnCollisionExit(Collision collision)
@@ -28,5 +29,6 @@ public class TriggerEvents : MonoBehaviour
         {
             gameObject.GetComponent<MeshRenderer>().material = defaultMaterial;
         }
+        Debug.Log("TriggerExit");
     }
 }
