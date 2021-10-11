@@ -22,19 +22,6 @@ public class PhysicsButton : MonoBehaviour
         joint = GetComponent<ConfigurableJoint>();
     }
 
-    // Update is called once per frame
-    /*void Update()
-    {
-        if(!isPressed && GetValue() + threshold >= 1)
-        {
-            Pressed();
-        }
-        if(isPressed && GetValue() - threshold <= 1)
-        {
-            Released();
-        }
-    }*/
-
     private void OnCollisionEnter(Collision collision)
     {
         Pressed();
