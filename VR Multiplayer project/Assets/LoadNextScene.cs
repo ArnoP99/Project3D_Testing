@@ -15,6 +15,8 @@ public class LoadNextScene : MonoBehaviour
 
     public void GiveTag()
     {
-        GameObject.FindGameObjectWithTag("VRplayer").tag = "ItWorks";
+        GameObject player = GameObject.FindGameObjectWithTag("VRplayer");
+        player.tag = "ItWorks";
+
     }
 }
