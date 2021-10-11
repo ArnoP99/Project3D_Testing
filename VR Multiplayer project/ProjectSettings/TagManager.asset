@@ -10,6 +10,7 @@ TagManager:
   - LeftController
   - RightController
   - ChoicePopUp
+  - ItWorks
   layers:
   - Default
   - TransparentFX

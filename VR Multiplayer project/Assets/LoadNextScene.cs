@@ -12,4 +12,9 @@ public class LoadNextScene : MonoBehaviour
         Scene level2 = SceneManager.GetSceneByName("TestScene");
 
     }
+
+    public void GiveTag()
+    {
+        GameObject.FindGameObjectWithTag("VRplayer").tag = "ItWorks";
+    }
 }
