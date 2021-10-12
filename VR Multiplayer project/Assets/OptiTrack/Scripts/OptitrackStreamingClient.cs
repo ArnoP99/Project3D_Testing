@@ -131,6 +131,7 @@ public static class OptitrackHiResTimer
 }
 
 
+
 /// <summary>
 /// Connects to a NatNet streaming server and makes the data available in lightweight Unity-friendly representations.
 /// </summary>
@@ -183,6 +184,10 @@ public class OptitrackStreamingClient : MonoBehaviour
     private object m_frameDataUpdateLock = new object();
     #endregion Private fields
 
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void Update()
     {
