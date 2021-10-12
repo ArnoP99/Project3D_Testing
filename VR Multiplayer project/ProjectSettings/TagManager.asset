@@ -11,6 +11,8 @@ TagManager:
   - RightController
   - ChoicePopUp
   - ItWorks
+  - AgressorButton
+  - NurseButton
   layers:
   - Default
   - TransparentFX

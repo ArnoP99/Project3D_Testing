@@ -8,10 +8,14 @@ public class PhysicsButton : MonoBehaviour
 {
     [SerializeField] private float threshold = 0.1f;
     [SerializeField] private float deadZone = 0.025f;
+    [SerializeField] public GameObject prefabAgressor;
+    [SerializeField] public GameObject prefabNurse;
 
     private bool isPressed = false;
     private Vector3 startPos;
     private ConfigurableJoint joint;
+    private Vector3 vectorforobject;
+
 
     public UnityEvent onPressed, onReleased;
 
@@ -30,6 +34,21 @@ public class PhysicsButton : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         Released();
+        if(gameObject.tag == "AgressorButton")
+        {
+            vectorforobject = collision.transform.position;
+            Instantiate(prefabAgressor, vectorforobject, Quaternion.identity);
+            Destroy(collision.gameObject);
+        }
+        if (gameObject.tag == "NurseButton")
+        {
+            vectorforobject = collision.transform.position;
+            Instantiate(prefabNurse, vectorforobject, Quaternion.identity);
+            Destroy(collision.gameObject);
+        }
+
+
+
     }
 
     private float GetValue()
