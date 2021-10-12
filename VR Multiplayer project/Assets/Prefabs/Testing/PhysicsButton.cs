@@ -34,28 +34,30 @@ public class PhysicsButton : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         Released();
-        if(gameObject.tag == "AgressorButton")
+        vectorforobject = collision.transform.position;
+
+        if (collision.gameObject.tag == "RightController" || collision.gameObject.tag == "LeftController")
         {
-            vectorforobject = collision.transform.position;
-            Instantiate(prefabAgressor, vectorforobject, Quaternion.identity);
-            Destroy(collision.gameObject);
+            GameObject visualRep = collision.gameObject.transform.parent.transform.parent.Find("visualRep").gameObject;
+
+            if (gameObject.tag == "AgressorButton")
+            {
+                Destroy(visualRep.transform.GetChild(0));
+                Instantiate(prefabAgressor, Vector3.zero, Quaternion.identity, visualRep.transform);
+            }
+            if (gameObject.tag == "NurseButton")
+            {
+                Destroy(visualRep.transform.GetChild(0));
+                Instantiate(prefabNurse, Vector3.zero, Quaternion.identity, visualRep.transform);
+            }
         }
-        if (gameObject.tag == "NurseButton")
-        {
-            vectorforobject = collision.transform.position;
-            Instantiate(prefabNurse, vectorforobject, Quaternion.identity);
-            Destroy(collision.gameObject);
-        }
-
-
-
     }
 
     private float GetValue()
     {
         var value = Vector3.Distance(startPos, transform.localPosition) / joint.linearLimit.limit;
 
-        if(Math.Abs(value) < deadZone)
+        if (Math.Abs(value) < deadZone)
         {
             value = 0;
         }

@@ -230,13 +230,13 @@ PrefabInstance:
         type: 3}
       propertyPath: prefabNurse
       value: 
-      objectReference: {fileID: 1701424285019637073, guid: a729dd219046ff840a4f24cae843a1f2,
+      objectReference: {fileID: 4652647919530477995, guid: 2e8f3d246ea364842a4036820467de34,
         type: 3}
     - target: {fileID: 4663499141669520914, guid: b7d127cc3928a644db65307e1319a233,
         type: 3}
       propertyPath: prefabAgressor
       value: 
-      objectReference: {fileID: 237207149651627119, guid: 20aeb11eb8492404dbc399a512c134e0,
+      objectReference: {fileID: 1909125770910752815, guid: 2d9c96b3b0330f840a69a51a26f61933,
         type: 3}
     - target: {fileID: 4663499141669520925, guid: b7d127cc3928a644db65307e1319a233,
         type: 3}
@@ -617,13 +617,13 @@ PrefabInstance:
         type: 3}
       propertyPath: prefabNurse
       value: 
-      objectReference: {fileID: 1701424285019637073, guid: a729dd219046ff840a4f24cae843a1f2,
+      objectReference: {fileID: 4652647919530477995, guid: 2e8f3d246ea364842a4036820467de34,
         type: 3}
     - target: {fileID: 4663499141669520914, guid: b7d127cc3928a644db65307e1319a233,
         type: 3}
       propertyPath: prefabAgressor
       value: 
-      objectReference: {fileID: 237207149651627119, guid: 20aeb11eb8492404dbc399a512c134e0,
+      objectReference: {fileID: 1909125770910752815, guid: 2d9c96b3b0330f840a69a51a26f61933,
         type: 3}
     - target: {fileID: 4663499141669520925, guid: b7d127cc3928a644db65307e1319a233,
         type: 3}
