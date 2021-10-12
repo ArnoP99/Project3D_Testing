@@ -47,7 +47,7 @@ public class PhysicsButton : MonoBehaviour
             }
             if (gameObject.tag == "NurseButton")
             {
-                Destroy(visualRep.transform.GetChild(0));
+                Destroy(visualRep.transform.GetChild(0).gameObject);
                 Instantiate(prefabNurse, Vector3.zero, Quaternion.identity, visualRep.transform);
             }
         }
