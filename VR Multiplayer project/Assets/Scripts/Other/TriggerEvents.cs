@@ -27,14 +27,19 @@ public class TriggerEvents : MonoBehaviour
 
         if(gameObject.tag == "OptionA") { 
             Debug.Log("TriggerEnter A");
+            nurseChoice = 1;
         }
         if (gameObject.tag == "OptionB")
         {
             Debug.Log("TriggerEnter B");
+            nurseChoice = 2;
+
         }
         if (gameObject.tag == "OptionC")
         {
             Debug.Log("TriggerEnter C");
+            nurseChoice = 3;
+
         }
     }
 
@@ -48,22 +53,5 @@ public class TriggerEvents : MonoBehaviour
         Debug.Log("TriggerExit");
     }
 
-   public void SetTextNurse(string A, string B, string C , GameObject gameObjectplayer)
-    {
-        if(gameObjectplayer.tag == "Nurse")
-        {
-            if(gameObject.tag == "OptionA") { 
-                gameObject.GetComponent<TextMeshPro>().text = A;
-            }
-            if (gameObject.tag == "OptionB")
-            {
-                gameObject.GetComponent<TextMeshPro>().text = B;
-            }
-            if (gameObject.tag == "OptionC")
-            {
-                gameObject.GetComponent<TextMeshPro>().text = C;
-            }
-        }
 
-    }
 }
