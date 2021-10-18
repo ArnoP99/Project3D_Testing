@@ -14,7 +14,18 @@ public class TriggerEvents : MonoBehaviour
             gameObject.GetComponent<TextMeshPro>().color = Color.red;
         }
         Debug.Log("Tag: " + collision.gameObject.tag);
-        Debug.Log("TriggerEnter");
+
+        if(gameObject.tag == "OptionA") { 
+            Debug.Log("TriggerEnter A");
+        }
+        if (gameObject.tag == "OptionB")
+        {
+            Debug.Log("TriggerEnter B");
+        }
+        if (gameObject.tag == "OptionC")
+        {
+            Debug.Log("TriggerEnter C");
+        }
     }
 
     void OnCollisionExit(Collision collision)
