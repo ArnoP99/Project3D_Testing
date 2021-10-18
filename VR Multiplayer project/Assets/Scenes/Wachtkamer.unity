@@ -3431,6 +3431,7 @@ GameObject:
   - component: {fileID: 1804882265}
   - component: {fileID: 1804882264}
   - component: {fileID: 1804882263}
+  - component: {fileID: 1804882267}
   m_Layer: 0
   m_Name: Push
   m_TagString: SceneButton
@@ -3478,6 +3479,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c229a85462dc7284f87480b5f85914ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   threshold: 0.1
   deadZone: 0.025
   prefabAgressor: {fileID: 83747920531053266, guid: 973027a873441af448f7493b9ce92e69,
@@ -3602,6 +3605,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1804882267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804882261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 3273364410
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 
+  hasSpawned: 0
 --- !u!1 &1850864351
 GameObject:
   m_ObjectHideFlags: 0
@@ -4175,6 +4195,7 @@ GameObject:
   - component: {fileID: 703494696717186485}
   - component: {fileID: 703494696717186488}
   - component: {fileID: 703494696717186491}
+  - component: {fileID: 703494696717186489}
   m_Layer: 0
   m_Name: Push
   m_TagString: AgressorButton
@@ -4194,6 +4215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c229a85462dc7284f87480b5f85914ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   threshold: 0.1
   deadZone: 0.025
   prefabAgressor: {fileID: 83747920531053266, guid: 973027a873441af448f7493b9ce92e69,
@@ -4206,6 +4229,23 @@ MonoBehaviour:
   onReleased:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &703494696717186489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703494696717186487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 2210287348
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 
+  hasSpawned: 0
 --- !u!54 &703494696717186490
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5055,6 +5095,7 @@ GameObject:
   - component: {fileID: 7227715049833771200}
   - component: {fileID: 7227715049833771203}
   - component: {fileID: 7227715049833771214}
+  - component: {fileID: 7227715049833771204}
   m_Layer: 0
   m_Name: Push
   m_TagString: NurseButton
@@ -5074,6 +5115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c229a85462dc7284f87480b5f85914ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   threshold: 0.1
   deadZone: 0.025
   prefabAgressor: {fileID: 83747920531053266, guid: 973027a873441af448f7493b9ce92e69,
@@ -5086,6 +5129,23 @@ MonoBehaviour:
   onReleased:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7227715049833771204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7227715049833771202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 910813639
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 
+  hasSpawned: 0
 --- !u!65 &7227715049833771214
 BoxCollider:
   m_ObjectHideFlags: 0
