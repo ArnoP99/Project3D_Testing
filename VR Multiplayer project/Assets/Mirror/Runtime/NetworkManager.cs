@@ -1246,12 +1246,16 @@ namespace Mirror
             NetworkServer.AddPlayerForConnection(conn, player);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             GameObject playerModel = Instantiate(PlayerModelAtStartup, player.transform.position, player.transform.rotation) as GameObject;
             playerModel.transform.parent = player.transform.GetChild(0).transform.GetChild(2);
             NetworkServer.Spawn(playerModel, player);
 =======
 >>>>>>> parent of ed330ee (test)
 =======
+=======
+            Instantiate(PlayerModelAtStartup);
+>>>>>>> parent of e4f045e (debugging)
             NetworkServer.Spawn(PlayerModelAtStartup, player);
 >>>>>>> parent of 8abbeed (debugging)
         }
