@@ -39,12 +39,13 @@ public class PhysicsButton : NetworkBehaviour
 
             if (gameObject.tag == "AgressorButton")
             {
-
+                visualRep.transform.gameObject.transform.GetChild(0).gameObject.GetComponent<NetworkIdentity>().AssignClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
                 TellServerToDestroyObject(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
                 Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
             }
             if (gameObject.tag == "NurseButton")
             {
+                visualRep.transform.gameObject.transform.GetChild(0).gameObject.GetComponent<NetworkIdentity>().AssignClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
                 TellServerToDestroyObject(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
                 Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
 
