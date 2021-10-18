@@ -1247,7 +1247,7 @@ namespace Mirror
             player.name = $"{playerPrefab.name} [connId={conn.connectionId}]";
             NetworkServer.AddPlayerForConnection(conn, player);
             GameObject playerModel = Instantiate(PlayerModelAtStartup, player.transform.position, player.transform.rotation) as GameObject;
-            playerModel.transform.parent = GameObject.Find("VisualRepresentation").gameObject.transform;
+            playerModel.transform.parent = player.transform.GetChild(0).transform.GetChild(2);
             NetworkServer.Spawn(playerModel, player);
         }
 
