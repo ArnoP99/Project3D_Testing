@@ -1244,28 +1244,6 @@ namespace Mirror
             // => appending the connectionId is WAY more useful for debugging!
             player.name = $"{playerPrefab.name} [connId={conn.connectionId}]";
             NetworkServer.AddPlayerForConnection(conn, player);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            GameObject playerModel = Instantiate(PlayerModelAtStartup, player.transform.position, player.transform.rotation) as GameObject;
-<<<<<<< HEAD
-<<<<<<< HEAD
-            playerModel.transform.parent = player.transform.GetChild(0).transform.GetChild(2);
-=======
-            playerModel.transform.parent = GameObject.Find("VisualRepresentation").gameObject.transform;
->>>>>>> parent of 0fd0e65 (test)
-            NetworkServer.Spawn(playerModel, player);
-=======
->>>>>>> parent of ed330ee (test)
-=======
-=======
-            Instantiate(PlayerModelAtStartup);
->>>>>>> parent of e4f045e (debugging)
-            NetworkServer.Spawn(PlayerModelAtStartup, player);
->>>>>>> parent of 8abbeed (debugging)
-=======
-            NetworkServer.Spawn(PlayerModelAtStartup, player);
->>>>>>> parent of 30ec3ef (Testing)
         }
 
         // Deprecated 2021-02-13
