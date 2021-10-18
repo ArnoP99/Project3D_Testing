@@ -25,7 +25,6 @@ public class PlayerConfiguration : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
         StartCoroutine(WaitOneFrame()); //Wait 1 frame before instantiating player
     }
 

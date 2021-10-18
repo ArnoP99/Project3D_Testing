@@ -4,15 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Undefined
-  - PlayerHUD
-  - VRplayer
+  - NurseButton
+  - AgressorButton
   - LeftController
   - RightController
+  - SceneButton
   - ChoicePopUp
-  - ItWorks
-  - AgressorButton
-  - NurseButton
   layers:
   - Default
   - TransparentFX

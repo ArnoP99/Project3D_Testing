@@ -28,31 +28,12 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
-                },
-                {
-                    "name": "RightTrigger",
-                    "type": "Button",
-                    "id": "7ae8f7c6-1d29-45eb-b347-b408f7ee83ff",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "8b457c6b-4951-4853-a4b1-0494da47048f",
-                    "path": "<HPMixedRealityController>{LeftHand}/triggerPressed",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XR",
-                    "action": "LeftTrigger",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9936cd00-2f91-4edc-8633-6ba7a388f09f",
                     "path": "<HPMixedRealityController>{LeftHand}/triggerPressed",
                     "interactions": "",
                     "processors": "",
@@ -113,28 +94,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "LeftJoystick",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f716248f-d520-4de9-80af-b47657f39c64",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MoveLeft",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0a049d4c-1842-4d6a-b394-b2830fe66000",
-                    "path": "<XRController>{RightHand}/triggerPressed",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "XR",
-                    "action": "RightTrigger",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

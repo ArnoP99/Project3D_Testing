@@ -131,7 +131,6 @@ public static class OptitrackHiResTimer
 }
 
 
-
 /// <summary>
 /// Connects to a NatNet streaming server and makes the data available in lightweight Unity-friendly representations.
 /// </summary>
