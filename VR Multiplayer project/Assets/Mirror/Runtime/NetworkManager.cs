@@ -1248,6 +1248,7 @@ namespace Mirror
 <<<<<<< HEAD
 <<<<<<< HEAD
             GameObject playerModel = Instantiate(PlayerModelAtStartup, player.transform.position, player.transform.rotation) as GameObject;
+<<<<<<< HEAD
             playerModel.transform.parent = player.transform.GetChild(0).transform.GetChild(2);
             NetworkServer.Spawn(playerModel, player);
 =======
@@ -1258,6 +1259,9 @@ namespace Mirror
 >>>>>>> parent of e4f045e (debugging)
             NetworkServer.Spawn(PlayerModelAtStartup, player);
 >>>>>>> parent of 8abbeed (debugging)
+=======
+            NetworkServer.Spawn(PlayerModelAtStartup, player);
+>>>>>>> parent of 30ec3ef (Testing)
         }
 
         // Deprecated 2021-02-13
