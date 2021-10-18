@@ -40,12 +40,12 @@ public class PhysicsButton : NetworkBehaviour
             if (gameObject.tag == "AgressorButton")
             {
 
-                CmdDestroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
+                TellServerToDestroyObject(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
                 Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
             }
             if (gameObject.tag == "NurseButton")
             {
-                CmdDestroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
+                TellServerToDestroyObject(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
                 Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
 
             }
@@ -88,9 +88,17 @@ public class PhysicsButton : NetworkBehaviour
         Debug.Log("Released");
     }
 
-    [Command]
-    void CmdDestroy(GameObject gameObjectToDestroy)
+    [Client]
+    void TellServerToDestroyObject(GameObject gameObjectToDestroy)
     {
-        NetworkServer.Destroy(gameObjectToDestroy);
+        CmdDestroyObject(gameObjectToDestroy);
+    }
+
+    [Command]
+    void CmdDestroyObject(GameObject obj)
+    {
+        if (!obj) return;
+
+        NetworkServer.Destroy(obj);
     }
 }
