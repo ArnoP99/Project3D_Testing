@@ -1246,6 +1246,7 @@ namespace Mirror
             // => appending the connectionId is WAY more useful for debugging!
             player.name = $"{playerPrefab.name} [connId={conn.connectionId}]";
             NetworkServer.AddPlayerForConnection(conn, player);
+            Instantiate(PlayerModelAtStartup);
             NetworkServer.Spawn(PlayerModelAtStartup, player);
         }
 
