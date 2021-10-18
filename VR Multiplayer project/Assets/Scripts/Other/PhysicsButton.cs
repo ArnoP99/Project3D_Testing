@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class PhysicsButton : MonoBehaviour
+public class PhysicsButton : NetworkBehaviour
 {
     [SerializeField] private float threshold = 0.1f;
     [SerializeField] private float deadZone = 0.025f;
@@ -36,18 +36,18 @@ public class PhysicsButton : MonoBehaviour
         {
             GameObject visualRep = collision.gameObject.transform.parent.transform.parent.Find("VisualRepresentation").gameObject;
             GameObject player = collision.gameObject.transform.parent.transform.parent.transform.parent.gameObject;
-            
+
             if (gameObject.tag == "AgressorButton")
             {
-                
-                NetworkServer.Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
-                Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);                
+
+                CmdDestroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
+                Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
             }
             if (gameObject.tag == "NurseButton")
             {
-                NetworkServer.Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
-                Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);     
-                
+                CmdDestroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
+                Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
+
             }
             if (gameObject.tag == "SceneButton")
             {
@@ -86,5 +86,11 @@ public class PhysicsButton : MonoBehaviour
         isPressed = false;
         onReleased.Invoke();
         Debug.Log("Released");
+    }
+
+    [Command]
+    void CmdDestroy(GameObject gameObjectToDestroy)
+    {
+        NetworkServer.Destroy(gameObjectToDestroy);
     }
 }
