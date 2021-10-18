@@ -46,7 +46,8 @@ public class PhysicsButton : MonoBehaviour
             if (gameObject.tag == "NurseButton")
             {
                 NetworkServer.Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
-                Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);           
+                Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);     
+                
             }
             if (gameObject.tag == "SceneButton")
             {
