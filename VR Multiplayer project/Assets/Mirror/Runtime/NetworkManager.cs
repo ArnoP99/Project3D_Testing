@@ -1249,7 +1249,11 @@ namespace Mirror
 <<<<<<< HEAD
             GameObject playerModel = Instantiate(PlayerModelAtStartup, player.transform.position, player.transform.rotation) as GameObject;
 <<<<<<< HEAD
+<<<<<<< HEAD
             playerModel.transform.parent = player.transform.GetChild(0).transform.GetChild(2);
+=======
+            playerModel.transform.parent = GameObject.Find("VisualRepresentation").gameObject.transform;
+>>>>>>> parent of 0fd0e65 (test)
             NetworkServer.Spawn(playerModel, player);
 =======
 >>>>>>> parent of ed330ee (test)
