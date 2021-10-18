@@ -40,22 +40,13 @@ public class PhysicsButton : MonoBehaviour
             if (gameObject.tag == "AgressorButton")
             {
                 
-                Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
-                NetworkServer.Spawn(prefabNurse, visualRep);
-                //Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
-                
-                
+                NetworkServer.Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
+                Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);                
             }
             if (gameObject.tag == "NurseButton")
             {
-                
-                Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
-                NetworkServer.Spawn(prefabNurse, visualRep);
-
-                //Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
-                
-                
-                
+                NetworkServer.Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
+                Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);           
             }
             if (gameObject.tag == "SceneButton")
             {
