@@ -45,7 +45,7 @@ public class PhysicsButton : NetworkBehaviour
             }
             if (gameObject.tag == "NurseButton")
             {
-                player.tag = "nurse";
+                player.tag = "Nurse";
                 Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
                 Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
                 collision.transform.parent.transform.parent.transform.GetChild(3).transform.GetChild(0).gameObject.GetComponent<TriggerEvents>().SetTextNurse("goeie middag alles oke?", "hallo medicatie nemen ", "je hebt op het hbelletje gedrukt alles oke", player);

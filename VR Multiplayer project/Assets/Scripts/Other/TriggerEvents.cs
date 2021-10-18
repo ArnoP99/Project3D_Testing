@@ -48,7 +48,7 @@ public class TriggerEvents : MonoBehaviour
 
    public void SetTextNurse(string A, string B, string C , GameObject gameObjectplayer)
     {
-        if(gameObjectplayer.tag == "nurse")
+        if(gameObjectplayer.tag == "Nurse")
         {
             if(gameObject.tag == "OptionA") { 
                 gameObject.GetComponent<TextMeshPro>().text = A;
