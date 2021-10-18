@@ -11,6 +11,8 @@ public class TriggerEvents : MonoBehaviour
 
     private void Start()
     {
+      
+
     }
 
     // Start is called before the first frame update
