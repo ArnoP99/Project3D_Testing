@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2432b41c9d36b489ced101bd76eacb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameobject: {fileID: 0}
 --- !u!1 &2982858754745882273
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,6 +706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2432b41c9d36b489ced101bd76eacb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameobject: {fileID: 0}
 --- !u!1 &6980812295119865966
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,6 +800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2432b41c9d36b489ced101bd76eacb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameobject: {fileID: 0}
 --- !u!1001 &2486061668142655186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1321,6 +1324,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: OptionA
       objectReference: {fileID: 0}
+    - target: {fileID: 2834743457757718550, guid: 13173dd926b1f5a43a22227f54e827fd,
+        type: 3}
+      propertyPath: gameobject
+      value: 
+      objectReference: {fileID: 4254969925439542407}
     - target: {fileID: 7720609124690691260, guid: 13173dd926b1f5a43a22227f54e827fd,
         type: 3}
       propertyPath: m_Pivot.x

@@ -4,6 +4,14 @@ using UnityEngine;
 using TMPro;
 public class TriggerEvents : MonoBehaviour
 {
+    private int nurseChoice;
+    private int agressorChoice;
+    public GameObject gameobjectplayer;
+
+
+    private void Start()
+    {
+    }
 
     // Start is called before the first frame update
     void OnCollisionEnter(Collision collision)
@@ -36,5 +44,24 @@ public class TriggerEvents : MonoBehaviour
         }
         Debug.Log("Tag: " + collision.gameObject.tag);
         Debug.Log("TriggerExit");
+    }
+
+   public void SetTextNurse(string A, string B, string C , GameObject gameObjectplayer)
+    {
+        if(gameObjectplayer.tag == "nurse")
+        {
+            if(gameObject.tag == "OptionA") { 
+                gameObject.GetComponent<TextMeshPro>().text = A;
+            }
+            if (gameObject.tag == "OptionB")
+            {
+                gameObject.GetComponent<TextMeshPro>().text = B;
+            }
+            if (gameObject.tag == "OptionC")
+            {
+                gameObject.GetComponent<TextMeshPro>().text = C;
+            }
+        }
+
     }
 }
