@@ -42,14 +42,14 @@ public class PhysicsButton : NetworkBehaviour
                 player.tag = "Agressor";
                 Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
                 Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
+                GameManager.CheckForTwoPlayers(2); // Tell gamemanager an agressor has been initialized.
             }
             if (gameObject.tag == "NurseButton")
             {
                 player.tag = "Nurse";
                 Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
                 Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
-                collision.transform.parent.transform.parent.transform.GetChild(3).gameObject.GetComponent<textManager>().SetTextNurse("goeie middag alles oke?", "hallo medicatie nemen ", "je hebt op het hbelletje gedrukt alles oke", player);
-
+                GameManager.CheckForTwoPlayers(1); // Tell gamemanager a nurse has been initialized.
             }
             if (gameObject.tag == "SceneButton")
             {

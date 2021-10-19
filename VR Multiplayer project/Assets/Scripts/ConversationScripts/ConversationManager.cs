@@ -10,9 +10,12 @@ public class ConversationManager : MonoBehaviour
 
     private List<Conversation> allConversations;
     private Conversation activeConversation;
+    private List<GameObject> conversationParticipants;
+    private GameObject activeParticipant;
 
-    ConversationManager()
+    private ConversationManager()
     {
+        Conversation generalCheckUp = new Conversation();
     }
 
     public static ConversationManager Instance
@@ -30,9 +33,15 @@ public class ConversationManager : MonoBehaviour
         }
     }
 
-    private void StartConversation(Conversation conversationToStart)
+    private void Start()
     {
+        DontDestroyOnLoad(gameObject);
+    }
 
+    public static void StartConversation()
+    {
+        //set conversation participants
+        //set active participant
     }
 
     private void EndConversation(Conversation conversationToEnd)

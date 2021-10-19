@@ -23,6 +23,14 @@ public class Conversation : MonoBehaviour
     private ConversationStartUser conversationStartUser;
     public ConversationState currentState;
 
+    public Conversation()
+    {
+        currentState = ConversationState.ToBegin;
+        startElements = new List<ConversationElement>();
+        conversationStartUser = ConversationStartUser.Nurse;
+        activeElement = null;
+
+    }
     public Conversation(ConversationState m_beginState, List<ConversationElement> m_startElements, ConversationStartUser m_conversationStartUser)
     {
         currentState = m_beginState;
