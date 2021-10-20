@@ -10,8 +10,8 @@ public class ConversationManager : MonoBehaviour
 
     private List<Conversation> allConversations;
     private Conversation activeConversation;
-    private List<GameObject> conversationParticipants;
-    private GameObject activeParticipant;
+    private static List<GameObject> conversationParticipants;
+    private static GameObject activeParticipant;
 
     private ConversationManager()
     {
@@ -38,10 +38,14 @@ public class ConversationManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public static void StartConversation()
+    public static void StartConversation(GameObject nurse, GameObject agressor)
     {
-        //set conversation participants
-        //set active participant
+        conversationParticipants.Add(nurse);
+        conversationParticipants.Add(agressor);
+
+        activeParticipant = nurse;
+        
+
     }
 
     private void EndConversation(Conversation conversationToEnd)

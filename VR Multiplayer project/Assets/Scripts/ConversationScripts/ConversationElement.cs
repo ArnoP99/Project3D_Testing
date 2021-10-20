@@ -24,25 +24,28 @@ public class ConversationElement : MonoBehaviour
     private UserState userstate;
     private AudioSource textToSpeech;
 
-    public ConversationElement(string m_text, ElementState m_elementState, List<ConversationElement> m_reactionElements, UserState m_userState)
+    public ConversationElement(string m_text, ElementState m_elementState, UserState m_userState)
     {
         text = m_text;
         elementState = m_elementState;
-        reactionElements = m_reactionElements;
+        reactionElements = new List<ConversationElement>();
         userstate = m_userState;
         textToSpeech = null;
     }
 
-    public ConversationElement(string m_text, ElementState m_elementState, List<ConversationElement> m_reactionElements, UserState m_userState, AudioSource m_audio)
+    public ConversationElement(string m_text, ElementState m_elementState, UserState m_userState, AudioSource m_audio)
     {
         text = m_text;
         elementState = m_elementState;
-        reactionElements = m_reactionElements;
+        reactionElements = new List<ConversationElement>();
         userstate = m_userState;
         textToSpeech = m_audio;
     }
 
-
+    public void AddElementToReactions(ConversationElement reactie)
+    {
+        reactionElements.Add(reactie);
+    }
 
 
 }
