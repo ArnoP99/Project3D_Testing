@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
         {
             nursePlayer = true;
             nurse = player;
+            Debug.Log("Nurse player: " + player);
         }
         else if(button == 2)
         {
