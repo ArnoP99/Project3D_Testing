@@ -14,6 +14,7 @@ public class TriggerEvents : MonoBehaviour
         {
             gameObject.GetComponent<TextMeshPro>().color = Color.red;
             activeChoice = gameObject;
+            Debug.Log(activeChoice);
         }
     }
 
