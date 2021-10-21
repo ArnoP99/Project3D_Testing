@@ -12,7 +12,7 @@ public class ConversationManager : MonoBehaviour
 
     private List<Conversation> allConversations;
     private Conversation activeConversation;
-    private static List<GameObject> conversationParticipants;
+    private static List<GameObject> conversationParticipants = new List<GameObject>();
     private static GameObject activeParticipant;
 
     private static Conversation generalCheckUp;
@@ -52,9 +52,9 @@ public class ConversationManager : MonoBehaviour
     {
             GameObject nurse = GameObject.FindGameObjectWithTag("Nurse").gameObject;
             Debug.Log(nurse.tag);
-            //conversationParticipants.Add(nurse);
+            conversationParticipants.Add(nurse);
 
-            //activeParticipant = nurse;
+            activeParticipant = nurse;
             nurse.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshPro>().text = generalCheckUp.StartElement.Text;
     }
 
