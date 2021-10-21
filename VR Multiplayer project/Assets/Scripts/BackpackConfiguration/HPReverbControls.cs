@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,19 +16,19 @@ public class HPReverbControls : MonoBehaviour
     }
     public void PressTrigger(InputAction.CallbackContext context)
     {
-        if (textPopUp.transform.GetChild(0).GetComponent<TriggerEvents>().GetActiveChoice() != null)
+        if (textPopUp.transform.GetChild(0).GetComponent<TextMeshPro>().color == Color.red)
         {
-            activeChoice = textPopUp.transform.GetChild(0).GetComponent<TriggerEvents>().GetActiveChoice();
+            activeChoice = textPopUp.transform.GetChild(0).gameObject;
             textPopUp.SetActive(false);
         }
-        else if (textPopUp.transform.GetChild(1).GetComponent<TriggerEvents>().GetActiveChoice() != null)
+        else if (textPopUp.transform.GetChild(1).GetComponent<TextMeshPro>().color == Color.red)
         {
-            activeChoice = textPopUp.transform.GetChild(1).GetComponent<TriggerEvents>().GetActiveChoice();
+            activeChoice = textPopUp.transform.GetChild(1).gameObject;
             textPopUp.SetActive(false);
         }
-        else if (textPopUp.transform.GetChild(2).GetComponent<TriggerEvents>().GetActiveChoice() != null)
+        else if (textPopUp.transform.GetChild(2).GetComponent<TextMeshPro>().color == Color.red)
         {
-            activeChoice = textPopUp.transform.GetChild(2).GetComponent<TriggerEvents>().GetActiveChoice();
+            activeChoice = textPopUp.transform.GetChild(2).gameObject;
             textPopUp.SetActive(false);
         }
         else

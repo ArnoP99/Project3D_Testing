@@ -31,9 +31,4 @@ public class TriggerEvents : MonoBehaviour
             activeChoice = null;
         }
     }
-
-    public GameObject GetActiveChoice()
-    {
-        return activeChoice;
-    }
 }
