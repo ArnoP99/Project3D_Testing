@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ConversationManager : MonoBehaviour
@@ -13,9 +14,11 @@ public class ConversationManager : MonoBehaviour
     private static List<GameObject> conversationParticipants;
     private static GameObject activeParticipant;
 
+    private static Conversation generalCheckUp;
+
     private ConversationManager()
     {
-        Conversation generalCheckUp = new Conversation();
+        
     }
 
     public static ConversationManager Instance
@@ -33,9 +36,13 @@ public class ConversationManager : MonoBehaviour
         }
     }
 
+    // Initialize different Conversations that will be used in the game
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
+
+        generalCheckUp.StartElement = ConversationElementInitializer.GeneralCheckupConversation();
+        generalCheckUp.ActiveElement = generalCheckUp.StartElement;        
     }
 
     public static void StartConversation(GameObject nurse, GameObject agressor)
@@ -44,8 +51,8 @@ public class ConversationManager : MonoBehaviour
         conversationParticipants.Add(agressor);
 
         activeParticipant = nurse;
-        
 
+        activeParticipant.transform.GetChild(0).transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshPro>().text = generalCheckUp.StartElement.Text;
     }
 
     private void EndConversation(Conversation conversationToEnd)
@@ -60,7 +67,7 @@ public class ConversationManager : MonoBehaviour
 
     private void UpdateConversation(Conversation conversationToUpdate)
     {
-        if(conversationToUpdate.currentState == Conversation.ConversationState.Ended)
+        if(conversationToUpdate.CurrentState == Conversation.ConversationState.Ended)
         {
            
         }

@@ -10,19 +10,24 @@ public class ConversationElement : MonoBehaviour
         Agressive,
         Defensive
     }
-    
+
     public enum UserState
     {
         Nurse,
         Agressor,
         Anyone
     }
-    
+
     private string text;
     private ElementState elementState;
     private List<ConversationElement> reactionElements = new List<ConversationElement>();
     private UserState userstate;
     private AudioSource textToSpeech;
+
+    public ConversationElement()
+    {
+
+    }
 
     public ConversationElement(string m_text, ElementState m_elementState, UserState m_userState)
     {
@@ -47,5 +52,11 @@ public class ConversationElement : MonoBehaviour
         reactionElements.Add(reactie);
     }
 
-
+    public string Text
+    {
+        get
+        {
+            return text;
+        }
+    }
 }

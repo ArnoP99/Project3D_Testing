@@ -55,7 +55,13 @@ public class GameManager : MonoBehaviour
             Debug.Log("Invalid number received from button! Check if the correct numbers are passed from each button ...");
         }
 
-        if(nursePlayer == true && agressorPlayer == true)
+        /*if(nursePlayer == true && agressorPlayer == true)
+        {
+            Debug.Log("Conversation Started.");
+            ConversationManager.StartConversation(nurse, agressor);
+        }*/
+
+        if(nursePlayer == true)
         {
             Debug.Log("Conversation Started.");
             ConversationManager.StartConversation(nurse, agressor);

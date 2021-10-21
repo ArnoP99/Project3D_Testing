@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class ConversationElementInitializer : MonoBehaviour
 {
-    ConversationElement startElement1 = new ConversationElement("Goedemiddag, alles in orde?", ConversationElement.ElementState.Neutral, ConversationElement.UserState.Nurse);
+    private static ConversationElement startElement1 = new ConversationElement("Goedemiddag, alles in orde?", ConversationElement.ElementState.Neutral, ConversationElement.UserState.Nurse);
 
     ConversationElement agressief1A = new ConversationElement("Neen, ik wil hier weg!", ConversationElement.ElementState.Agressive, ConversationElement.UserState.Agressor);
     ConversationElement neutraal1A = new ConversationElement("Wanneer mag ik terug naar huis?", ConversationElement.ElementState.Neutral, ConversationElement.UserState.Agressor);
@@ -28,8 +28,6 @@ public class NewBehaviourScript : MonoBehaviour
 
     ConversationElement defensief1E = new ConversationElement("Oke, u hebt gelijk. Ik zal nog blijven.", ConversationElement.ElementState.Defensive, ConversationElement.UserState.Agressor);
     ConversationElement agressief1E = new ConversationElement("Ik hoef geen controle meer, laat me gewoon vertrekken!", ConversationElement.ElementState.Agressive, ConversationElement.UserState.Agressor);
-
-
 
     private void Start()
     {
@@ -63,5 +61,11 @@ public class NewBehaviourScript : MonoBehaviour
 
         neutraal1D2.AddElementToReactions(defensief1E);
         neutraal1D2.AddElementToReactions(agressief1E);
+    }
+
+    // Method used to send staring element to ConversationManager to initialize Conversation: GeneralCheckup
+    public static ConversationElement GeneralCheckupConversation()
+    {
+        return startElement1;
     }
 }

@@ -18,29 +18,71 @@ public class Conversation : MonoBehaviour
         Anyone
     }
 
-    private List<ConversationElement> startElements = new List<ConversationElement>();
+    private ConversationElement startElement;
     private ConversationElement activeElement;
-    private ConversationStartUser conversationStartUser;
-    public ConversationState currentState;
+    private ConversationStartUser startingUser;
+    private ConversationState currentState;
 
     public Conversation()
     {
         currentState = ConversationState.ToBegin;
-        startElements = new List<ConversationElement>();
-        conversationStartUser = ConversationStartUser.Nurse;
+        startElement = new ConversationElement();
+        startingUser = ConversationStartUser.Nurse;
         activeElement = null;
 
     }
-    public Conversation(ConversationState m_beginState, List<ConversationElement> m_startElements, ConversationStartUser m_conversationStartUser)
-    {
-        currentState = m_beginState;
-        startElements = m_startElements;
-        conversationStartUser = m_conversationStartUser;
-        activeElement = null;
-    }
+    
 
     private void SelectNextElement()
     {
         
+    }
+
+    public ConversationElement StartElement
+    {
+        get
+        {
+            return startElement;
+        }
+        set
+        {
+            startElement = value;
+        }
+    }
+
+    public ConversationElement ActiveElement
+    {
+        get
+        {
+            return activeElement;
+        }
+        set
+        {
+            activeElement = value;
+        }
+    }
+
+    public ConversationStartUser StartingUser
+    {
+        get
+        {
+            return startingUser;
+        }
+        set
+        {
+            startingUser = value;
+        }
+    }
+
+    public ConversationState CurrentState
+    {
+        get
+        {
+            return currentState;
+        }
+        set
+        {
+            currentState = value;
+        }
     }
 }
