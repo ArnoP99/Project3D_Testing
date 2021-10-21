@@ -50,20 +50,12 @@ public class ConversationManager : MonoBehaviour
 
     public static void StartConversation()
     {
-        try
-        {
             GameObject nurse = GameObject.FindGameObjectWithTag("Nurse").gameObject;
             Debug.Log(nurse.tag);
-            conversationParticipants.Add(nurse);
+            //conversationParticipants.Add(nurse);
 
-            activeParticipant = nurse;
-            Debug.Log(nurse);
+            //activeParticipant = nurse;
             nurse.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshPro>().text = generalCheckUp.StartElement.Text;
-        }
-        catch (Exception ex)
-        {
-            Debug.Log(ex);
-        }
     }
 
     private void EndConversation(Conversation conversationToEnd)
