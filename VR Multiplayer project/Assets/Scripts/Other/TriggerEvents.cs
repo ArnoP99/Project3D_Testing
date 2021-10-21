@@ -6,7 +6,12 @@ using System;
 
 public class TriggerEvents : MonoBehaviour
 {
-    GameObject activeChoice = new GameObject();
+    GameObject activeChoice;
+
+    private void Start()
+    {
+       activeChoice = new GameObject();
+    }
 
     void OnCollisionEnter(Collision collision)
     {
