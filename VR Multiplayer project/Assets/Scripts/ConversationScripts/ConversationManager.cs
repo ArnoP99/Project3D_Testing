@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -49,12 +50,18 @@ public class ConversationManager : MonoBehaviour
 
     public static void StartConversation(GameObject nurse/*, GameObject agressor*/)
     {
+        try { 
         conversationParticipants.Add(nurse);
         //conversationParticipants.Add(agressor);
 
         activeParticipant = nurse;
         Debug.Log(nurse);
         activeParticipant.transform.GetChild(0).transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshPro>().text = generalCheckUp.StartElement.Text;
+        } catch(Exception ex)
+        {
+            Debug.Log(ex);
+            Debug.Log(nurse);
+        }
     }
 
     private void EndConversation(Conversation conversationToEnd)
