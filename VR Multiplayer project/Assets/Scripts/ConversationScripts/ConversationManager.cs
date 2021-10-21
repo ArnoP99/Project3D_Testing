@@ -41,6 +41,8 @@ public class ConversationManager : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
 
+        generalCheckUp = new Conversation();
+
         generalCheckUp.StartElement = ConversationElementInitializer.GeneralCheckupConversation();
         generalCheckUp.ActiveElement = generalCheckUp.StartElement;        
     }
