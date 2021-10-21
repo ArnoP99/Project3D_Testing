@@ -31,6 +31,10 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Update()
+    {
+    }
+
     // Check if there are 2 different players in the game (Nurse & Agressor) and if they are both present, start a new conversation.
     public static void CheckForTwoPlayers(int button, GameObject player)
     {
@@ -64,7 +68,7 @@ public class GameManager : MonoBehaviour
         if(nursePlayer == true)
         {
             Debug.Log("Conversation Started.");
-            ConversationManager.StartConversation(nurse, agressor);
+            ConversationManager.StartConversation(nurse);
         }
 
     }

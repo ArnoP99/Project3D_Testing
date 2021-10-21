@@ -45,10 +45,10 @@ public class ConversationManager : MonoBehaviour
         generalCheckUp.ActiveElement = generalCheckUp.StartElement;        
     }
 
-    public static void StartConversation(GameObject nurse, GameObject agressor)
+    public static void StartConversation(GameObject nurse/*, GameObject agressor*/)
     {
         conversationParticipants.Add(nurse);
-        conversationParticipants.Add(agressor);
+        //conversationParticipants.Add(agressor);
 
         activeParticipant = nurse;
 
