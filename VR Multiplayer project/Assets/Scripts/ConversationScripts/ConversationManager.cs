@@ -57,7 +57,7 @@ public class ConversationManager : MonoBehaviour
 
             activeParticipant = nurse;
             Debug.Log(nurse);
-            nurse.transform.GetChild(0).transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshPro>().text = generalCheckUp.StartElement.Text;
+            nurse.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshPro>().text = generalCheckUp.StartElement.Text;
         }
         catch (Exception ex)
         {
