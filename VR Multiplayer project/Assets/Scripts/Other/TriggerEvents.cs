@@ -29,14 +29,6 @@ public class TriggerEvents : MonoBehaviour
 
     public GameObject GetActiveChoice()
     {
-        try
-        {
-            return activeChoice;
-        }
-        catch (Exception ex)
-        {
-            Debug.Log(ex);
-            return null;
-        }
+        return activeChoice;
     }
 }
