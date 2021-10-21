@@ -53,7 +53,7 @@ public class ConversationManager : MonoBehaviour
         //conversationParticipants.Add(agressor);
 
         activeParticipant = nurse;
-
+        Debug.Log(nurse);
         activeParticipant.transform.GetChild(0).transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshPro>().text = generalCheckUp.StartElement.Text;
     }
 
