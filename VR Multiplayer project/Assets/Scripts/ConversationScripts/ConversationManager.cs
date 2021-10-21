@@ -53,7 +53,7 @@ public class ConversationManager : MonoBehaviour
         try
         {
             GameObject nurse = GameObject.FindGameObjectWithTag("Nurse").gameObject;
-            Debug.Log(nurse);
+            Debug.Log(nurse.tag);
             conversationParticipants.Add(nurse);
 
             activeParticipant = nurse;
