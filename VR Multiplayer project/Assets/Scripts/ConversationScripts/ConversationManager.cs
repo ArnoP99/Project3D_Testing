@@ -19,7 +19,7 @@ public class ConversationManager : MonoBehaviour
 
     private ConversationManager()
     {
-        
+
     }
 
     public static ConversationManager Instance
@@ -45,22 +45,23 @@ public class ConversationManager : MonoBehaviour
         generalCheckUp = new Conversation();
 
         generalCheckUp.StartElement = ConversationElementInitializer.GeneralCheckupConversation();
-        generalCheckUp.ActiveElement = generalCheckUp.StartElement;        
+        generalCheckUp.ActiveElement = generalCheckUp.StartElement;
     }
 
-    public static void StartConversation(GameObject nurse/*, GameObject agressor*/)
+    public static void StartConversation()
     {
-        try { 
-        conversationParticipants.Add(nurse);
-        //conversationParticipants.Add(agressor);
+        try
+        {
+            GameObject nurse = GameObject.FindGameObjectWithTag("Nurse");
+            conversationParticipants.Add(nurse);
 
-        activeParticipant = nurse;
-        Debug.Log(nurse);
-        activeParticipant.transform.GetChild(0).transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshPro>().text = generalCheckUp.StartElement.Text;
-        } catch(Exception ex)
+            activeParticipant = nurse;
+            Debug.Log(nurse);
+            nurse.transform.GetChild(0).transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshPro>().text = generalCheckUp.StartElement.Text;
+        }
+        catch (Exception ex)
         {
             Debug.Log(ex);
-            Debug.Log(nurse);
         }
     }
 
@@ -76,9 +77,9 @@ public class ConversationManager : MonoBehaviour
 
     private void UpdateConversation(Conversation conversationToUpdate)
     {
-        if(conversationToUpdate.CurrentState == Conversation.ConversationState.Ended)
+        if (conversationToUpdate.CurrentState == Conversation.ConversationState.Ended)
         {
-           
+
         }
     }
 }
