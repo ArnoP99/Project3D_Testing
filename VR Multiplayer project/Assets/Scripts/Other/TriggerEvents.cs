@@ -10,6 +10,7 @@ public class TriggerEvents : MonoBehaviour
     {
         if (collision.gameObject.tag == "LeftController" || collision.gameObject.tag == "RightController")
         {
+            gameObject.GetComponent<TextMeshPro>().color = Color.red;
             gameObject.tag = "ActiveChoice";
         }
     }
@@ -18,6 +19,7 @@ public class TriggerEvents : MonoBehaviour
     {
         if (collision.gameObject.tag == "LeftController" || collision.gameObject.tag == "RightController")
         {
+            gameObject.GetComponent<TextMeshPro>().color = Color.white;
             gameObject.tag = "InactiveChoice";
         }
     }
