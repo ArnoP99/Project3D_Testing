@@ -78,9 +78,8 @@ public class PlayerConfiguration : NetworkBehaviour
         if(PlayerID == 0)
         {
             this.GetComponentInChildren<MeshRenderer>().enabled = false;
-            this.transform.GetChild(0).transform.GetChild(3).gameObject.SetActive(false);
+            this.transform.GetChild(0).transform.GetChild(3).gameObject.tag = "Server";
         }
-
         this.transform.parent = GameObject.Find("Players").transform; //Set 'Players" gameobject as parent
 
         optitrackClient.LocalAddress = NetworkConfiguration.GameSettings.IPAdress; //Set IP adress
