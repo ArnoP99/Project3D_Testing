@@ -17,9 +17,9 @@ public class HPReverbControls : MonoBehaviour
     public void PressTrigger(InputAction.CallbackContext context)
     {
 
-        Debug.Log("Optie1: " + textPopUp.transform.GetChild(0).GetComponent<TextMeshPro>().color);
-        Debug.Log("Optie2: " + textPopUp.transform.GetChild(1).GetComponent<TextMeshPro>().color);
-        Debug.Log("Optie3: " + textPopUp.transform.GetChild(2).GetComponent<TextMeshPro>().color);
+        Debug.Log("Optie1: " + textPopUp.transform.GetChild(0).tag);
+        Debug.Log("Optie2: " + textPopUp.transform.GetChild(1).tag);
+        Debug.Log("Optie3: " + textPopUp.transform.GetChild(2).tag);
 
         //if (textPopUp.transform.GetChild(0).GetComponent<TextMeshPro>().color == Color.red)
         //{
