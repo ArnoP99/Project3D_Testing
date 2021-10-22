@@ -6,17 +6,14 @@ using UnityEngine.InputSystem;
 
 public class HPReverbControls : MonoBehaviour
 {
+    GameObject nurse;
     GameObject textPopUp;
     GameObject activeChoice;
 
-    public void Start()
-    {
-        textPopUp = GameObject.FindGameObjectWithTag("ChoicePopUp");
-        
-    }
     public void PressTrigger(InputAction.CallbackContext context)
     {
-
+        nurse = GameObject.FindGameObjectWithTag("Nurse");
+        textPopUp = nurse.transform.GetChild(0).transform.GetChild(3).gameObject;
         Debug.Log("Optie1: " + textPopUp.transform.GetChild(0).tag);
         Debug.Log("Optie2: " + textPopUp.transform.GetChild(1).tag);
         Debug.Log("Optie3: " + textPopUp.transform.GetChild(2).tag);
