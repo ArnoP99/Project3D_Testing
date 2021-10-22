@@ -14,8 +14,7 @@ TagManager:
   - Agressor
   - ActiveChoice
   - InactiveChoice
-  - OptionB
-  - OptionC
+  - Server
   layers:
   - Default
   - TransparentFX
