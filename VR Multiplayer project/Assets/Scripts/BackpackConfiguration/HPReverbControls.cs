@@ -18,19 +18,16 @@ public class HPReverbControls : MonoBehaviour
         if (textPopUp.transform.GetChild(0).GetComponent<TextMeshPro>().color == Color.red)
         {
             activeChoice = textPopUp.transform.GetChild(0).gameObject;
-            Debug.Log("We got in the if");
             textPopUp.SetActive(false);
         }
         else if (textPopUp.transform.GetChild(1).GetComponent<TextMeshPro>().color == Color.red)
         {
             activeChoice = textPopUp.transform.GetChild(1).gameObject;
-            Debug.Log("We got in the if");
             textPopUp.SetActive(false);
         }
         else if (textPopUp.transform.GetChild(2).GetComponent<TextMeshPro>().color == Color.red)
         {
             activeChoice = textPopUp.transform.GetChild(2).gameObject;
-            Debug.Log("We got in the if");
             textPopUp.SetActive(false);
         }
         else
