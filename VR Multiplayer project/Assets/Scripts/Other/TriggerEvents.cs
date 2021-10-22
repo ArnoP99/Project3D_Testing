@@ -6,20 +6,11 @@ using System;
 
 public class TriggerEvents : MonoBehaviour
 {
-    GameObject activeChoice;
-
-    private void Start()
-    {
-       activeChoice = new GameObject();
-    }
-
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "LeftController" || collision.gameObject.tag == "RightController")
         {
             gameObject.GetComponent<TextMeshPro>().color = Color.red;
-            activeChoice = gameObject;
-            Debug.Log(activeChoice);
         }
     }
 
@@ -28,7 +19,6 @@ public class TriggerEvents : MonoBehaviour
         if (collision.gameObject.tag == "LeftController" || collision.gameObject.tag == "RightController")
         {
             gameObject.GetComponent<TextMeshPro>().color = Color.white;
-            activeChoice = null;
         }
     }
 }
