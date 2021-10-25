@@ -518,8 +518,8 @@ MonoBehaviour:
   syncInterval: 0.1
   clientAuthority: 1
   sendInterval: 0.05
-  syncPosition: 0
-  syncRotation: 0
+  syncPosition: 1
+  syncRotation: 1
   syncScale: 0
   interpolatePosition: 1
   interpolateRotation: 1
@@ -548,8 +548,8 @@ MonoBehaviour:
   syncInterval: 0.1
   clientAuthority: 1
   sendInterval: 0.05
-  syncPosition: 0
-  syncRotation: 0
+  syncPosition: 1
+  syncRotation: 1
   syncScale: 0
   interpolatePosition: 1
   interpolateRotation: 1
@@ -833,7 +833,7 @@ PrefabInstance:
     - target: {fileID: 1870997956503366559, guid: b8b3db4d94947074f95543cd83ac90eb,
         type: 3}
       propertyPath: m_UseRelativeTransform
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2299652418099426053, guid: b8b3db4d94947074f95543cd83ac90eb,
         type: 3}
@@ -1004,7 +1004,7 @@ PrefabInstance:
     - target: {fileID: 7772280307379158432, guid: cf3130c43f3a029419da6f1c4e36751c,
         type: 3}
       propertyPath: m_UseRelativeTransform
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf3130c43f3a029419da6f1c4e36751c, type: 3}

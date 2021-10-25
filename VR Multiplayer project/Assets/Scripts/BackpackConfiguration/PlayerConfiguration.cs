@@ -46,7 +46,7 @@ public class PlayerConfiguration : NetworkBehaviour
 
         if (isLocalPlayer)
         {
-            //When it is the local player and isn't the server/PC enable the camera, the tracked pose driver of tyhe camera
+            //When it is the local player and isn't the server/PC enable the camera, the tracked pose driver of the camera
             if (NetworkConfiguration.GameSettings.ID != 0)
             {
                 TrackedPoseDriver.enabled = true;
