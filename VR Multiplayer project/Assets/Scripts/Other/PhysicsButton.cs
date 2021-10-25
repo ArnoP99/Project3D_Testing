@@ -37,6 +37,8 @@ public class PhysicsButton : NetworkBehaviour
             GameObject visualRep = collision.gameObject.transform.parent.transform.parent.Find("VisualRepresentation").gameObject;
             GameObject player = collision.gameObject.transform.parent.transform.parent.transform.parent.gameObject;
 
+            CmdMessageTest(player);
+
             if (gameObject.tag == "AgressorButton")
             {
                 player.tag = "Agressor";
@@ -89,4 +91,11 @@ public class PhysicsButton : NetworkBehaviour
         onReleased.Invoke();
         Debug.Log("Released");
     }
+
+    [Command]
+    void CmdMessageTest(GameObject player)
+    {
+        Debug.Log("This is a message run from the server, initiated by the player: " + player.name);
+    }
+
 }
