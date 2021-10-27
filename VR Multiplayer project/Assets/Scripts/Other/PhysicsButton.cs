@@ -72,7 +72,7 @@ public class PhysicsButton : NetworkBehaviour
             if (gameObject.tag == "NurseButton" && isServer)
             {
                 
-                RpcUpdateNurse(player, visualRep); 
+                RpcUpdateNurse(player); 
                 //player.tag = "Nurse";
                 //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
                 //Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
