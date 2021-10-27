@@ -53,7 +53,9 @@ public class PhysicsButton : NetworkBehaviour
 
             if (isServer)
             {
-                RpcTest();
+                //RpcTest();
+                TargetTest(player.GetComponent<NetworkIdentity>().connectionToClient);
+
             }
             if (isClient)
             {
@@ -125,4 +127,9 @@ public class PhysicsButton : NetworkBehaviour
         Debug.Log("Message from Server To Client");
     }
 
+    [TargetRpc]
+    public void TargetTest(NetworkConnection target)
+    {
+        Debug.Log("server to specific target");
+    }
 }
