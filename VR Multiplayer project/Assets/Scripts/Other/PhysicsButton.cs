@@ -113,7 +113,7 @@ public class PhysicsButton : NetworkBehaviour
         Debug.Log("Released");
     }
 
-    [Command]
+    [Command (requiresAuthority = false)]
     void CmdMessageTest(GameObject player)
     {
         Debug.Log("This is a message run from the server, initiated by the player: " + player.name);
