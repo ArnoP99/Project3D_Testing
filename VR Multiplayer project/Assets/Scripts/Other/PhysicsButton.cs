@@ -137,8 +137,9 @@ public class PhysicsButton : NetworkBehaviour
     }
 
     [ClientRpc(includeOwner = false)]
-    public void RpcUpdateNurse(GameObject player, GameObject visualRep)
+    public void RpcUpdateNurse(GameObject player)
     {
+        GameObject visualRep = player.transform.GetChild(0).transform.GetChild(2).gameObject;
         player.tag = "Nurse";
         Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
         Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
