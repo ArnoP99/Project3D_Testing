@@ -69,12 +69,15 @@ public class PhysicsButton : NetworkBehaviour
                 Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
                 GameManager.CheckForTwoPlayers(2); // Tell gamemanager an agressor has been initialized.
             }
-            if (gameObject.tag == "NurseButton")
+            if (gameObject.tag == "NurseButton" && isServer)
             {
-                player.tag = "Nurse";
-                Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
-                Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
-                GameManager.CheckForTwoPlayers(1); // Tell gamemanager a nurse has been initialized.
+                
+                RpcUpdateNurse(player, visualRep); 
+                //player.tag = "Nurse";
+                //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
+                //Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
+                //GameManager.CheckForTwoPlayers(1); // Tell gamemanager a nurse has been initialized.
+
             }
             if (gameObject.tag == "SceneButton")
             {
@@ -132,4 +135,14 @@ public class PhysicsButton : NetworkBehaviour
     {
         Debug.Log("server to specific target");
     }
+
+    [ClientRpc(includeOwner = false)]
+    public void RpcUpdateNurse(GameObject player, GameObject visualRep)
+    {
+        player.tag = "Nurse";
+        Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
+        Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
+        GameManager.CheckForTwoPlayers(2); // Tell gamemanager an agressor has been initialized.
+    }
+
 }
