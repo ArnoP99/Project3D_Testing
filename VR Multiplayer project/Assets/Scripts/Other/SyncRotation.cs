@@ -18,8 +18,6 @@ public class SyncRotation : MonoBehaviour
 
     void Update()
     {
-        rot = new Quaternion(0f, playerCamera.transform.rotation.y, 0f, 0f);
-        visualRepresentation.transform.rotation = rot;
-        
+        visualRepresentation.transform.up = playerCamera.transform.up;
     }
 }
