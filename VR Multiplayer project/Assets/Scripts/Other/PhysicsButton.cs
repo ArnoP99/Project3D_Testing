@@ -51,7 +51,7 @@ public class PhysicsButton : NetworkBehaviour
             GameObject visualRep = collision.gameObject.transform.parent.transform.parent.Find("VisualRepresentation").gameObject;
             GameObject player = collision.gameObject.transform.parent.transform.parent.transform.parent.gameObject;
 
-            gameObject.GetComponent<NetworkIdentity>().AssignClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
+            gameObject.GetComponent<NetworkIdentity>().AssignClientAuthority(player.GetComponent<NetworkIdentity>().connectionToClient);
             CmdMessageTest(player);
 
             if (gameObject.tag == "AgressorButton")
