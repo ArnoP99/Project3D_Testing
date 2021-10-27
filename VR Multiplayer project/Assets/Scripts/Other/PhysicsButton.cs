@@ -24,6 +24,16 @@ public class PhysicsButton : NetworkBehaviour
     {
         startPos = transform.localPosition;
         joint = GetComponent<ConfigurableJoint>();
+
+        List<GameObject> knoppen = new List<GameObject>();
+        knoppen.Add(GameObject.FindGameObjectWithTag("AgressorButton"));
+        knoppen.Add(GameObject.FindGameObjectWithTag("NurseButton"));
+        knoppen.Add(GameObject.FindGameObjectWithTag("SceneButton"));
+
+        foreach (var knop in knoppen)
+        {
+            NetworkServer.Spawn(knop);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -37,10 +47,9 @@ public class PhysicsButton : NetworkBehaviour
             GameObject visualRep = collision.gameObject.transform.parent.transform.parent.Find("VisualRepresentation").gameObject;
             GameObject player = collision.gameObject.transform.parent.transform.parent.transform.parent.gameObject;
 
-            player.GetComponent<NetworkIdentity>().AssignClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
+            gameObject.GetComponent<NetworkIdentity>().AssignClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
             CmdMessageTest(player);
-            player.GetComponent<NetworkIdentity>().RemoveClientAuthority();
-
+            
             if (gameObject.tag == "AgressorButton")
             {
                 player.tag = "Agressor";
