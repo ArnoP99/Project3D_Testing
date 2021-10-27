@@ -6,7 +6,7 @@ public class SyncRotation : MonoBehaviour
 {
     GameObject playerCamera;
     GameObject visualRepresentation;
-    Quaternion rot;
+    Vector3 rot;
 
 
     private void Start()
@@ -18,6 +18,7 @@ public class SyncRotation : MonoBehaviour
 
     void Update()
     {
-        visualRepresentation.transform.up = playerCamera.transform.up;
+        rot = new Vector3(0, playerCamera.transform.eulerAngles.y, 0);
+        visualRepresentation.transform.eulerAngles = rot;
     }
 }
