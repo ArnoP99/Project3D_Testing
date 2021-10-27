@@ -119,7 +119,7 @@ public class PhysicsButton : NetworkBehaviour
         Debug.Log("This is a message run from the server, initiated by the player: " + player.name);
     }
 
-    [ClientRpc]
+    [ClientRpc (includeOwner = false)]
     public void RpcTest()
     {
         Debug.Log("Message from Server To Client");
