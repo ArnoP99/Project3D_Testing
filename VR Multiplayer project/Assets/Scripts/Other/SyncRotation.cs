@@ -6,6 +6,7 @@ public class SyncRotation : MonoBehaviour
 {
     GameObject playerCamera;
     GameObject visualRepresentation;
+    Quaternion rot;
 
 
     private void Start()
@@ -17,7 +18,8 @@ public class SyncRotation : MonoBehaviour
 
     void Update()
     {
-        visualRepresentation.transform.rotation = playerCamera.transform.rotation;
+        rot = new Quaternion(0f, playerCamera.transform.rotation.y, 0f, 0f);
+        visualRepresentation.transform.rotation = rot;
         
     }
 }
