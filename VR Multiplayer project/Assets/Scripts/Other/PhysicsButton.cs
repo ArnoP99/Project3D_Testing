@@ -53,7 +53,7 @@ public class PhysicsButton : NetworkBehaviour
 
             if (isServer)
             {
-                gameObject.GetComponent<NetworkIdentity>().AssignClientAuthority(player.GetComponent<NetworkIdentity>().connectionToClient);
+                RpcTest();
             }
             if (isClient)
             {
@@ -113,10 +113,16 @@ public class PhysicsButton : NetworkBehaviour
         Debug.Log("Released");
     }
 
-    [Command (requiresAuthority = false)]
+    [Command(requiresAuthority = false)]
     void CmdMessageTest(GameObject player)
     {
         Debug.Log("This is a message run from the server, initiated by the player: " + player.name);
+    }
+
+    [ClientRpc]
+    public void RpcTest()
+    {
+        Debug.Log("Message from Server To Client");
     }
 
 }
