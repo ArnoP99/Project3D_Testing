@@ -48,7 +48,7 @@ public class PhysicsButton : NetworkBehaviour
 
         if (collision.gameObject.tag == "RightController" || collision.gameObject.tag == "LeftController")
         {
-            if (isLocalPlayer)
+            if (isClient)
             {
                 GameObject visualRep = collision.gameObject.transform.parent.transform.parent.Find("VisualRepresentation").gameObject;
                 GameObject player = collision.gameObject.transform.parent.transform.parent.transform.parent.gameObject;
