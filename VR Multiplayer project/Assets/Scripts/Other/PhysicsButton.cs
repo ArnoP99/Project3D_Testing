@@ -115,6 +115,7 @@ public class PhysicsButton : NetworkBehaviour
     private void Pressed()
     {
         isPressed = true;
+        Debug.Log("Pressed");
         onPressed.Invoke();
 
     }
@@ -123,6 +124,7 @@ public class PhysicsButton : NetworkBehaviour
     {
         isPressed = false;
         onReleased.Invoke();
+        Debug.Log("Released");
     }
 
     [Command(requiresAuthority = false)]
