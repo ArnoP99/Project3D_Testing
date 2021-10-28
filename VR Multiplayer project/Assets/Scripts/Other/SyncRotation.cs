@@ -22,13 +22,13 @@ public class SyncRotation : MonoBehaviour
     {
         rot = new Vector3(0, playerCamera.transform.eulerAngles.y, 0);
         visualRepresentation.transform.eulerAngles = rot;
-        if (playerCamera.transform.eulerAngles.y - textPlayer.transform.eulerAngles.y < -90 || playerCamera.transform.eulerAngles.y - textPlayer.transform.eulerAngles.y > 90)
+        if (playerCamera.transform.eulerAngles.y - textPlayer.transform.eulerAngles.y < -110 || playerCamera.transform.eulerAngles.y - textPlayer.transform.eulerAngles.y > 110)
         {
-            Debug.Log("rotated to far");
+            textPlayer.transform.eulerAngles = rot;
         }
 
 
 
-        //textPlayer.transform.eulerAngles = rot;
+        
     }
 }
