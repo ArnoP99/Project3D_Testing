@@ -6,6 +6,7 @@ public class SyncRotation : MonoBehaviour
 {
     GameObject playerCamera;
     GameObject visualRepresentation;
+    GameObject textPlayer;
     Vector3 rot;
 
 
@@ -13,6 +14,7 @@ public class SyncRotation : MonoBehaviour
     {
         playerCamera = gameObject.transform.GetChild(0).transform.GetChild(0).gameObject;
         visualRepresentation = gameObject.transform.GetChild(0).transform.GetChild(2).gameObject;
+        textPlayer = gameObject.transform.GetChild(0).transform.GetChild(3).gameObject; 
     }
 
 
@@ -20,5 +22,6 @@ public class SyncRotation : MonoBehaviour
     {
         rot = new Vector3(0, playerCamera.transform.eulerAngles.y, 0);
         visualRepresentation.transform.eulerAngles = rot;
+        textPlayer.transform.eulerAngles = rot;
     }
 }

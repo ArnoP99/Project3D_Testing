@@ -14,6 +14,7 @@ TagManager:
   - Agressor
   - ActiveChoice
   - InactiveChoice
+  - Button
   layers:
   - Default
   - TransparentFX
