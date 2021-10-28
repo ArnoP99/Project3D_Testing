@@ -29,6 +29,6 @@ public class SyncRotation : MonoBehaviour
 
 
 
-        textPlayer.transform.eulerAngles = rot;
+        //textPlayer.transform.eulerAngles = rot;
     }
 }
