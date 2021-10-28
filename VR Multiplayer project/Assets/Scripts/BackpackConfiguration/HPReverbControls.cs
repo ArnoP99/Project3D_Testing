@@ -13,11 +13,6 @@ public class HPReverbControls : NetworkBehaviour
     ConversationManager conversationManager;
 
 
-    private void Start()
-    {
-        NetworkServer.Spawn(gameObject);
-    }
-
     public void PressTrigger(InputAction.CallbackContext context)
     {
 
