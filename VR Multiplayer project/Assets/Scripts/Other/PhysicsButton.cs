@@ -48,42 +48,50 @@ public class PhysicsButton : NetworkBehaviour
 
         if (collision.gameObject.tag == "RightController" || collision.gameObject.tag == "LeftController")
         {
-            GameObject visualRep = collision.gameObject.transform.parent.transform.parent.Find("VisualRepresentation").gameObject;
-            GameObject player = collision.gameObject.transform.parent.transform.parent.transform.parent.gameObject;
-
-            //if (isServer)
-            //{
-            //    //RpcTest();
-            //    TargetTest(player.GetComponent<NetworkIdentity>().connectionToClient);
-
-            //}
-            //if (isClient)
-            //{
-            //    CmdMessageTest(player);
-            //}
-
-            if (gameObject.tag == "AgressorButton")
+            if (isLocalPlayer)
             {
-                RpcUpdateAgressor(player);
-                //player.tag = "Agressor";
-                //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
-                //Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
-                GameManager.CheckForTwoPlayers(2); // Tell gamemanager an agressor has been initialized.
-            }
-            if (gameObject.tag == "NurseButton" && isServer)
-            {
-                
-                RpcUpdateNurse(player); 
-                //player.tag = "Nurse";
-                //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
-                //Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
-                GameManager.CheckForTwoPlayers(1); // Tell gamemanager a nurse has been initialized.
+                GameObject visualRep = collision.gameObject.transform.parent.transform.parent.Find("VisualRepresentation").gameObject;
+                GameObject player = collision.gameObject.transform.parent.transform.parent.transform.parent.gameObject;
 
-            }
-            if (gameObject.tag == "SceneButton")
-            {
-                SceneManager.LoadScene("ZiekenhuisKamer");
-                Scene ziekenHuisKamer = SceneManager.GetSceneByName("ZiekenhuisKamer");
+                //if (isServer)
+                //{
+                //    //RpcTest();
+                //    TargetTest(player.GetComponent<NetworkIdentity>().connectionToClient);
+
+                //}
+                //if (isClient)
+                //{
+                //    CmdMessageTest(player);
+                //}
+
+                if (gameObject.tag == "AgressorButton")
+                {
+                    if (isServer)
+                    {
+                        RpcUpdateAgressor(player);
+                    }
+                    //player.tag = "Agressor";
+                    //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
+                    //Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
+                    //GameManager.CheckForTwoPlayers(2); // Tell gamemanager an agressor has been initialized.
+                }
+                if (gameObject.tag == "NurseButton" && isServer)
+                {
+                    if (isServer)
+                    {
+                        RpcUpdateNurse(player);
+                    }
+                    //player.tag = "Nurse";
+                    //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
+                    //Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
+                    //GameManager.CheckForTwoPlayers(1); // Tell gamemanager a nurse has been initialized.
+
+                }
+                if (gameObject.tag == "SceneButton")
+                {
+                    SceneManager.LoadScene("ZiekenhuisKamer");
+                    Scene ziekenHuisKamer = SceneManager.GetSceneByName("ZiekenhuisKamer");
+                }
             }
         }
     }
@@ -107,7 +115,6 @@ public class PhysicsButton : NetworkBehaviour
     private void Pressed()
     {
         isPressed = true;
-        Debug.Log("Pressed");
         onPressed.Invoke();
 
     }
@@ -116,7 +123,6 @@ public class PhysicsButton : NetworkBehaviour
     {
         isPressed = false;
         onReleased.Invoke();
-        Debug.Log("Released");
     }
 
     [Command(requiresAuthority = false)]
@@ -125,7 +131,7 @@ public class PhysicsButton : NetworkBehaviour
         Debug.Log("This is a message run from the server, initiated by the player: " + player.name);
     }
 
-    [ClientRpc (includeOwner = false)]
+    [ClientRpc(includeOwner = false)]
     public void RpcTest()
     {
         Debug.Log("Message from Server To Client");
