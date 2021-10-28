@@ -3,32 +3,62 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Mirror;
 
-public class HPReverbControls : MonoBehaviour
+public class HPReverbControls : NetworkBehaviour
 {
-    GameObject nurse;
-    GameObject textPopUp;
     GameObject activeChoice;
+    int choice = 0;
+
+    ConversationManager conversationManager;
+
+
+    private void Start()
+    {
+        NetworkServer.Spawn(gameObject);
+    }
 
     public void PressTrigger(InputAction.CallbackContext context)
     {
-        nurse = GameObject.FindGameObjectWithTag("Nurse");
-        textPopUp = nurse.transform.GetChild(0).transform.GetChild(3).gameObject;
 
-        if (textPopUp.transform.GetChild(0).GetComponent<TextMeshPro>().color == Color.red)
+        if (conversationManager.ActiveParticipantTextPopUp.transform.GetChild(0).GetComponent<TextMeshPro>().color == Color.red)
         {
-            activeChoice = textPopUp.transform.GetChild(0).gameObject;
-            textPopUp.SetActive(false);
+            activeChoice = conversationManager.ActiveParticipantTextPopUp.transform.GetChild(0).gameObject;
+            if (choice == 0)
+            {
+                choice = 1;
+                ConversationManager.ChooseConversation(choice);
+            }
+            if (isServer)
+            {
+                conversationManager.TargetUpdateConversation(ConversationManager.target);
+            }
         }
-        else if (textPopUp.transform.GetChild(1).GetComponent<TextMeshPro>().color == Color.red)
+        else if (conversationManager.ActiveParticipantTextPopUp.transform.GetChild(1).GetComponent<TextMeshPro>().color == Color.red)
         {
-            activeChoice = textPopUp.transform.GetChild(1).gameObject;
-            textPopUp.SetActive(false);
+            activeChoice = conversationManager.ActiveParticipantTextPopUp.transform.GetChild(1).gameObject;
+            if (choice == 0)
+            {
+                choice = 2;
+                ConversationManager.ChooseConversation(choice);
+            }
+            if (isServer)
+            {
+                conversationManager.TargetUpdateConversation(ConversationManager.target);
+            }
         }
-        else if (textPopUp.transform.GetChild(2).GetComponent<TextMeshPro>().color == Color.red)
+        else if (conversationManager.ActiveParticipantTextPopUp.transform.GetChild(2).GetComponent<TextMeshPro>().color == Color.red)
         {
-            activeChoice = textPopUp.transform.GetChild(2).gameObject;
-            textPopUp.SetActive(false);
+            activeChoice = conversationManager.ActiveParticipantTextPopUp.transform.GetChild(2).gameObject;
+            if (choice == 0)
+            {
+                choice = 3;
+                ConversationManager.ChooseConversation(choice);
+            }
+            if (isServer)
+            {
+                conversationManager.TargetUpdateConversation(ConversationManager.target);
+            }
         }
         else
         {

@@ -51,16 +51,16 @@ public class PhysicsButton : NetworkBehaviour
             GameObject visualRep = collision.gameObject.transform.parent.transform.parent.Find("VisualRepresentation").gameObject;
             GameObject player = collision.gameObject.transform.parent.transform.parent.transform.parent.gameObject;
 
-            if (isServer)
-            {
-                //RpcTest();
-                TargetTest(player.GetComponent<NetworkIdentity>().connectionToClient);
+            //if (isServer)
+            //{
+            //    //RpcTest();
+            //    TargetTest(player.GetComponent<NetworkIdentity>().connectionToClient);
 
-            }
-            if (isClient)
-            {
-                CmdMessageTest(player);
-            }
+            //}
+            //if (isClient)
+            //{
+            //    CmdMessageTest(player);
+            //}
 
             if (gameObject.tag == "AgressorButton")
             {
@@ -68,7 +68,7 @@ public class PhysicsButton : NetworkBehaviour
                 //player.tag = "Agressor";
                 //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
                 //Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
-                //GameManager.CheckForTwoPlayers(2); // Tell gamemanager an agressor has been initialized.
+                GameManager.CheckForTwoPlayers(2); // Tell gamemanager an agressor has been initialized.
             }
             if (gameObject.tag == "NurseButton" && isServer)
             {
@@ -77,7 +77,7 @@ public class PhysicsButton : NetworkBehaviour
                 //player.tag = "Nurse";
                 //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
                 //Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
-                //GameManager.CheckForTwoPlayers(1); // Tell gamemanager a nurse has been initialized.
+                GameManager.CheckForTwoPlayers(1); // Tell gamemanager a nurse has been initialized.
 
             }
             if (gameObject.tag == "SceneButton")

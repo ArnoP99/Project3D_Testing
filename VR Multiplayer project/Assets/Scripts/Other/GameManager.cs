@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
         {
             nursePlayer = true;
         }
-        else if(button == 2)
+        else if (button == 2)
         {
             agressorPlayer = true;
         }
@@ -54,17 +54,20 @@ public class GameManager : MonoBehaviour
             Debug.Log("Invalid number received from button! Check if the correct numbers are passed from each button ...");
         }
 
-        /*if(nursePlayer == true && agressorPlayer == true)
+        if (nursePlayer == true && agressorPlayer == true)
         {
             Debug.Log("Conversation Started.");
-            ConversationManager.StartConversation(nurse, agressor);
-        }*/
-
-        if(nursePlayer == true)
+            ConversationManager.StartConversations();
+        }
+        else
         {
-            Debug.Log("Conversation Started.");
-            ConversationManager.StartConversation();
+            Debug.Log("You need a nurse and an agressor to start a conversation.");
         }
 
+        //if(nursePlayer == true)
+        //{
+        //    Debug.Log("Conversation Started.");
+        //    ConversationManager.StartConversations();
+        //}
     }
 }

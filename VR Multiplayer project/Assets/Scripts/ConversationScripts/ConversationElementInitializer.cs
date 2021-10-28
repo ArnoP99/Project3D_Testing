@@ -28,6 +28,10 @@ public class ConversationElementInitializer : MonoBehaviour
 
     ConversationElement defensief1E = new ConversationElement("Oke, u hebt gelijk. Ik zal nog blijven.", ConversationElement.ElementState.Defensive, ConversationElement.UserState.Agressor);
     ConversationElement agressief1E = new ConversationElement("Ik hoef geen controle meer, laat me gewoon vertrekken!", ConversationElement.ElementState.Agressive, ConversationElement.UserState.Agressor);
+    
+    private static ConversationElement startElement2 = new ConversationElement("Hallo, het is tijd voor uw medicatie.", ConversationElement.ElementState.Neutral, ConversationElement.UserState.Nurse);
+    private static ConversationElement startElement3 = new ConversationElement("Is er een probleem? Ik zag dat u op het knopje heeft geduwd voor hulp.", ConversationElement.ElementState.Neutral, ConversationElement.UserState.Nurse);
+
 
     private void Start()
     {
@@ -67,5 +71,15 @@ public class ConversationElementInitializer : MonoBehaviour
     public static ConversationElement GeneralCheckupConversation()
     {
         return startElement1;
+    }
+
+    public static ConversationElement MedicationConversation()
+    {
+        return startElement2;
+    }
+
+    public static ConversationElement AlarmButtonConversation()
+    {
+        return startElement3;
     }
 }
