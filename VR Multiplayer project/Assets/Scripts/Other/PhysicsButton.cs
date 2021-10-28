@@ -48,50 +48,47 @@ public class PhysicsButton : NetworkBehaviour
 
         if (collision.gameObject.tag == "RightController" || collision.gameObject.tag == "LeftController")
         {
-            if (isClient)
+            GameObject visualRep = collision.gameObject.transform.parent.transform.parent.Find("VisualRepresentation").gameObject;
+            GameObject player = collision.gameObject.transform.parent.transform.parent.transform.parent.gameObject;
+
+            //if (isServer)
+            //{
+            //    //RpcTest();
+            //    TargetTest(player.GetComponent<NetworkIdentity>().connectionToClient);
+
+            //}
+            //if (isClient)
+            //{
+            //    CmdMessageTest(player);
+            //}
+
+            if (gameObject.tag == "AgressorButton")
             {
-                GameObject visualRep = collision.gameObject.transform.parent.transform.parent.Find("VisualRepresentation").gameObject;
-                GameObject player = collision.gameObject.transform.parent.transform.parent.transform.parent.gameObject;
-
-                //if (isServer)
-                //{
-                //    //RpcTest();
-                //    TargetTest(player.GetComponent<NetworkIdentity>().connectionToClient);
-
-                //}
-                //if (isClient)
-                //{
-                //    CmdMessageTest(player);
-                //}
-
-                if (gameObject.tag == "AgressorButton")
+                if (isServer)
                 {
-                    if (isServer)
-                    {
-                        RpcUpdateAgressor(player);
-                    }
-                    //player.tag = "Agressor";
-                    //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
-                    //Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
-                    //GameManager.CheckForTwoPlayers(2); // Tell gamemanager an agressor has been initialized.
+                    RpcUpdateAgressor(player);
                 }
-                if (gameObject.tag == "NurseButton" && isServer)
+                //player.tag = "Agressor";
+                //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
+                //Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
+                //GameManager.CheckForTwoPlayers(2); // Tell gamemanager an agressor has been initialized.
+            }
+            if (gameObject.tag == "NurseButton" && isServer)
+            {
+                if (isServer)
                 {
-                    if (isServer)
-                    {
-                        RpcUpdateNurse(player);
-                    }
-                    //player.tag = "Nurse";
-                    //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
-                    //Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
-                    //GameManager.CheckForTwoPlayers(1); // Tell gamemanager a nurse has been initialized.
+                    RpcUpdateNurse(player);
+                }
+                //player.tag = "Nurse";
+                //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
+                //Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
+                //GameManager.CheckForTwoPlayers(1); // Tell gamemanager a nurse has been initialized.
 
-                }
-                if (gameObject.tag == "SceneButton")
-                {
-                    SceneManager.LoadScene("ZiekenhuisKamer");
-                    Scene ziekenHuisKamer = SceneManager.GetSceneByName("ZiekenhuisKamer");
-                }
+            }
+            if (gameObject.tag == "SceneButton")
+            {
+                SceneManager.LoadScene("ZiekenhuisKamer");
+                Scene ziekenHuisKamer = SceneManager.GetSceneByName("ZiekenhuisKamer");
             }
         }
     }
