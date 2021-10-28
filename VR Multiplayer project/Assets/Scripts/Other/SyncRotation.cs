@@ -10,8 +10,7 @@ public class SyncRotation : NetworkBehaviour
     GameObject visualRepresentation;
     GameObject textPlayer;
     Vector3 rot;
-    private Vector3 velocity = Vector3.zero;
-    public float smoothTime = 0.3F;
+
 
     private void Start()
     {
@@ -26,14 +25,12 @@ public class SyncRotation : NetworkBehaviour
 
     void Update()
     {
-        if (isLocalPlayer)
+        if (isLocalPlayer) { }
+        rot = new Vector3(0, playerCamera.transform.eulerAngles.y, 0);
+        visualRepresentation.transform.eulerAngles = rot;
+        if (playerCamera.transform.eulerAngles.y - textPlayer.transform.eulerAngles.y < -110 || playerCamera.transform.eulerAngles.y - textPlayer.transform.eulerAngles.y > 110)
         {
-            rot = new Vector3(0, playerCamera.transform.eulerAngles.y, 0);
-            visualRepresentation.transform.eulerAngles = rot;
-            if (playerCamera.transform.eulerAngles.y - textPlayer.transform.eulerAngles.y < -110 || playerCamera.transform.eulerAngles.y - textPlayer.transform.eulerAngles.y > 110)
-            {
-                textPlayer.transform.eulerAngles = Vector3.SmoothDamp(textPlayer.transform.position, rot, ref velocity, smoothTime);
-            }
+            textPlayer.transform.eulerAngles = rot;
         }
     }
 }
