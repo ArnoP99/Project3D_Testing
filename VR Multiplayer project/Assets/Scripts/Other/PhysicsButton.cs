@@ -70,8 +70,11 @@ public class PhysicsButton : NetworkBehaviour
             if (gameObject.tag == "AgressorButton")
             {
 
-                CmdUpdateAgressor(player);
-
+                //CmdUpdateAgressor(player);
+                if (isClient)
+                {
+                    CmdMessageTest(player);
+                }
                 //player.tag = "Agressor";
                 //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
                 //Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
@@ -80,7 +83,12 @@ public class PhysicsButton : NetworkBehaviour
             if (gameObject.tag == "NurseButton")
             {
 
-                CmdUpdateNurse(player);
+                //CmdUpdateNurse(player);
+
+                if (isClient)
+                {
+                    CmdMessageTest(player);
+                }
 
                 //player.tag = "Nurse";
                 //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
@@ -130,7 +138,7 @@ public class PhysicsButton : NetworkBehaviour
     [Command(requiresAuthority = false)]
     void CmdMessageTest(GameObject player)
     {
-        Debug.Log("This is a message run from the server, initiated by the player: " + player.name);
+        Debug.Log("This is a message run from the server, initiated by the player: " + player.GetComponent<NetworkIdentity>().netId);
     }
 
     [ClientRpc(includeOwner = false)]
