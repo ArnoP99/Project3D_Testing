@@ -157,8 +157,8 @@ public class PhysicsButton : NetworkBehaviour
         Debug.Log("server to specific target");
     }
 
-    [Command(requiresAuthority = false)]
-    public void CmdUpdateNurse(GameObject player)
+    [ClientRpc]
+    public void RpcUpdateNurse(GameObject player)
     {
         player.tag = "Nurse";
         visualRep.transform.GetChild(0).gameObject.SetActive(false);
@@ -168,8 +168,8 @@ public class PhysicsButton : NetworkBehaviour
     }
 
 
-    [Command(requiresAuthority = false)]
-    public void CmdUpdateAgressor(GameObject player)
+    [ClientRpc]
+    public void RpcUpdateAgressor(GameObject player)
     {
         player.tag = "Agressor";
         visualRep.transform.GetChild(0).gameObject.SetActive(false);

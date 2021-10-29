@@ -58,6 +58,7 @@ public class PlayerConfiguration : NetworkBehaviour
             //When it is the local player and it is the server/PC enable the main camera
             else
             {
+                controllersToHMDLocal.enabled = false;
                 myCamera.enabled = false;
                 myCamera.GetComponent<AudioListener>().enabled = false;
                 GameObject.Find("Main camera").GetComponent<Camera>().enabled = true;
@@ -71,7 +72,6 @@ public class PlayerConfiguration : NetworkBehaviour
         //When it isn't the local player disable camera and audiolistener
         else
         {
-            controllersToHMDLocal.enabled = false;
             TrackedPoseDriver.enabled = false;
             myCamera.enabled = false;
             myCamera.GetComponent<AudioListener>().enabled = false;
