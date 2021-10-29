@@ -81,7 +81,6 @@ public class PlayerConfiguration : NetworkBehaviour
         if(PlayerID == 0)
         {
             this.GetComponentInChildren<MeshRenderer>().enabled = false;
-            this.gameObject.SetActive(false);
         }
         Debug.Log("Set player under Players object");
         this.transform.parent = GameObject.Find("Players").transform; //Set 'Players" gameobject as parent
