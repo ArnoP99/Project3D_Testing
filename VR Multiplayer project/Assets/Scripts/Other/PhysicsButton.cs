@@ -147,7 +147,7 @@ public class PhysicsButton : NetworkBehaviour
         Debug.Log("server to specific target");
     }
 
-    [ClientRpc]
+    [Command (requiresAuthority = false)]
     public void RpcUpdateNurse(GameObject player)
     {
         player.tag = "Nurse";
@@ -157,7 +157,7 @@ public class PhysicsButton : NetworkBehaviour
     }
 
 
-    [ClientRpc]
+    [Command (requiresAuthority = false)]
     public void RpcUpdateAgressor(GameObject player)
     {
         player.tag = "Agressor";
