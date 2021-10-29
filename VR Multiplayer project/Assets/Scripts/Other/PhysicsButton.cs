@@ -71,23 +71,23 @@ public class PhysicsButton : NetworkBehaviour
             {
                 if (isServer)
                 {
-                    //RpcUpdateAgressor(player);
+                    RpcUpdateAgressor(player);
                 }
-                player.tag = "Agressor";
-                Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
-                Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
-                GameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
+                //player.tag = "Agressor";
+                //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
+                //Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
+                //GameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
             }
-            if (gameObject.tag == "NurseButton" && isServer)
+            if (gameObject.tag == "NurseButton")
             {
                 if (isServer)
                 {
-                    //RpcUpdateNurse(player);
+                    RpcUpdateNurse(player);
                 }
-                player.tag = "Nurse";
-                Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
-                Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
-                GameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
+                //player.tag = "Nurse";
+                //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
+                //Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
+                //GameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
 
             }
             if (gameObject.tag == "SceneButton")
@@ -147,25 +147,23 @@ public class PhysicsButton : NetworkBehaviour
         Debug.Log("server to specific target");
     }
 
-    //[ClientRpc(includeOwner = false)]
-    //public void RpcUpdateNurse(GameObject player)
-    //{
-    //    GameObject visualRep = player.transform.GetChild(0).transform.GetChild(2).gameObject;
-    //    player.tag = "Nurse";
-    //    Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
-    //    Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
-    //    GameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
-    //}
+    [ClientRpc]
+    public void RpcUpdateNurse(GameObject player)
+    {
+        player.tag = "Nurse";
+        Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
+        Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
+        GameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
+    }
 
 
-    //[ClientRpc(includeOwner = false)]
-    //public void RpcUpdateAgressor(GameObject player)
-    //{
-    //    GameObject visualRep = player.transform.GetChild(0).transform.GetChild(2).gameObject;
-    //    player.tag = "Agressor";
-    //    Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
-    //    Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
-    //    GameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
-    //}
+    [ClientRpc]
+    public void RpcUpdateAgressor(GameObject player)
+    {
+        player.tag = "Agressor";
+        Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
+        Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
+        GameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
+    }
 
 }
