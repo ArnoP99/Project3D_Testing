@@ -160,10 +160,10 @@ public class PhysicsButton : NetworkBehaviour
     public void CmdUpdateNurse(GameObject player, GameObject visualRep)
     {
         player.tag = "Nurse";
-        if (visualRep != null && visualRep.transform.GetChild(0) != null)
-        {
-            visualRep.transform.GetChild(0).gameObject.SetActive(false);
-        }
+        //if (visualRep != null && visualRep.transform.GetChild(0) != null)
+        //{
+        //    visualRep.transform.GetChild(0).gameObject.SetActive(false);
+        //}
         Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
         //gameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
         Debug.Log("TestNurse  :" + player);
@@ -174,10 +174,10 @@ public class PhysicsButton : NetworkBehaviour
     public void CmdUpdateAgressor(GameObject player, GameObject visualRep)
     {
         player.tag = "Agressor";
-        if (visualRep != null && visualRep.transform.GetChild(0) != null)
-        {
-            visualRep.transform.GetChild(0).gameObject.SetActive(false);
-        }
+        //if (visualRep != null && visualRep.transform.GetChild(0) != null)
+        //{
+        //    visualRep.transform.GetChild(0).gameObject.SetActive(false);
+        //}
         Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
         //gameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
         Debug.Log("TestAgressor  :" + player);
