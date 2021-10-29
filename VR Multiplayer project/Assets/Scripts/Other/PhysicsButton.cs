@@ -69,10 +69,9 @@ public class PhysicsButton : NetworkBehaviour
 
             if (gameObject.tag == "AgressorButton")
             {
-                if (isClient)
-                {
-                    CmdUpdateAgressor(player);
-                }
+
+                CmdUpdateAgressor(player);
+
                 //player.tag = "Agressor";
                 //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
                 //Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
@@ -80,10 +79,9 @@ public class PhysicsButton : NetworkBehaviour
             }
             if (gameObject.tag == "NurseButton")
             {
-                if (isClient)
-                {
-                    CmdUpdateNurse(player);
-                }
+
+                CmdUpdateNurse(player);
+
                 //player.tag = "Nurse";
                 //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
                 //Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
@@ -147,7 +145,7 @@ public class PhysicsButton : NetworkBehaviour
         Debug.Log("server to specific target");
     }
 
-    [Command (requiresAuthority = false)]
+    [Command(requiresAuthority = false)]
     public void CmdUpdateNurse(GameObject player)
     {
         player.tag = "Nurse";
@@ -157,7 +155,7 @@ public class PhysicsButton : NetworkBehaviour
     }
 
 
-    [Command (requiresAuthority = false)]
+    [Command(requiresAuthority = false)]
     public void CmdUpdateAgressor(GameObject player)
     {
         player.tag = "Agressor";
