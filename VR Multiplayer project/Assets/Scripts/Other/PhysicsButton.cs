@@ -51,11 +51,11 @@ public class PhysicsButton : NetworkBehaviour
 
         if (collision.gameObject.tag == "RightController" || collision.gameObject.tag == "LeftController")
         {
-            if (isLocalPlayer)
-            {
-                visualRep = collision.gameObject.transform.parent.transform.parent.GetChild(2).gameObject;
-                player = collision.gameObject.transform.parent.transform.parent.transform.parent.gameObject;
-            }
+
+
+            visualRep = collision.gameObject.transform.parent.transform.parent.GetChild(2).gameObject;
+            player = collision.gameObject.transform.parent.transform.parent.transform.parent.gameObject;
+
             //if (isServer)
             //{
             //    //RpcTest();
