@@ -12,6 +12,7 @@ public class PlayerConfiguration : NetworkBehaviour
     public OptitrackHmd optitrackrigidHmd;
     public OptitrackStreamingClient optitrackClient;
     public ControllerConfiguration controllerConfiguration;
+    public ControllersToHMDLocal controllersToHMDLocal;
 
     public OptitrackRigidBody blaster;
 
@@ -42,6 +43,7 @@ public class PlayerConfiguration : NetworkBehaviour
         myCamera = this.GetComponentInChildren<Camera>();
         optitrackClient = GameObject.Find("OptitrackClient").GetComponent<OptitrackStreamingClient>();
         controllerConfiguration = GameObject.Find("Controllers").GetComponent<ControllerConfiguration>();
+        controllersToHMDLocal = this.GetComponentInChildren<ControllersToHMDLocal>();
 
 
         if (isLocalPlayer)
@@ -69,6 +71,7 @@ public class PlayerConfiguration : NetworkBehaviour
         //When it isn't the local player disable camera and audiolistener
         else
         {
+            controllersToHMDLocal.enabled = false;
             TrackedPoseDriver.enabled = false;
             myCamera.enabled = false;
             myCamera.GetComponent<AudioListener>().enabled = false;
