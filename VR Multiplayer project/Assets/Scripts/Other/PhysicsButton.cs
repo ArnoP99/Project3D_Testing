@@ -18,8 +18,7 @@ public class PhysicsButton : NetworkBehaviour
     private ConfigurableJoint joint;
     private Vector3 currentPos;
 
-    GameObject visualRep;
-    GameObject player;
+
 
     GameManager gameManager;
 
@@ -55,8 +54,8 @@ public class PhysicsButton : NetworkBehaviour
         {
 
 
-            visualRep = collision.gameObject.transform.parent.transform.parent.GetChild(2).gameObject;
-            player = collision.gameObject.transform.parent.transform.parent.transform.parent.gameObject;
+            GameObject visualRep = collision.gameObject.transform.parent.transform.parent.GetChild(2).gameObject;
+            GameObject player = collision.gameObject.transform.parent.transform.parent.transform.parent.gameObject;
 
             //if (isServer)
             //{
@@ -75,7 +74,7 @@ public class PhysicsButton : NetworkBehaviour
                 //CmdUpdateAgressor(player);
                 if (isClient)
                 {                    
-                    CmdUpdateAgressor(player);
+                    CmdUpdateAgressor(player, visualRep);
                 }
                 //player.tag = "Agressor";
                 //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
@@ -89,7 +88,7 @@ public class PhysicsButton : NetworkBehaviour
 
                 if (isClient)
                 {                  
-                    CmdUpdateNurse(player);
+                    CmdUpdateNurse(player, visualRep);
                 }
 
                 //player.tag = "Nurse";
@@ -156,7 +155,7 @@ public class PhysicsButton : NetworkBehaviour
     //}
 
     [Command(requiresAuthority = false)]
-    public void CmdUpdateNurse(GameObject player)
+    public void CmdUpdateNurse(GameObject player, GameObject visualRep)
     {
         player.tag = "Nurse";
         visualRep.transform.GetChild(0).gameObject.SetActive(false);
@@ -167,7 +166,7 @@ public class PhysicsButton : NetworkBehaviour
 
 
     [Command(requiresAuthority = false)]
-    public void CmdUpdateAgressor(GameObject player)
+    public void CmdUpdateAgressor(GameObject player, GameObject visualRep)
     {
         player.tag = "Agressor";
         visualRep.transform.GetChild(0).gameObject.SetActive(false);
