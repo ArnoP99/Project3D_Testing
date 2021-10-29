@@ -76,7 +76,7 @@ public class PhysicsButton : NetworkBehaviour
                 //CmdUpdateAgressor(player);
                 if (isClient)
                 {
-                    CmdUpdateAgressor(player, visualRep);
+                    CmdUpdateAgressor(player);
                 }
                 //player.tag = "Agressor";
                 //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
@@ -90,7 +90,7 @@ public class PhysicsButton : NetworkBehaviour
 
                 if (isClient)
                 {
-                    CmdUpdateNurse(player, visualRep);
+                    CmdUpdateNurse(player);
                 }
 
                 //player.tag = "Nurse";
@@ -157,7 +157,7 @@ public class PhysicsButton : NetworkBehaviour
     //}
 
     [Command(requiresAuthority = false)]
-    public void CmdUpdateNurse(GameObject player, GameObject visualRep)
+    public void CmdUpdateNurse(GameObject player)
     {
         player.tag = "Nurse";
         //if (visualRep != null && visualRep.transform.GetChild(0) != null)
@@ -171,7 +171,7 @@ public class PhysicsButton : NetworkBehaviour
 
 
     [Command(requiresAuthority = false)]
-    public void CmdUpdateAgressor(GameObject player, GameObject visualRep)
+    public void CmdUpdateAgressor(GameObject player)
     {
         player.tag = "Agressor";
         //if (visualRep != null && visualRep.transform.GetChild(0) != null)
