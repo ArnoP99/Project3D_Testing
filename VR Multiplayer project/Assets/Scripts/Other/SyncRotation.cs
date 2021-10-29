@@ -14,12 +14,9 @@ public class SyncRotation : NetworkBehaviour
 
     private void Start()
     {
-        if (isLocalPlayer)
-        {
             playerCamera = gameObject.transform.GetChild(0).transform.GetChild(0).gameObject;
             visualRepresentation = gameObject.transform.GetChild(0).transform.GetChild(2).gameObject;
             textPlayer = gameObject.transform.GetChild(0).transform.GetChild(3).gameObject;
-        }
     }
 
 
