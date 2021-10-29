@@ -21,6 +21,8 @@ public class PhysicsButton : NetworkBehaviour
     GameObject visualRep;
     GameObject player;
 
+    GameManager gameManager;
+
     public UnityEvent onPressed, onReleased;
 
     void Start()
@@ -161,7 +163,7 @@ public class PhysicsButton : NetworkBehaviour
         player.tag = "Nurse";
         //visualRep.transform.GetChild(0).gameObject.SetActive(false);
         //Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
-        GameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
+        gameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
     }
 
 
@@ -171,7 +173,7 @@ public class PhysicsButton : NetworkBehaviour
         player.tag = "Agressor";
         //visualRep.transform.GetChild(0).gameObject.SetActive(false);
         //Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
-        GameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
+        gameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
     }
 
 }

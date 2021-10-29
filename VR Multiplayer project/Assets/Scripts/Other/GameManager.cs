@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     private static GameManager instance = null;
     private static readonly object padlock = new object();
 
+    GameObject nurse;
+    GameObject agressor;
+
     private GameManager()
     {
     }
@@ -29,6 +32,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+
     }
 
     private void Update()
@@ -36,13 +40,12 @@ public class GameManager : MonoBehaviour
     }
 
     // Check if there are 2 different players in the game (Nurse & Agressor) and if they are both present, start a new conversation.
-    public static void CheckForTwoPlayers(int button, GameObject player)
+    public void CheckForTwoPlayers(int button, GameObject player)
     {
         bool nursePlayer = false;
         bool agressorPlayer = false;
 
-        GameObject nurse = new GameObject();
-        GameObject agressor = new GameObject();
+
 
         if (button == 1)
         {
