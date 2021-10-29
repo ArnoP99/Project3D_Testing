@@ -69,9 +69,9 @@ public class PhysicsButton : NetworkBehaviour
 
             if (gameObject.tag == "AgressorButton")
             {
-                if (isServer)
+                if (isClient)
                 {
-                    RpcUpdateAgressor(player);
+                    CmdUpdateAgressor(player);
                 }
                 //player.tag = "Agressor";
                 //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
@@ -80,9 +80,9 @@ public class PhysicsButton : NetworkBehaviour
             }
             if (gameObject.tag == "NurseButton")
             {
-                if (isServer)
+                if (isClient)
                 {
-                    RpcUpdateNurse(player);
+                    CmdUpdateNurse(player);
                 }
                 //player.tag = "Nurse";
                 //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
@@ -148,7 +148,7 @@ public class PhysicsButton : NetworkBehaviour
     }
 
     [Command (requiresAuthority = false)]
-    public void RpcUpdateNurse(GameObject player)
+    public void CmdUpdateNurse(GameObject player)
     {
         player.tag = "Nurse";
         Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
@@ -158,7 +158,7 @@ public class PhysicsButton : NetworkBehaviour
 
 
     [Command (requiresAuthority = false)]
-    public void RpcUpdateAgressor(GameObject player)
+    public void CmdUpdateAgressor(GameObject player)
     {
         player.tag = "Agressor";
         Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
