@@ -160,20 +160,22 @@ public class PhysicsButton : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdUpdateNurse(GameObject player)
     {
-        player.tag = "Nurse";
+        //player.tag = "Nurse";
         //visualRep.transform.GetChild(0).gameObject.SetActive(false);
         //Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
-        gameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
+        //gameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
+        Debug.Log("TestNurse  :" + player);
     }
 
 
     [Command(requiresAuthority = false)]
     public void CmdUpdateAgressor(GameObject player)
     {
-        player.tag = "Agressor";
+        //player.tag = "Agressor";
         //visualRep.transform.GetChild(0).gameObject.SetActive(false);
         //Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
-        gameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
+        //gameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
+        Debug.Log("TestAgressor  :" + player);
     }
 
 }
