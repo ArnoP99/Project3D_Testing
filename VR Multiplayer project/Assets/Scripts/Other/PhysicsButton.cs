@@ -74,11 +74,9 @@ public class PhysicsButton : NetworkBehaviour
 
                 //CmdUpdateAgressor(player);
                 if (isClient)
-                {
-                    CmdMessageTest(player);
-
+                {                    
+                    CmdUpdateAgressor(player);
                 }
-                RpcUpdateAgressor(player);
                 //player.tag = "Agressor";
                 //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
                 //Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
@@ -90,11 +88,9 @@ public class PhysicsButton : NetworkBehaviour
                 //CmdUpdateNurse(player);
 
                 if (isClient)
-                {
-                    CmdMessageTest(player);
-
+                {                  
+                    CmdUpdateNurse(player);
                 }
-                RpcUpdateNurse(player);
 
                 //player.tag = "Nurse";
                 //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
@@ -141,26 +137,26 @@ public class PhysicsButton : NetworkBehaviour
         Debug.Log("Released");
     }
 
+    //[Command(requiresAuthority = false)]
+    //void CmdMessageTest(GameObject player)
+    //{
+    //    Debug.Log("This is a message run from the server, initiated by the player: " + player.GetComponent<NetworkIdentity>().netId);
+    //}
+
+    //[ClientRpc(includeOwner = false)]
+    //public void RpcTest()
+    //{
+    //    Debug.Log("Message from Server To Client");
+    //}
+
+    //[TargetRpc]
+    //public void TargetTest(NetworkConnection target)
+    //{
+    //    Debug.Log("server to specific target");
+    //}
+
     [Command(requiresAuthority = false)]
-    void CmdMessageTest(GameObject player)
-    {
-        Debug.Log("This is a message run from the server, initiated by the player: " + player.GetComponent<NetworkIdentity>().netId);
-    }
-
-    [ClientRpc(includeOwner = false)]
-    public void RpcTest()
-    {
-        Debug.Log("Message from Server To Client");
-    }
-
-    [TargetRpc]
-    public void TargetTest(NetworkConnection target)
-    {
-        Debug.Log("server to specific target");
-    }
-
-    [ClientRpc]
-    public void RpcUpdateNurse(GameObject player)
+    public void CmdUpdateNurse(GameObject player)
     {
         player.tag = "Nurse";
         visualRep.transform.GetChild(0).gameObject.SetActive(false);
@@ -170,8 +166,8 @@ public class PhysicsButton : NetworkBehaviour
     }
 
 
-    [ClientRpc]
-    public void RpcUpdateAgressor(GameObject player)
+    [Command(requiresAuthority = false)]
+    public void CmdUpdateAgressor(GameObject player)
     {
         player.tag = "Agressor";
         visualRep.transform.GetChild(0).gameObject.SetActive(false);
