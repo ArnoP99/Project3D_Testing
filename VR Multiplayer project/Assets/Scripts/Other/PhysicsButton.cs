@@ -74,6 +74,7 @@ public class PhysicsButton : NetworkBehaviour
                 if (isClient)
                 {
                     CmdMessageTest(player);
+                    CmdUpdateAgressor(player);
                 }
                 //player.tag = "Agressor";
                 //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
@@ -88,6 +89,7 @@ public class PhysicsButton : NetworkBehaviour
                 if (isClient)
                 {
                     CmdMessageTest(player);
+                    CmdUpdateNurse(player);
                 }
 
                 //player.tag = "Nurse";
@@ -157,7 +159,7 @@ public class PhysicsButton : NetworkBehaviour
     public void CmdUpdateNurse(GameObject player)
     {
         player.tag = "Nurse";
-        Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
+        visualRep.transform.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
         GameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
     }
@@ -167,7 +169,7 @@ public class PhysicsButton : NetworkBehaviour
     public void CmdUpdateAgressor(GameObject player)
     {
         player.tag = "Agressor";
-        Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
+        visualRep.transform.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
         GameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
     }
