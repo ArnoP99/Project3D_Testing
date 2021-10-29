@@ -76,8 +76,9 @@ public class PhysicsButton : NetworkBehaviour
                 if (isClient)
                 {
                     CmdMessageTest(player);
-                    RpcUpdateAgressor(player);
+
                 }
+                RpcUpdateAgressor(player);
                 //player.tag = "Agressor";
                 //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
                 //Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
@@ -91,8 +92,9 @@ public class PhysicsButton : NetworkBehaviour
                 if (isClient)
                 {
                     CmdMessageTest(player);
-                    RpcUpdateNurse(player);
+
                 }
+                RpcUpdateNurse(player);
 
                 //player.tag = "Nurse";
                 //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
