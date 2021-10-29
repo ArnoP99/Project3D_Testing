@@ -18,6 +18,9 @@ public class PhysicsButton : NetworkBehaviour
     private ConfigurableJoint joint;
     private Vector3 currentPos;
 
+    GameObject visualRep;
+    GameObject player;
+
     public UnityEvent onPressed, onReleased;
 
     void Start()
@@ -48,9 +51,11 @@ public class PhysicsButton : NetworkBehaviour
 
         if (collision.gameObject.tag == "RightController" || collision.gameObject.tag == "LeftController")
         {
-            GameObject visualRep = collision.gameObject.transform.parent.transform.parent.Find("VisualRepresentation").gameObject;
-            GameObject player = collision.gameObject.transform.parent.transform.parent.transform.parent.gameObject;
-
+            if (isLocalPlayer)
+            {
+                visualRep = collision.gameObject.transform.parent.transform.parent.Find("VisualRepresentation").gameObject;
+                player = collision.gameObject.transform.parent.transform.parent.transform.parent.gameObject;
+            }
             //if (isServer)
             //{
             //    //RpcTest();
@@ -149,7 +154,7 @@ public class PhysicsButton : NetworkBehaviour
         player.tag = "Nurse";
         Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
         Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
-        GameManager.CheckForTwoPlayers(2); // Tell gamemanager an agressor has been initialized.
+        GameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
     }
 
 
@@ -160,7 +165,7 @@ public class PhysicsButton : NetworkBehaviour
         player.tag = "Agressor";
         Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
         Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
-        GameManager.CheckForTwoPlayers(2); // Tell gamemanager an agressor has been initialized.
+        GameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
     }
 
 }

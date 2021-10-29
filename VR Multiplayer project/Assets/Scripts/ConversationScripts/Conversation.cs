@@ -31,7 +31,7 @@ public class Conversation : MonoBehaviour
         activeElement = null;
 
     }
-    
+
 
     public List<ConversationElement> SelectNextElement(ConversationElement activeElement)
     {

@@ -48,14 +48,14 @@ public class ConversationManager : NetworkBehaviour
         }
     }
 
-    // Initialize different Conversations that will be used in the game
+    // Initialize different Conversations that will be used in the game and set startingElements
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
-        if (isServer)
-        {
-            NetworkServer.Spawn(gameObject);
-        }
+        //if (isServer)
+        //{
+        //    NetworkServer.Spawn(gameObject);
+        //}
         generalCheckUpConv = new Conversation();
         medicationTimeConv = new Conversation();
         alarmButtonConv = new Conversation();
@@ -70,11 +70,11 @@ public class ConversationManager : NetworkBehaviour
         alarmButtonConv.ActiveElement = alarmButtonConv.StartElement;
     }
 
-    // Set starting elements of each conversation
-    public static void StartConversations()
+
+    public static void StartConversations(GameObject m_nurse, GameObject m_agressor)
     {
-        nurse = GameObject.FindGameObjectWithTag("Nurse").gameObject;
-        agressor = GameObject.FindGameObjectWithTag("Agressor").gameObject;
+        nurse = m_nurse;
+        agressor = m_agressor;
 
         conversationParticipants.Add(nurse);
         conversationParticipants.Add(agressor);
@@ -119,51 +119,51 @@ public class ConversationManager : NetworkBehaviour
 
     }
 
-    [TargetRpc]
-    public void TargetUpdateConversation(NetworkConnection target)
-    {
-        if (activeConversation.ActiveUser == Conversation.ConversationActiveUser.Nurse)
-        {
-            activeParticipantTextPopUp.SetActive(false);
-            activeConversation.ActiveUser = Conversation.ConversationActiveUser.Agressor;
-            activeParticipant = agressor;
-            target = agressor.GetComponent<NetworkIdentity>().connectionToClient;
-            activeParticipantTextPopUp = activeParticipant.transform.GetChild(0).transform.GetChild(3).gameObject;
+    //[TargetRpc]
+    //public void TargetUpdateConversation(NetworkConnection target)
+    //{
+    //    if (activeConversation.ActiveUser == Conversation.ConversationActiveUser.Nurse)
+    //    {
+    //        activeParticipantTextPopUp.SetActive(false);
+    //        activeConversation.ActiveUser = Conversation.ConversationActiveUser.Agressor;
+    //        activeParticipant = agressor;
+    //        target = agressor.GetComponent<NetworkIdentity>().connectionToClient;
+    //        activeParticipantTextPopUp = activeParticipant.transform.GetChild(0).transform.GetChild(3).gameObject;
 
-        }
-        else if (activeConversation.ActiveUser == Conversation.ConversationActiveUser.Agressor)
-        {
-            activeParticipantTextPopUp.SetActive(false);
-            activeConversation.ActiveUser = Conversation.ConversationActiveUser.Nurse;
-            activeParticipant = nurse;
-            target = nurse.GetComponent<NetworkIdentity>().connectionToClient;
-            activeParticipantTextPopUp = activeParticipant.transform.GetChild(0).transform.GetChild(3).gameObject;
+    //    }
+    //    else if (activeConversation.ActiveUser == Conversation.ConversationActiveUser.Agressor)
+    //    {
+    //        activeParticipantTextPopUp.SetActive(false);
+    //        activeConversation.ActiveUser = Conversation.ConversationActiveUser.Nurse;
+    //        activeParticipant = nurse;
+    //        target = nurse.GetComponent<NetworkIdentity>().connectionToClient;
+    //        activeParticipantTextPopUp = activeParticipant.transform.GetChild(0).transform.GetChild(3).gameObject;
 
-        }
+    //    }
 
-        reactionsToActiveElement = activeConversation.SelectNextElement(activeConversation.ActiveElement);
+    //    reactionsToActiveElement = activeConversation.SelectNextElement(activeConversation.ActiveElement);
 
-        if (activeConversation.CurrentState == Conversation.ConversationState.Ended)
-        {
-            Debug.Log("Conversation ended.");
-        }
+    //    if (activeConversation.CurrentState == Conversation.ConversationState.Ended)
+    //    {
+    //        Debug.Log("Conversation ended.");
+    //    }
 
 
-        if (reactionsToActiveElement.Count == 2)
-        {
-            //ChangeTextPopUpSize
-            activeParticipant.transform.GetChild(0).transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshPro>().text = reactionsToActiveElement[0].Text;
-            activeParticipant.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(1).GetComponent<TextMeshPro>().text = reactionsToActiveElement[1].Text;
-            activeParticipant.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(2).GetComponent<TextMeshPro>().text = null;
-        }
-        else
-        {
-            activeParticipant.transform.GetChild(0).transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshPro>().text = reactionsToActiveElement[0].Text;
-            activeParticipant.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(1).GetComponent<TextMeshPro>().text = reactionsToActiveElement[1].Text;
-            activeParticipant.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(2).GetComponent<TextMeshPro>().text = reactionsToActiveElement[2].Text;
-        }
-        activeParticipantTextPopUp.SetActive(true);
-    }
+    //    if (reactionsToActiveElement.Count == 2)
+    //    {
+    //        //ChangeTextPopUpSize
+    //        activeParticipant.transform.GetChild(0).transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshPro>().text = reactionsToActiveElement[0].Text;
+    //        activeParticipant.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(1).GetComponent<TextMeshPro>().text = reactionsToActiveElement[1].Text;
+    //        activeParticipant.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(2).GetComponent<TextMeshPro>().text = null;
+    //    }
+    //    else
+    //    {
+    //        activeParticipant.transform.GetChild(0).transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshPro>().text = reactionsToActiveElement[0].Text;
+    //        activeParticipant.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(1).GetComponent<TextMeshPro>().text = reactionsToActiveElement[1].Text;
+    //        activeParticipant.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(2).GetComponent<TextMeshPro>().text = reactionsToActiveElement[2].Text;
+    //    }
+    //    activeParticipantTextPopUp.SetActive(true);
+    //}
 
     public GameObject ActiveParticipantTextPopUp
     {
