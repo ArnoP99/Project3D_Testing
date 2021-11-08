@@ -132,7 +132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7593292599797178387
 Transform:
   m_ObjectHideFlags: 0
@@ -582,6 +582,7 @@ MonoBehaviour:
   optitrackrigidHmd: {fileID: 0}
   optitrackClient: {fileID: 0}
   controllerConfiguration: {fileID: 0}
+  controllersToHMDLocal: {fileID: 0}
   blaster: {fileID: 0}
   PlayerID: -1
   PlayerRigidbodyID: 0

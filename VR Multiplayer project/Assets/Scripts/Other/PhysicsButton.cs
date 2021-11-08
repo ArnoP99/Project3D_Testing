@@ -18,7 +18,7 @@ public class PhysicsButton : NetworkBehaviour
     private ConfigurableJoint joint;
     private Vector3 currentPos;
 
-    GameObject networkEvents;
+    
 
     public UnityEvent onPressed, onReleased;
 
@@ -41,7 +41,7 @@ public class PhysicsButton : NetworkBehaviour
             }
         }
 
-        networkEvents = GameObject.Find("NetworkEvents");
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -81,14 +81,7 @@ public class PhysicsButton : NetworkBehaviour
             }
             if (gameObject.tag == "NurseButton")
             {
-                if (isServer)
-                {
-                    networkEvents.GetComponent<NetworkEvents>().RpcUpdateNurse(player);
-                }
-                else
-                {
-                    networkEvents.GetComponent<NetworkEvents>().CmdUpdateNurse(player);
-                }
+                player.GetComponent<PlayerNetworkEvents>().ExecuteVisualRepUpdate();
 
 
                 //CmdUpdateNurse(player);
