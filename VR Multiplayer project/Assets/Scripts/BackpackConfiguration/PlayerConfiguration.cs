@@ -45,6 +45,7 @@ public class PlayerConfiguration : NetworkBehaviour
         controllerConfiguration = GameObject.Find("Controllers").GetComponent<ControllerConfiguration>();
         controllersToHMDLocal = this.GetComponentInChildren<ControllersToHMDLocal>();
 
+
         if (isLocalPlayer)
         {
             //When it is the local player and isn't the server/PC enable the camera, the tracked pose driver of the camera
