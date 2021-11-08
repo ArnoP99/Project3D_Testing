@@ -12,6 +12,7 @@ public class PlayerConfiguration : NetworkBehaviour
     public OptitrackHmd optitrackrigidHmd;
     public OptitrackStreamingClient optitrackClient;
     public ControllerConfiguration controllerConfiguration;
+    public ControllersToHMDLocal controllersToHMDLocal;
 
     public OptitrackRigidBody blaster;
 
@@ -42,7 +43,7 @@ public class PlayerConfiguration : NetworkBehaviour
         myCamera = this.GetComponentInChildren<Camera>();
         optitrackClient = GameObject.Find("OptitrackClient").GetComponent<OptitrackStreamingClient>();
         controllerConfiguration = GameObject.Find("Controllers").GetComponent<ControllerConfiguration>();
-
+        controllersToHMDLocal = this.GetComponentInChildren<ControllersToHMDLocal>();
 
         if (isLocalPlayer)
         {
@@ -56,6 +57,7 @@ public class PlayerConfiguration : NetworkBehaviour
             //When it is the local player and it is the server/PC enable the main camera
             else
             {
+                controllersToHMDLocal.enabled = false;
                 myCamera.enabled = false;
                 myCamera.GetComponent<AudioListener>().enabled = false;
                 GameObject.Find("Main camera").GetComponent<Camera>().enabled = true;
@@ -66,7 +68,7 @@ public class PlayerConfiguration : NetworkBehaviour
             optitrackrigidHmd.RigidBodyId = NetworkConfiguration.GameSettings.Rigidbodybody; //Set rigidbody ID
             optitrackrigidHmd.StreamingClient = optitrackClient;
         }
-        //When it isn't the local player dissable camera and audiolistener
+        //When it isn't the local player disable camera and audiolistener
         else
         {
             TrackedPoseDriver.enabled = false;
@@ -78,7 +80,6 @@ public class PlayerConfiguration : NetworkBehaviour
         if(PlayerID == 0)
         {
             this.GetComponentInChildren<MeshRenderer>().enabled = false;
-            this.gameObject.SetActive(false);
         }
         this.transform.parent = GameObject.Find("Players").transform; //Set 'Players" gameobject as parent
 
