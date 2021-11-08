@@ -8,11 +8,7 @@ public class NetworkEvents : NetworkBehaviour
 {
     private void Start()
     {
-        if (isServer)
-        {
-            NetworkServer.Spawn(gameObject);
-            Debug.Log("Spawned networkEvents");
-        }
+        
     }
 
 
