@@ -41,7 +41,7 @@ public class PhysicsButton : NetworkBehaviour
             }
         }
 
-        networkEvents = GameObject.Find("NetworkEvents"); 
+        networkEvents = GameObject.Find("NetworkEvents");
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -81,7 +81,15 @@ public class PhysicsButton : NetworkBehaviour
             }
             if (gameObject.tag == "NurseButton")
             {
-                networkEvents.GetComponent<NetworkEvents>().CmdUpdateNurse(player);
+                if (isServer)
+                {
+                    networkEvents.GetComponent<NetworkEvents>().RpcUpdateNurse(player);
+                }
+                else
+                {
+                    networkEvents.GetComponent<NetworkEvents>().CmdUpdateNurse(player);
+                }
+
 
                 //CmdUpdateNurse(player);
                 //player.tag = "Nurse";

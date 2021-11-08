@@ -6,6 +6,8 @@ using Mirror;
 
 public class NetworkEvents : NetworkBehaviour
 {
+
+    [Command]
     public void CmdUpdateNurse(GameObject nursePlayer)
     {
         Debug.Log("Cmd call before rpc");
@@ -13,7 +15,7 @@ public class NetworkEvents : NetworkBehaviour
         Debug.Log("Cmd call after rpc");
     }
 
-    [ClientRpc(includeOwner = false)]
+    [ClientRpc]
     public void RpcUpdateNurse(GameObject nursePlayer)
     {
         Debug.Log("Rpc call");
