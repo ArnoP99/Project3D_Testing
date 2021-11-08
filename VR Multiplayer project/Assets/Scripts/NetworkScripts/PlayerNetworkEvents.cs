@@ -16,13 +16,14 @@ public class PlayerNetworkEvents : NetworkBehaviour
     {
         if (isServer)
         {
+            Debug.Log("Rpc call from player");
             networkEvents.GetComponent<NetworkEvents>().RpcUpdateNurse(gameObject);
+            networkEvents.GetComponent<NetworkIdentity>().AssignClientAuthority(gameObject.GetComponent<NetworkIdentity>().connectionToServer);
         }
         else
         {
-            networkEvents.GetComponent<NetworkIdentity>().AssignClientAuthority(gameObject.GetComponent<NetworkIdentity>().connectionToServer);
             networkEvents.GetComponent<NetworkEvents>().CmdUpdateNurse(gameObject);
-            networkEvents.GetComponent<NetworkIdentity>().RemoveClientAuthority();
+            //networkEvents.GetComponent<NetworkIdentity>().RemoveClientAuthority();
         }
     }
 }
