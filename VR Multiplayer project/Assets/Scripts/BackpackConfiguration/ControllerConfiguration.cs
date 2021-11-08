@@ -69,7 +69,6 @@ public class ControllerConfiguration : MonoBehaviour
 
     private void InstantiateReverbControllers()
     {
-        Debug.Log("Zogezegd de instantiation van de controllers!!!! -------------- !!!!!!");
     }
     
     //Creates all blaster rigidbodies (also the ones that aren't used)

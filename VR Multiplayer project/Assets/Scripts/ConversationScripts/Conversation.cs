@@ -11,7 +11,7 @@ public class Conversation : MonoBehaviour
         ToBegin
     }
 
-    public enum ConversationStartUser
+    public enum ConversationActiveUser
     {
         Agressor,
         Nurse,
@@ -20,23 +20,24 @@ public class Conversation : MonoBehaviour
 
     private ConversationElement startElement;
     private ConversationElement activeElement;
-    private ConversationStartUser startingUser;
+    private ConversationActiveUser activeUser;
     private ConversationState currentState;
 
     public Conversation()
     {
         currentState = ConversationState.ToBegin;
         startElement = new ConversationElement();
-        startingUser = ConversationStartUser.Nurse;
+        activeUser = ConversationActiveUser.Nurse;
         activeElement = null;
 
     }
-    
 
-    private void SelectNextElement()
+
+    public List<ConversationElement> SelectNextElement(ConversationElement activeElement)
     {
-        
+        return activeElement.ReactionElements;
     }
+
 
     public ConversationElement StartElement
     {
@@ -62,15 +63,15 @@ public class Conversation : MonoBehaviour
         }
     }
 
-    public ConversationStartUser StartingUser
+    public ConversationActiveUser ActiveUser
     {
         get
         {
-            return startingUser;
+            return activeUser;
         }
         set
         {
-            startingUser = value;
+            activeUser = value;
         }
     }
 

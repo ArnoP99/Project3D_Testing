@@ -132,7 +132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7593292599797178387
 Transform:
   m_ObjectHideFlags: 0
@@ -375,6 +375,7 @@ GameObject:
   - component: {fileID: -8557955457647793105}
   - component: {fileID: 7167339889536513487}
   - component: {fileID: 2105119957541730900}
+  - component: {fileID: 8927309843479019004}
   m_Layer: 8
   m_Name: Player (HP Reverb Controllers)
   m_TagString: Untagged
@@ -581,6 +582,7 @@ MonoBehaviour:
   optitrackrigidHmd: {fileID: 0}
   optitrackClient: {fileID: 0}
   controllerConfiguration: {fileID: 0}
+  controllersToHMDLocal: {fileID: 0}
   blaster: {fileID: 0}
   PlayerID: -1
   PlayerRigidbodyID: 0
@@ -597,6 +599,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d40892e9b05d0e4e99b088f70855065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!114 &-8557955457647793105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,33 +698,37 @@ MonoBehaviour:
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
   target: {fileID: 4448455365948943806}
---- !u!114 &2105119957541730900
+--- !u!114 &6913411683361151451
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4254969925439542407}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e50a968e47964d844a81a0a055600374, type: 3}
+  m_Script: {fileID: 11500000, guid: 734b48bea0b204338958ee3d885e11f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
---- !u!114 &4910937999900162877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5956070972319153673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac2432b41c9d36b489ced101bd76eacb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &6980812295119865966
+  clientAuthority: 1
+  sendInterval: 0.05
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  bufferTimeMultiplier: 3
+  bufferSizeLimit: 64
+  catchupThreshold: 6
+  catchupMultiplier: 0.1
+  showGizmos: 1
+  showOverlay: 1
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  target: {fileID: 1941967407141896673}
+
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1023,15 +1031,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf3130c43f3a029419da6f1c4e36751c, type: 3}
---- !u!4 &1592639066793881247 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4101238782127868349, guid: cf3130c43f3a029419da6f1c4e36751c,
-    type: 3}
-  m_PrefabInstance: {fileID: 3382403682197907234}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &654227022287206058 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2874701982357180808, guid: cf3130c43f3a029419da6f1c4e36751c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3382403682197907234}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1592639066793881247 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4101238782127868349, guid: cf3130c43f3a029419da6f1c4e36751c,
     type: 3}
   m_PrefabInstance: {fileID: 3382403682197907234}
   m_PrefabAsset: {fileID: 0}

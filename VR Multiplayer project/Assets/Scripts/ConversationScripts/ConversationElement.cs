@@ -59,4 +59,39 @@ public class ConversationElement : MonoBehaviour
             return text;
         }
     }
+
+
+    public ElementState m_ElementState
+    {
+        get
+        {
+            return elementState;
+        }
+    }
+
+    public List<ConversationElement> ReactionElements
+    {
+        get
+        {
+            return reactionElements;
+        }
+    }
+
+    public UserState m_Userstate
+    {
+        get
+        {
+            return userstate;
+        }
+    }
+
+    public AudioSource TextToSpeech
+    {
+        get
+        {
+            return textToSpeech;
+        }
+    }
 }
+
+

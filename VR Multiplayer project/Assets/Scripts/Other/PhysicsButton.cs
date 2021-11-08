@@ -18,6 +18,8 @@ public class PhysicsButton : NetworkBehaviour
     private ConfigurableJoint joint;
     private Vector3 currentPos;
 
+    
+
     public UnityEvent onPressed, onReleased;
 
     void Start()
@@ -38,6 +40,8 @@ public class PhysicsButton : NetworkBehaviour
                 NetworkServer.Spawn(knop);
             }
         }
+
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -48,36 +52,43 @@ public class PhysicsButton : NetworkBehaviour
 
         if (collision.gameObject.tag == "RightController" || collision.gameObject.tag == "LeftController")
         {
-            GameObject visualRep = collision.gameObject.transform.parent.transform.parent.Find("VisualRepresentation").gameObject;
+            GameObject visualRep = collision.gameObject.transform.parent.transform.parent.GetChild(2).gameObject;
             GameObject player = collision.gameObject.transform.parent.transform.parent.transform.parent.gameObject;
 
-            if (isServer)
-            {
-                //RpcTest();
-                TargetTest(player.GetComponent<NetworkIdentity>().connectionToClient);
+            //if (isServer)
+            //{
+            //    //RpcTest();
+            //    TargetTest(player.GetComponent<NetworkIdentity>().connectionToClient);
 
-            }
-            if (isClient)
-            {
-                CmdMessageTest(player);
-            }
+            //}
+            //if (isClient)
+            //{
+            //    CmdMessageTest(player);
+            //}
 
             if (gameObject.tag == "AgressorButton")
             {
-                RpcUpdateAgressor(player);
+
+                //CmdUpdateAgressor(player);
+                if (isClient)
+                {
+                    CmdUpdateAgressor(player);
+                }
                 //player.tag = "Agressor";
                 //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
                 //Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
-                //GameManager.CheckForTwoPlayers(2); // Tell gamemanager an agressor has been initialized.
+                //GameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
             }
-            if (gameObject.tag == "NurseButton" && isServer)
+            if (gameObject.tag == "NurseButton")
             {
-                
-                RpcUpdateNurse(player); 
+                player.GetComponent<PlayerNetworkEvents>().ExecuteVisualRepUpdate();
+
+
+                //CmdUpdateNurse(player);
                 //player.tag = "Nurse";
                 //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
                 //Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
-                //GameManager.CheckForTwoPlayers(1); // Tell gamemanager a nurse has been initialized.
+                //GameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
 
             }
             if (gameObject.tag == "SceneButton")
@@ -119,43 +130,34 @@ public class PhysicsButton : NetworkBehaviour
         Debug.Log("Released");
     }
 
+    //[Command(requiresAuthority = false)]
+    //void CmdMessageTest(GameObject player)
+    //{
+    //    Debug.Log("This is a message run from the server, initiated by the player: " + player.GetComponent<NetworkIdentity>().netId);
+    //}
+
+    //[ClientRpc(includeOwner = false)]
+    //public void RpcTest()
+    //{
+    //    Debug.Log("Message from Server To Client");
+    //}
+
+    //[TargetRpc]
+    //public void TargetTest(NetworkConnection target)
+    //{
+    //    Debug.Log("server to specific target");
+    //}
+
     [Command(requiresAuthority = false)]
-    void CmdMessageTest(GameObject player)
+    public void CmdUpdateAgressor(GameObject player)
     {
-        Debug.Log("This is a message run from the server, initiated by the player: " + player.name);
-    }
-
-    [ClientRpc (includeOwner = false)]
-    public void RpcTest()
-    {
-        Debug.Log("Message from Server To Client");
-    }
-
-    [TargetRpc]
-    public void TargetTest(NetworkConnection target)
-    {
-        Debug.Log("server to specific target");
-    }
-
-    [ClientRpc(includeOwner = false)]
-    public void RpcUpdateNurse(GameObject player)
-    {
-        GameObject visualRep = player.transform.GetChild(0).transform.GetChild(2).gameObject;
-        player.tag = "Nurse";
-        Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
-        Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
-        GameManager.CheckForTwoPlayers(2); // Tell gamemanager an agressor has been initialized.
-    }
-
-
-    [ClientRpc(includeOwner = false)]
-    public void RpcUpdateAgressor(GameObject player)
-    {
-        GameObject visualRep = player.transform.GetChild(0).transform.GetChild(2).gameObject;
         player.tag = "Agressor";
-        Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
-        Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
-        GameManager.CheckForTwoPlayers(2); // Tell gamemanager an agressor has been initialized.
+        //if (visualRep != null && visualRep.transform.GetChild(0) != null)
+        //{
+        //    visualRep.transform.GetChild(0).gameObject.SetActive(false);
+        //}
+        //Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
+        //gameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
+        Debug.Log("TestAgressor  :" + player);
     }
-
 }
