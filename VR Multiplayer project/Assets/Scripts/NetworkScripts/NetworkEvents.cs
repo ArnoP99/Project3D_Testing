@@ -6,6 +6,11 @@ using Mirror;
 
 public class NetworkEvents : NetworkBehaviour
 {
+    private void Start()
+    {
+        NetworkServer.Spawn(gameObject);
+    }
+
 
     [Command]
     public void CmdUpdateNurse(GameObject nursePlayer)

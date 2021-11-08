@@ -20,7 +20,9 @@ public class PlayerNetworkEvents : NetworkBehaviour
         }
         else
         {
+            networkEvents.GetComponent<NetworkIdentity>().AssignClientAuthority(gameObject.GetComponent<NetworkIdentity>().connectionToServer);
             networkEvents.GetComponent<NetworkEvents>().CmdUpdateNurse(gameObject);
+            networkEvents.GetComponent<NetworkIdentity>().RemoveClientAuthority();
         }
     }
 }
