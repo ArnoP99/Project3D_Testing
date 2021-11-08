@@ -7,9 +7,6 @@ public class GameManager : MonoBehaviour
     private static GameManager instance = null;
     private static readonly object padlock = new object();
 
-    GameObject nurse;
-    GameObject agressor;
-
     private GameManager()
     {
     }
@@ -32,7 +29,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
-
     }
 
     private void Update()
@@ -40,45 +36,35 @@ public class GameManager : MonoBehaviour
     }
 
     // Check if there are 2 different players in the game (Nurse & Agressor) and if they are both present, start a new conversation.
-    public void CheckForTwoPlayers(int button, GameObject player)
+    public static void CheckForTwoPlayers(int button)
     {
         bool nursePlayer = false;
         bool agressorPlayer = false;
 
-
-
         if (button == 1)
         {
             nursePlayer = true;
-            nurse = player;
         }
-        else if (button == 2)
+        else if(button == 2)
         {
             agressorPlayer = true;
-            agressor = player;
         }
         else
         {
             Debug.Log("Invalid number received from button! Check if the correct numbers are passed from each button ...");
         }
 
-        if (nursePlayer == true && agressorPlayer == true)
+        /*if(nursePlayer == true && agressorPlayer == true)
         {
             Debug.Log("Conversation Started.");
-            if (nurse != null && agressor != null)
-            {
-                ConversationManager.StartConversations(nurse, agressor);
-            }
-        }
-        else
+            ConversationManager.StartConversation(nurse, agressor);
+        }*/
+
+        if(nursePlayer == true)
         {
-            Debug.Log("You need a nurse and an agressor to start a conversation.");
+            Debug.Log("Conversation Started.");
+            ConversationManager.StartConversation();
         }
 
-        //if(nursePlayer == true)
-        //{
-        //    Debug.Log("Conversation Started.");
-        //    ConversationManager.StartConversations();
-        //}
     }
 }

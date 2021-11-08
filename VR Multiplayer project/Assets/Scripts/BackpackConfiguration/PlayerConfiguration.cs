@@ -82,7 +82,6 @@ public class PlayerConfiguration : NetworkBehaviour
         {
             this.GetComponentInChildren<MeshRenderer>().enabled = false;
         }
-        Debug.Log("Set player under Players object");
         this.transform.parent = GameObject.Find("Players").transform; //Set 'Players" gameobject as parent
 
         optitrackClient.LocalAddress = NetworkConfiguration.GameSettings.IPAdress; //Set IP adress
