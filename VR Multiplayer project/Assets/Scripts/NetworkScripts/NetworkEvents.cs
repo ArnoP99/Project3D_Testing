@@ -8,7 +8,11 @@ public class NetworkEvents : NetworkBehaviour
 {
     private void Start()
     {
-        NetworkServer.Spawn(gameObject);
+        if (isServer)
+        {
+            NetworkServer.Spawn(gameObject);
+            Debug.Log("Spawned networkEvents");
+        }
     }
 
 
@@ -26,11 +30,11 @@ public class NetworkEvents : NetworkBehaviour
         Debug.Log("Rpc call");
     }
 
-        //if (visualRep != null && visualRep.transform.GetChild(0) != null)
-        //{
-        //    visualRep.transform.GetChild(0).gameObject.SetActive(false);
-        //}
-        //Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
-        //gameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
-        //Debug.Log("TestNurse  :" + player);
+    //if (visualRep != null && visualRep.transform.GetChild(0) != null)
+    //{
+    //    visualRep.transform.GetChild(0).gameObject.SetActive(false);
+    //}
+    //Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
+    //gameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
+    //Debug.Log("TestNurse  :" + player);
 }
