@@ -18,9 +18,7 @@ public class PhysicsButton : NetworkBehaviour
     private ConfigurableJoint joint;
     private Vector3 currentPos;
 
-
-
-    GameManager gameManager;
+    GameObject networkEvents;
 
     public UnityEvent onPressed, onReleased;
 
@@ -42,6 +40,8 @@ public class PhysicsButton : NetworkBehaviour
                 NetworkServer.Spawn(knop);
             }
         }
+
+        networkEvents = GameObject.Find("NetworkEvents"); 
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -52,12 +52,8 @@ public class PhysicsButton : NetworkBehaviour
 
         if (collision.gameObject.tag == "RightController" || collision.gameObject.tag == "LeftController")
         {
-
-
             GameObject visualRep = collision.gameObject.transform.parent.transform.parent.GetChild(2).gameObject;
             GameObject player = collision.gameObject.transform.parent.transform.parent.transform.parent.gameObject;
-
-            Debug.Log("VisualRep = " + visualRep);
 
             //if (isServer)
             //{
@@ -85,14 +81,9 @@ public class PhysicsButton : NetworkBehaviour
             }
             if (gameObject.tag == "NurseButton")
             {
+                networkEvents.GetComponent<NetworkEvents>().CmdUpdateNurse(player);
 
                 //CmdUpdateNurse(player);
-
-                if (isClient)
-                {
-                    CmdUpdateNurse(player);
-                }
-
                 //player.tag = "Nurse";
                 //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
                 //Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
@@ -157,20 +148,6 @@ public class PhysicsButton : NetworkBehaviour
     //}
 
     [Command(requiresAuthority = false)]
-    public void CmdUpdateNurse(GameObject player)
-    {
-        player.tag = "Nurse";
-        //if (visualRep != null && visualRep.transform.GetChild(0) != null)
-        //{
-        //    visualRep.transform.GetChild(0).gameObject.SetActive(false);
-        //}
-        //Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
-        //gameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
-        Debug.Log("TestNurse  :" + player);
-    }
-
-
-    [Command(requiresAuthority = false)]
     public void CmdUpdateAgressor(GameObject player)
     {
         player.tag = "Agressor";
@@ -182,5 +159,4 @@ public class PhysicsButton : NetworkBehaviour
         //gameManager.CheckForTwoPlayers(2, player); // Tell gamemanager an agressor has been initialized.
         Debug.Log("TestAgressor  :" + player);
     }
-
 }
