@@ -10,6 +10,14 @@ public class PlayerNetworkEvents : NetworkBehaviour
     private void Start()
     {
         networkEvents = GameObject.Find("NetworkEvents");
+
+        if (gameObject.GetComponent<PlayerConfiguration>().PlayerID == 0)
+        {
+            NetworkServer.Spawn(networkEvents);
+            Debug.Log("Spawned networkEvents");
+        }
+
+        
     }
 
     public void ExecuteVisualRepUpdate()
