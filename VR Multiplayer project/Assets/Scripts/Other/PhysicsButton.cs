@@ -54,16 +54,20 @@ public class PhysicsButton : NetworkBehaviour
             if (isServer)
             {
                 //RpcTest();
+                Debug.Log("IsServer: " + isServer);
                 TargetTest(player.GetComponent<NetworkIdentity>().connectionToClient);
 
             }
             if (isLocalPlayer)
             {
+                Debug.Log("IsLocalPlayer: " + isLocalPlayer);
                 CmdMessageTest(player);
             }
 
             if (gameObject.tag == "AgressorButton")
             {
+                Debug.Log("IsLocalPlayer: " + isLocalPlayer);
+
                 if (isLocalPlayer)
                 {
                     CmdUpdateAgressor(player);
@@ -71,7 +75,7 @@ public class PhysicsButton : NetworkBehaviour
             }
             if (gameObject.tag == "NurseButton" && isServer)
             {
-                if (isLocalPlayer)
+                Debug.Log("IsLocalPlayer: " + isLocalPlayer);
                 {
                     CmdUpdateNurse(player);
                 }
