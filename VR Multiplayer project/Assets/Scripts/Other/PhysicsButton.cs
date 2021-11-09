@@ -51,21 +51,21 @@ public class PhysicsButton : NetworkBehaviour
             GameObject visualRep = collision.gameObject.transform.parent.transform.parent.Find("VisualRepresentation").gameObject;
             GameObject player = collision.gameObject.transform.parent.transform.parent.transform.parent.gameObject;
 
-            if (player == isServer)
-            {
-                Debug.Log("IsServer: " + (player == isServer));
-                TargetTest(player.GetComponent<NetworkIdentity>().connectionToClient);
-            }
+            //if (player == isServer)
+            //{
+            //    Debug.Log("IsServer: " + (player == isServer));
+            //    TargetTest(player.GetComponent<NetworkIdentity>().connectionToClient);
+            //}
 
-            if (player == isLocalPlayer)
-            {
-                Debug.Log("IsLocalPlayer: " + (player == isLocalPlayer));
-                CmdMessageTest(player);
-            }
+            //if (player == isLocalPlayer)
+            //{
+            //    Debug.Log("IsLocalPlayer: " + (player == isLocalPlayer));
+            //    CmdMessageTest(player);
+            //}
 
             if (gameObject.tag == "AgressorButton")
             {
-                Debug.Log("IsLocalPlayer: " + (player == isLocalPlayer));
+                Debug.Log("IsLocalPlayer A: " + (player == isLocalPlayer));
 
                 if (player == isLocalPlayer)
                 {
@@ -74,7 +74,8 @@ public class PhysicsButton : NetworkBehaviour
             }
             if (gameObject.tag == "NurseButton")
             {
-                Debug.Log("IsLocalPlayer: " + (player == isLocalPlayer));
+                Debug.Log("IsLocalPlayer N: " + (player == isLocalPlayer));
+                if(player == isLocalPlayer)
                 {
                     CmdUpdateNurse(player);
                 }
