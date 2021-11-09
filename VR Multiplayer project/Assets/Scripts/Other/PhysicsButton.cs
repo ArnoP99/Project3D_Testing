@@ -64,21 +64,17 @@ public class PhysicsButton : NetworkBehaviour
 
             if (gameObject.tag == "AgressorButton")
             {
-                RpcUpdateAgressor(player);
-                //player.tag = "Agressor";
-                //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
-                //Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
-                //GameManager.CheckForTwoPlayers(2); // Tell gamemanager an agressor has been initialized.
+                if (isLocalPlayer)
+                {
+                    CmdUpdateAgressor(player);
+                }
             }
             if (gameObject.tag == "NurseButton" && isServer)
             {
-                
-                RpcUpdateNurse(player); 
-                //player.tag = "Nurse";
-                //Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
-                //Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
-                //GameManager.CheckForTwoPlayers(1); // Tell gamemanager a nurse has been initialized.
-
+                if (isLocalPlayer)
+                {
+                    CmdUpdateNurse(player);
+                }
             }
             if (gameObject.tag == "SceneButton")
             {
@@ -125,7 +121,7 @@ public class PhysicsButton : NetworkBehaviour
         Debug.Log("This is a message run from the server, initiated by the player: " + player.name);
     }
 
-    [ClientRpc (includeOwner = false)]
+    [ClientRpc(includeOwner = false)]
     public void RpcTest()
     {
         Debug.Log("Message from Server To Client");
@@ -137,18 +133,30 @@ public class PhysicsButton : NetworkBehaviour
         Debug.Log("server to specific target");
     }
 
-    [ClientRpc(includeOwner = false)]
+    [Command(requiresAuthority = false)]
+    void CmdUpdateNurse(GameObject player)
+    {
+        RpcUpdateNurse(player);
+    }
+
+    [Command(requiresAuthority = false)]
+    void CmdUpdateAgressor(GameObject player)
+    {
+        RpcUpdateAgressor(player);
+    }
+
+    [ClientRpc]
     public void RpcUpdateNurse(GameObject player)
     {
         GameObject visualRep = player.transform.GetChild(0).transform.GetChild(2).gameObject;
         player.tag = "Nurse";
         Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
         Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
-        GameManager.CheckForTwoPlayers(2); // Tell gamemanager an agressor has been initialized.
+        GameManager.CheckForTwoPlayers(1); // Tell gamemanager an agressor has been initialized.
     }
 
 
-    [ClientRpc(includeOwner = false)]
+    [ClientRpc]
     public void RpcUpdateAgressor(GameObject player)
     {
         GameObject visualRep = player.transform.GetChild(0).transform.GetChild(2).gameObject;
