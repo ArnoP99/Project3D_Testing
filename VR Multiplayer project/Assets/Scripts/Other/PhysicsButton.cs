@@ -65,17 +65,17 @@ public class PhysicsButton : NetworkBehaviour
 
             if (gameObject.tag == "AgressorButton")
             {
-                Debug.Log("IsLocalPlayer A: " + (player == isLocalPlayer));
+                Debug.Log("IsLocalPlayer A: " + (player == isClient));
 
-                if (player == isLocalPlayer)
+                if (player == isClient)
                 {
                     CmdUpdateAgressor(player);
                 }
             }
             if (gameObject.tag == "NurseButton")
             {
-                Debug.Log("IsLocalPlayer N: " + (player == isLocalPlayer));
-                if(player == isLocalPlayer)
+                Debug.Log("IsLocalPlayer N: " + (player == isClient));
+                if(player == isClient)
                 {
                     CmdUpdateNurse(player);
                 }
