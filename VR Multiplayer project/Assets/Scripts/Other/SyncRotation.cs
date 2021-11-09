@@ -28,8 +28,10 @@ public class SyncRotation : NetworkBehaviour
         if (this.isLocalPlayer) { }
         rot = new Vector3(0, playerCamera.transform.eulerAngles.y, 0);
         visualRepresentation.transform.eulerAngles = rot;
-        if (playerCamera.transform.eulerAngles.y - textPlayer.transform.eulerAngles.y < -180 || playerCamera.transform.eulerAngles.y - textPlayer.transform.eulerAngles.y > 180)
+        if (playerCamera.transform.eulerAngles.y - textPlayer.transform.eulerAngles.y < -120 || playerCamera.transform.eulerAngles.y - textPlayer.transform.eulerAngles.y > 120)
         {
+            Debug.Log("PlayerCamera Rot: " + playerCamera.transform.eulerAngles.y);
+            Debug.Log("TextPlayer Rot: " + textPlayer.transform.eulerAngles.y);
             textPlayer.transform.eulerAngles = rot;
         }
     }
