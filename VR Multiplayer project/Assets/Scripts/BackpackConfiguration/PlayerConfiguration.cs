@@ -68,7 +68,7 @@ public class PlayerConfiguration : NetworkBehaviour
             optitrackrigidHmd.RigidBodyId = NetworkConfiguration.GameSettings.Rigidbodybody; //Set rigidbody ID
             optitrackrigidHmd.StreamingClient = optitrackClient;
         }
-        //When it isn't the local player dissable camera and audiolistener
+        //When it isn't the local player disable camera and audiolistener
         else
         {
             TrackedPoseDriver.enabled = false;
