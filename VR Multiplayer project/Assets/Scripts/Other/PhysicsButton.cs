@@ -57,7 +57,7 @@ public class PhysicsButton : NetworkBehaviour
                 TargetTest(player.GetComponent<NetworkIdentity>().connectionToClient);
 
             }
-            if (isClient)
+            if (isLocalPlayer)
             {
                 CmdMessageTest(player);
             }
