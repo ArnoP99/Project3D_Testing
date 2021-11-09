@@ -51,31 +51,30 @@ public class PhysicsButton : NetworkBehaviour
             GameObject visualRep = collision.gameObject.transform.parent.transform.parent.Find("VisualRepresentation").gameObject;
             GameObject player = collision.gameObject.transform.parent.transform.parent.transform.parent.gameObject;
 
-            if (isServer)
+            if (player == isServer)
             {
-                //RpcTest();
-                Debug.Log("IsServer: " + isServer);
+                Debug.Log("IsServer: " + (player == isServer));
                 TargetTest(player.GetComponent<NetworkIdentity>().connectionToClient);
-
             }
-            if (isLocalPlayer)
+
+            if (player == isLocalPlayer)
             {
-                Debug.Log("IsLocalPlayer: " + isLocalPlayer);
+                Debug.Log("IsLocalPlayer: " + (player == isLocalPlayer));
                 CmdMessageTest(player);
             }
 
             if (gameObject.tag == "AgressorButton")
             {
-                Debug.Log("IsLocalPlayer: " + isLocalPlayer);
+                Debug.Log("IsLocalPlayer: " + (player == isLocalPlayer));
 
-                if (isLocalPlayer)
+                if (player == isLocalPlayer)
                 {
                     CmdUpdateAgressor(player);
                 }
             }
-            if (gameObject.tag == "NurseButton" && isServer)
+            if (gameObject.tag == "NurseButton")
             {
-                Debug.Log("IsLocalPlayer: " + isLocalPlayer);
+                Debug.Log("IsLocalPlayer: " + (player == isLocalPlayer));
                 {
                     CmdUpdateNurse(player);
                 }
