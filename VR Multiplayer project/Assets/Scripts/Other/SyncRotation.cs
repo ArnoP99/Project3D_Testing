@@ -9,12 +9,12 @@ public class SyncRotation : NetworkBehaviour
     GameObject playerCamera;
     GameObject visualRepresentation;
     GameObject textPlayer;
-    Vector3 rot;
 
+    Vector3 rot;
 
     private void Start()
     {
-        if (isLocalPlayer)
+        if (this.isLocalPlayer)
         {
             playerCamera = gameObject.transform.GetChild(0).transform.GetChild(0).gameObject;
             visualRepresentation = gameObject.transform.GetChild(0).transform.GetChild(2).gameObject;
@@ -25,10 +25,10 @@ public class SyncRotation : NetworkBehaviour
 
     void Update()
     {
-        if (isLocalPlayer) { }
+        if (this.isLocalPlayer) { }
         rot = new Vector3(0, playerCamera.transform.eulerAngles.y, 0);
         visualRepresentation.transform.eulerAngles = rot;
-        if (playerCamera.transform.eulerAngles.y - textPlayer.transform.eulerAngles.y < -110 || playerCamera.transform.eulerAngles.y - textPlayer.transform.eulerAngles.y > 110)
+        if (playerCamera.transform.eulerAngles.y - textPlayer.transform.eulerAngles.y < -180 || playerCamera.transform.eulerAngles.y - textPlayer.transform.eulerAngles.y > 180)
         {
             textPlayer.transform.eulerAngles = rot;
         }

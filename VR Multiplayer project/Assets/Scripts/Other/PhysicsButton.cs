@@ -44,24 +44,12 @@ public class PhysicsButton : NetworkBehaviour
     {
 
         Pressed();
+
         currentPos = collision.transform.parent.transform.parent.position;
 
         if (collision.gameObject.tag == "RightController" || collision.gameObject.tag == "LeftController")
         {
-            GameObject visualRep = collision.gameObject.transform.parent.transform.parent.Find("VisualRepresentation").gameObject;
             GameObject player = collision.gameObject.transform.parent.transform.parent.transform.parent.gameObject;
-
-            //if (player == isServer)
-            //{
-            //    Debug.Log("IsServer: " + (player == isServer));
-            //    TargetTest(player.GetComponent<NetworkIdentity>().connectionToClient);
-            //}
-
-            //if (player == isLocalPlayer)
-            //{
-            //    Debug.Log("IsLocalPlayer: " + (player == isLocalPlayer));
-            //    CmdMessageTest(player);
-            //}
 
             if (gameObject.tag == "AgressorButton")
             {
@@ -107,9 +95,8 @@ public class PhysicsButton : NetworkBehaviour
     private void Pressed()
     {
         isPressed = true;
-        Debug.Log("Pressed");
         onPressed.Invoke();
-
+        Debug.Log("Pressed");
     }
 
     private void Released()
@@ -119,23 +106,23 @@ public class PhysicsButton : NetworkBehaviour
         Debug.Log("Released");
     }
 
-    [Command(requiresAuthority = false)]
-    void CmdMessageTest(GameObject player)
-    {
-        Debug.Log("This is a message run from the server, initiated by the player: " + player.name);
-    }
+    //[Command(requiresAuthority = false)]
+    //void CmdMessageTest(GameObject player)
+    //{
+    //    Debug.Log("This is a message run from the server, initiated by the player: " + player.name);
+    //}
 
-    [ClientRpc(includeOwner = false)]
-    public void RpcTest()
-    {
-        Debug.Log("Message from Server To Client");
-    }
+    //[ClientRpc(includeOwner = false)]
+    //public void RpcTest()
+    //{
+    //    Debug.Log("Message from Server To Client");
+    //}
 
-    [TargetRpc]
-    public void TargetTest(NetworkConnection target)
-    {
-        Debug.Log("server to specific target");
-    }
+    //[TargetRpc]
+    //public void TargetTest(NetworkConnection target)
+    //{
+    //    Debug.Log("server to specific target");
+    //}
 
     [Command(requiresAuthority = false)]
     void CmdUpdateNurse(GameObject player)
@@ -169,5 +156,4 @@ public class PhysicsButton : NetworkBehaviour
         Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
         GameManager.CheckForTwoPlayers(2); // Tell gamemanager an agressor has been initialized.
     }
-
 }
