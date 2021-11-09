@@ -43,7 +43,7 @@ public class SyncRotation : NetworkBehaviour
         {
             textPlayer.transform.eulerAngles = rot2;
         }
-        else if (playerCamera.transform.eulerAngles.y > 180 || playerCamera.transform.eulerAngles.y < 300)
+        else if (playerCamera.transform.eulerAngles.y > 180 && playerCamera.transform.eulerAngles.y < 300)
         {
             textPlayer.transform.eulerAngles = rot3;
         }
