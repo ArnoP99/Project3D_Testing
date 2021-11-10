@@ -1,6 +1,5 @@
 using Mirror;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -24,7 +23,6 @@ public class PhysicsButton : NetworkBehaviour
     {
         startPos = transform.localPosition;
         joint = GetComponent<ConfigurableJoint>();
-
 
         if (isServer)
         {
@@ -63,7 +61,7 @@ public class PhysicsButton : NetworkBehaviour
             if (gameObject.tag == "NurseButton")
             {
                 Debug.Log("IsLocalPlayer N: " + (player == isClient));
-                if(player == isClient)
+                if (player == isClient)
                 {
                     CmdUpdateNurse(player);
                 }
@@ -145,7 +143,6 @@ public class PhysicsButton : NetworkBehaviour
         Instantiate(prefabNurse, currentPos, Quaternion.identity, visualRep.transform);
         GameManager.CheckForTwoPlayers(1); // Tell gamemanager an agressor has been initialized.
     }
-
 
     [ClientRpc]
     public void RpcUpdateAgressor(GameObject player)

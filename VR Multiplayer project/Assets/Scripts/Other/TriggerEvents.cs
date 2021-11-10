@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System;
 
 public class TriggerEvents : MonoBehaviour
 {
@@ -11,7 +8,7 @@ public class TriggerEvents : MonoBehaviour
         if (collision.gameObject.tag == "LeftController" || collision.gameObject.tag == "RightController")
         {
             gameObject.GetComponent<TextMeshPro>().color = Color.red;
-            
+
         }
     }
 

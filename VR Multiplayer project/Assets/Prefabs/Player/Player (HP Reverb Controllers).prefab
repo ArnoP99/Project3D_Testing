@@ -582,6 +582,7 @@ MonoBehaviour:
   optitrackClient: {fileID: 0}
   controllerConfiguration: {fileID: 0}
   controllersToHMDLocal: {fileID: 0}
+  syncRotation: {fileID: 0}
   blaster: {fileID: 0}
   PlayerID: -1
   PlayerRigidbodyID: 0
@@ -704,7 +705,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4254969925439542407}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e50a968e47964d844a81a0a055600374, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ddf96ac9d7fc284fbd967b8e0a07868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0

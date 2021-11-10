@@ -1,8 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
-using UnityEngine.XR;
 using UnityEngine.SpatialTracking;
 using UnityEngine.InputSystem;
 
@@ -82,7 +80,7 @@ public class PlayerConfiguration : NetworkBehaviour
         }
 
         //Make server/PC player invissable
-        if(PlayerID == 0)
+        if (PlayerID == 0)
         {
             this.GetComponentInChildren<MeshRenderer>().enabled = false;
         }
@@ -92,7 +90,7 @@ public class PlayerConfiguration : NetworkBehaviour
         optitrackClient.enabled = true;
 
         //When we use the HPReverb Controllers and this isn't the server/PC instantiate the reverb controllers
-        if(controllerConfiguration.typeOfController == ControllerConfiguration.TypeOfController.ReverbControllers && PlayerID != 0)
+        if (controllerConfiguration.typeOfController == ControllerConfiguration.TypeOfController.ReverbControllers && PlayerID != 0)
         {
             InstantiateReverbControllers();
         }

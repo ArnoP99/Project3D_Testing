@@ -10,11 +10,9 @@ TagManager:
   - RightController
   - SceneButton
   - ChoicePopUp
-  - Nurse
-  - Agressor
-  - ActiveChoice
-  - InactiveChoice
-  - Button
+  - TVRemoteButton
+  - LightSwitch
+  - EKGButton
   layers:
   - Default
   - TransparentFX
@@ -22,12 +20,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ceiling
+  - TLLights
+  - Walls
+  - Throwables
+  - TLLightsRoom
+  - TLLightsHallway
   - 
   - 
   - 

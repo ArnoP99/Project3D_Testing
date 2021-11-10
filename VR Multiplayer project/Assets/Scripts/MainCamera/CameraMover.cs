@@ -64,12 +64,12 @@ public class CameraMover : MonoBehaviour
         }
 
 
-        
+
         float scrollDelta = UnityEngine.Input.mouseScrollDelta.y; //Get the value of howmuch is scrolled since the last frame
 
 
         //Move the camera closer of father away from the focus point according to the scrolldelta value
-        if(scrollDelta != 0)
+        if (scrollDelta != 0)
         {
             Vector3 cameraToTargetVector = this.transform.position - focusTarget;
 
