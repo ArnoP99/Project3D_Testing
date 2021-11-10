@@ -13,6 +13,11 @@ TagManager:
   - TVRemoteButton
   - LightSwitch
   - EKGButton
+  - InactiveChoice
+  - Nurse
+  - Agressor
+  - ActiveChoice
+  - Button
   layers:
   - Default
   - TransparentFX
