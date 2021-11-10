@@ -150,7 +150,7 @@ public class PhysicsButton : NetworkBehaviour
         GameObject visualRep = player.transform.GetChild(0).transform.GetChild(2).gameObject;
         player.tag = "Agressor";
         Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
-        Instantiate(prefabAgressor, currentPos, Quaternion.identity, visualRep.transform);
+        Instantiate(prefabAgressor, currentPos, player.transform.GetChild(0).transform.GetChild(0).rotation, visualRep.transform);
         GameManager.CheckForTwoPlayers(2); // Tell gamemanager an agressor has been initialized.
     }
 }
