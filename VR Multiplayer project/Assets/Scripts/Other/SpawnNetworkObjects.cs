@@ -10,20 +10,33 @@ public class SpawnNetworkObjects : NetworkBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").gameObject;
+        player = gameObject;
 
-        Debug.Log("player == isServer: " + (player == isServer));
+        Debug.Log("player == isClient: " + (player == isClient));
+        Debug.Log("player == isLocalPlayer: " + (player == isLocalPlayer));
 
-        if(player == isServer)
+        if (player == isClient)
         {
-            bottles.Add(GameObject.Find("Bottles").transform.GetChild(0).gameObject);
-            bottles.Add(GameObject.Find("Bottles").transform.GetChild(1).gameObject);
-            bottles.Add(GameObject.Find("Bottles").transform.GetChild(2).gameObject);
+            CmdSpawnObjects();
+        }
+    }
 
-            foreach (var bottle in bottles)
-            {
-                NetworkServer.Spawn(bottle);
-            }
+    [Command(requiresAuthority = false)]
+    void CmdSpawnObjects()
+    {
+        RpcSpawnObjects();
+    }
+
+    [ClientRpc]
+    void RpcSpawnObjects()
+    {
+        bottles.Add(GameObject.Find("Bottles").transform.GetChild(0).gameObject);
+        bottles.Add(GameObject.Find("Bottles").transform.GetChild(1).gameObject);
+        bottles.Add(GameObject.Find("Bottles").transform.GetChild(2).gameObject);
+
+        foreach (var bottle in bottles)
+        {
+            NetworkServer.Spawn(bottle);
         }
     }
 }
