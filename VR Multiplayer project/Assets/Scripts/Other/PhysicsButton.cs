@@ -126,14 +126,18 @@ public class PhysicsButton : NetworkBehaviour
     void CmdUpdateNurse(GameObject player)
     {
         RpcUpdateNurse(player);
-        RpcSpawnObjects();
+        NetworkServer.Spawn(GameObject.Find("Bottles").transform.GetChild(0).gameObject);
+        NetworkServer.Spawn(GameObject.Find("Bottles").transform.GetChild(1).gameObject);
+        NetworkServer.Spawn(GameObject.Find("Bottles").transform.GetChild(2).gameObject);
     }
 
     [Command(requiresAuthority = false)]
     void CmdUpdateAgressor(GameObject player)
     {
         RpcUpdateAgressor(player);
-        RpcSpawnObjects();
+        NetworkServer.Spawn(GameObject.Find("Bottles").transform.GetChild(0).gameObject);
+        NetworkServer.Spawn(GameObject.Find("Bottles").transform.GetChild(1).gameObject);
+        NetworkServer.Spawn(GameObject.Find("Bottles").transform.GetChild(2).gameObject);
     }
 
     [ClientRpc]
@@ -154,14 +158,5 @@ public class PhysicsButton : NetworkBehaviour
         Destroy(visualRep.transform.gameObject.transform.GetChild(0).gameObject);
         Instantiate(prefabAgressor, currentPos, player.transform.GetChild(0).transform.GetChild(0).rotation, visualRep.transform);
         GameManager.CheckForTwoPlayers(2); // Tell gamemanager an agressor has been initialized.
-    }
-
-    [ClientRpc]
-    void RpcSpawnObjects()
-    {
-        NetworkServer.Spawn(GameObject.Find("Bottles").transform.GetChild(0).gameObject);
-        NetworkServer.Spawn(GameObject.Find("Bottles").transform.GetChild(1).gameObject);
-        NetworkServer.Spawn(GameObject.Find("Bottles").transform.GetChild(2).gameObject);
-
     }
 }
