@@ -17,7 +17,7 @@ public class SyncPosition : NetworkBehaviour
         }
     }
 
-    [Command]
+    [Command (requiresAuthority = false)]
     void CmdSyncPosRot(Vector3 localPosition, Quaternion localRotation)
     {
         RpcSyncPosRot(localPosition, localRotation);
