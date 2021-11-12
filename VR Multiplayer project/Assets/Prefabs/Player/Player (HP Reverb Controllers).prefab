@@ -519,7 +519,6 @@ GameObject:
   - component: {fileID: -8557955457647793105}
   - component: {fileID: 7167339889536513487}
   - component: {fileID: 2105119957541730900}
-  - component: {fileID: 6793969238115093779}
   m_Layer: 8
   m_Name: Player (HP Reverb Controllers)
   m_TagString: Player
@@ -855,18 +854,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
---- !u!114 &6793969238115093779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4254969925439542407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c9c60ec1d7aed340a85419c27987bb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4910937999900162877
 MonoBehaviour:
   m_ObjectHideFlags: 0

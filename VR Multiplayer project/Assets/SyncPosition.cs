@@ -1,0 +1,35 @@
+using Mirror;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SyncPosition : NetworkBehaviour
+{
+    void Update()
+    {
+        if (isServer)
+        {
+            RpcSyncPosRot(transform.localPosition, transform.localRotation);
+        }
+        else
+        {
+            CmdSyncPosRot(transform.localPosition, transform.localRotation);
+        }
+    }
+
+    [Command]
+    void CmdSyncPosRot(Vector3 localPosition, Quaternion localRotation)
+    {
+        RpcSyncPosRot(localPosition, localRotation);
+    }
+
+    [ClientRpc]
+    void RpcSyncPosRot(Vector3 localPosition, Quaternion localRotation)
+    {
+        if (!isLocalPlayer)
+        {
+            transform.localPosition = localPosition;
+            transform.localRotation = localRotation;
+        }
+    }
+}

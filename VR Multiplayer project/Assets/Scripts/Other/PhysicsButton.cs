@@ -23,19 +23,6 @@ public class PhysicsButton : NetworkBehaviour
     {
         startPos = transform.localPosition;
         joint = GetComponent<ConfigurableJoint>();
-
-        if (isServer)
-        {
-            List<GameObject> knoppen = new List<GameObject>();
-            knoppen.Add(GameObject.FindGameObjectWithTag("AgressorButton"));
-            knoppen.Add(GameObject.FindGameObjectWithTag("NurseButton"));
-            knoppen.Add(GameObject.FindGameObjectWithTag("SceneButton"));
-
-            foreach (var knop in knoppen)
-            {
-                NetworkServer.Spawn(knop);
-            }
-        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -126,18 +113,12 @@ public class PhysicsButton : NetworkBehaviour
     void CmdUpdateNurse(GameObject player)
     {
         RpcUpdateNurse(player);
-        NetworkServer.Spawn(GameObject.Find("Bottles").transform.GetChild(0).gameObject);
-        NetworkServer.Spawn(GameObject.Find("Bottles").transform.GetChild(1).gameObject);
-        NetworkServer.Spawn(GameObject.Find("Bottles").transform.GetChild(2).gameObject);
     }
 
     [Command(requiresAuthority = false)]
     void CmdUpdateAgressor(GameObject player)
     {
         RpcUpdateAgressor(player);
-        NetworkServer.Spawn(GameObject.Find("Bottles").transform.GetChild(0).gameObject);
-        NetworkServer.Spawn(GameObject.Find("Bottles").transform.GetChild(1).gameObject);
-        NetworkServer.Spawn(GameObject.Find("Bottles").transform.GetChild(2).gameObject);
     }
 
     [ClientRpc]
