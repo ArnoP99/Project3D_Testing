@@ -7,17 +7,11 @@ public class SyncPosition : NetworkBehaviour
 {
     void Update()
     {
-        if (isServer)
-        {
-            RpcSyncPosRot(transform.localPosition, transform.localRotation);
-        }
-        else
-        {
-            CmdSyncPosRot(transform.localPosition, transform.localRotation);
-        }
+        CmdSyncPosRot(transform.localPosition, transform.localRotation);
+
     }
 
-    [Command (requiresAuthority = false)]
+    [Command(requiresAuthority = false)]
     void CmdSyncPosRot(Vector3 localPosition, Quaternion localRotation)
     {
         RpcSyncPosRot(localPosition, localRotation);
