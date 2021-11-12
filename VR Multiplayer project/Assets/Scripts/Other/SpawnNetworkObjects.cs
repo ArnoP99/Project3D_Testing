@@ -30,13 +30,16 @@ public class SpawnNetworkObjects : NetworkBehaviour
     [ClientRpc]
     void RpcSpawnObjects()
     {
-        bottles.Add(GameObject.Find("Bottles").transform.GetChild(0).gameObject);
-        bottles.Add(GameObject.Find("Bottles").transform.GetChild(1).gameObject);
-        bottles.Add(GameObject.Find("Bottles").transform.GetChild(2).gameObject);
-
-        foreach (var bottle in bottles)
+        if (player == isServer)
         {
-            NetworkServer.Spawn(bottle);
+            bottles.Add(GameObject.Find("Bottles").transform.GetChild(0).gameObject);
+            bottles.Add(GameObject.Find("Bottles").transform.GetChild(1).gameObject);
+            bottles.Add(GameObject.Find("Bottles").transform.GetChild(2).gameObject);
+
+            foreach (var bottle in bottles)
+            {
+                NetworkServer.Spawn(bottle);
+            }
         }
     }
 }
