@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 1572204532046178015}
   - component: {fileID: 6530133720777726062}
   - component: {fileID: 8958004131017532791}
+  - component: {fileID: 4249384220893441119}
   m_Layer: 0
   m_Name: RightController
   m_TagString: RightController
@@ -309,6 +310,19 @@ MonoBehaviour:
   m_PlayHapticsOnHoverCanceled: 0
   m_HapticHoverCancelIntensity: 0
   m_HapticHoverCancelDuration: 0
+--- !u!65 &4249384220893441119
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4071263328435177766}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.049445234, y: 0.110225335, z: 0.16213164}
+  m_Center: {x: 0.0021377802, y: 0.012361469, z: -0.0053967834}
 --- !u!1 &4254969924763305379
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,6 +880,7 @@ GameObject:
   - component: {fileID: 4500411805284845749}
   - component: {fileID: 2283533821669184899}
   - component: {fileID: 4977637979457932478}
+  - component: {fileID: 4177353759299006265}
   m_Layer: 0
   m_Name: LeftController
   m_TagString: LeftController
@@ -1040,6 +1055,19 @@ MonoBehaviour:
   m_PlayHapticsOnHoverCanceled: 0
   m_HapticHoverCancelIntensity: 0
   m_HapticHoverCancelDuration: 0
+--- !u!65 &4177353759299006265
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6197890650406590530}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.049445234, y: 0.110225335, z: 0.16213164}
+  m_Center: {x: 0.0021377802, y: 0.012361469, z: -0.0053967834}
 --- !u!1 &6980812295119865966
 GameObject:
   m_ObjectHideFlags: 0
