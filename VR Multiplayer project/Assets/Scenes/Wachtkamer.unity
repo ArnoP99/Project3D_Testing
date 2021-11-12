@@ -16494,6 +16494,7 @@ GameObject:
   - component: {fileID: 8844690206765892317}
   - component: {fileID: 7043166450164949770}
   - component: {fileID: 7043166450164949769}
+  - component: {fileID: 7043166450164949771}
   m_Layer: 0
   m_Name: TVRemote
   m_TagString: Untagged
@@ -16623,6 +16624,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &7043166450164949771
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7043166450164949768}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6928069020055624150, guid: 1b9a3d74319cdba4d95b57facacabea1, type: 3}
 --- !u!23 &7048628634614710151
 MeshRenderer:
   m_ObjectHideFlags: 0
