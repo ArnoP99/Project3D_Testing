@@ -18,7 +18,7 @@ public class AssignAuth : NetworkBehaviour
         Debug.Log("AssAuth Other GO NetID: " + objectID);
         Debug.Log("AssAuth player NetID: " + this.GetComponent<NetworkIdentity>());
 
-        if (this == isClient && this == isServer && this == isLocalPlayer)
+        if (this == isClient && this != isServer && this == isLocalPlayer)
         {
             CmdAssignAuthority(objectID, this.GetComponent<NetworkIdentity>());
         }
@@ -36,7 +36,7 @@ public class AssignAuth : NetworkBehaviour
         Debug.Log("RemAuth Other GO NetID: " + objectID);
         Debug.Log("RemAuth player NetID: " + this.GetComponent<NetworkIdentity>());
 
-        if (this == isClient && this == isServer && this == isLocalPlayer)
+        if (this == isClient && this != isServer && this == isLocalPlayer)
         {
             CmdRemoveAuthority(objectID);
         }
