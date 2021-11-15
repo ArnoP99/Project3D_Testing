@@ -13,7 +13,7 @@ public class RequestAuth : MonoBehaviour
         Debug.Log("ReqAuth Player: " + player);
     }
 
-    public void OnTriggerStay(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 9)
         {
