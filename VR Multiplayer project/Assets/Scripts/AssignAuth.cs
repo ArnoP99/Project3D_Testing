@@ -9,11 +9,14 @@ public class AssignAuth : NetworkBehaviour
     // Function where we can check if player isClient and isLocalPlayer and not isServer before executing CmdAssignAuthority
     public void ExecuteCmdAssignAuthority(NetworkIdentity objectID)
     {
-        Debug.Log("Player: " + this);
+        Debug.Log("AssAuth Player: " + this);
 
-        Debug.Log("Player == IsClient: " + (this == isClient));
-        Debug.Log("Player == IsServer: " + (this == isServer));
-        Debug.Log("Player == IsLocalPlayer: " + (this == isLocalPlayer));
+        Debug.Log("AssAuth Player == IsClient: " + (this == isClient));
+        Debug.Log("AssAuth Player == IsServer: " + (this == isServer));
+        Debug.Log("AssAuth Player == IsLocalPlayer: " + (this == isLocalPlayer));
+
+        Debug.Log("AssAuth Other GO NetID: " + objectID);
+        Debug.Log("AssAuth player NetID: " + this.GetComponent<NetworkIdentity>());
 
         if (this == isClient && this == isServer && this == isLocalPlayer)
         {
@@ -24,11 +27,14 @@ public class AssignAuth : NetworkBehaviour
     // Function where we can check if player isClient and isLocalPlayer and not isServer before executing CmdRemoveAuthority
     public void ExecuteCmdRemoveAuthority(NetworkIdentity objectID)
     {
-        Debug.Log("Player: " + this);
+        Debug.Log("RemAuth Player: " + this);
 
-        Debug.Log("Player == IsClient: " + (this == isClient));
-        Debug.Log("Player == IsServer: " + (this == isServer));
-        Debug.Log("Player == IsLocalPlayer: " + (this == isLocalPlayer));
+        Debug.Log("RemAuth Player == IsClient: " + (this == isClient));
+        Debug.Log("RemAuth Player == IsServer: " + (this == isServer));
+        Debug.Log("RemAuth Player == IsLocalPlayer: " + (this == isLocalPlayer));
+
+        Debug.Log("RemAuth Other GO NetID: " + objectID);
+        Debug.Log("RemAuth player NetID: " + this.GetComponent<NetworkIdentity>());
 
         if (this == isClient && this == isServer && this == isLocalPlayer)
         {
