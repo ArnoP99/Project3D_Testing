@@ -45,7 +45,19 @@ public class HPReverbControls : MonoBehaviour
 
     public void PrimaryButton(InputAction.CallbackContext context)
     {
-        Debug.Log("Primary Button Pressed");
-    }
+        Debug.Log("Context Performed: " + context.performed);
+        Debug.Log("Context Canceled: " + context.canceled);
+        if (context.performed)
+        {
+            this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).GetComponent<BoxCollider>().isTrigger = false;
 
+            this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(1).GetComponent<BoxCollider>().isTrigger = false;
+        }
+        else if (context.canceled)
+        {
+            this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).GetComponent<BoxCollider>().isTrigger = true;
+
+            this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(1).GetComponent<BoxCollider>().isTrigger = true;
+        }
+    }
 }
