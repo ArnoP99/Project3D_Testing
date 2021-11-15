@@ -28,6 +28,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "PrimaryButton",
+                    "type": "Button",
+                    "id": "91b4fadf-c540-4b04-9571-d501e173df93",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -94,6 +102,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "LeftJoystick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "022bf48c-bb08-4b63-b0d4-1eea9e79f3d3",
+                    "path": "<HPMixedRealityController>{LeftHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "XR",
+                    "action": "PrimaryButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

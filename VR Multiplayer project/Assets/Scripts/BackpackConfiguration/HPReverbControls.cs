@@ -42,4 +42,10 @@ public class HPReverbControls : MonoBehaviour
     {
         //Debug.Log("Joystick");
     }
+
+    public void PrimaryButton(InputAction.CallbackContext context)
+    {
+        Debug.Log("Primary Button Pressed");
+    }
+
 }
