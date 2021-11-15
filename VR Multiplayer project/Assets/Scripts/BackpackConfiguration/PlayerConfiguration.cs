@@ -79,10 +79,12 @@ public class PlayerConfiguration : NetworkBehaviour
             myCamera.GetComponent<AudioListener>().enabled = false;
         }
 
-        //Make server/PC player invissable
+        //Make server/PC player invisible and make hands invisible
         if (PlayerID == 0)
         {
             this.GetComponentInChildren<MeshRenderer>().enabled = false;
+            this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).gameObject.SetActive(false);
+            this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(1).gameObject.SetActive(false);
         }
         this.transform.parent = GameObject.Find("Players").transform; //Set 'Players" gameobject as parent
 
