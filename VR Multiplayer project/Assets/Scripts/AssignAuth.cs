@@ -43,14 +43,14 @@ public class AssignAuth : NetworkBehaviour
     }
 
 
-    [Command]
+    [Command (requiresAuthority = false)]
     public void CmdAssignAuthority(NetworkIdentity objectID, NetworkIdentity playerID)
     {
         Debug.Log("Authority Assigned to: " + gameObject.transform.parent.transform.parent.transform.parent.gameObject);
         objectID.AssignClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
     }
 
-    [Command]
+    [Command (requiresAuthority = false)]
     public void CmdRemoveAuthority(NetworkIdentity objectID)
     {
         Debug.Log("Authority Removed from object.");
