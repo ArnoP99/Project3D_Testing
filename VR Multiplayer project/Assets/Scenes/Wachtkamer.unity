@@ -6301,7 +6301,7 @@ GameObject:
   - component: {fileID: 8131525146232086285}
   - component: {fileID: 7395980580737410907}
   - component: {fileID: 1779430045311291891}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button3.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6319,7 +6319,7 @@ GameObject:
   - component: {fileID: 1663572564611126535}
   - component: {fileID: 427076711119819459}
   - component: {fileID: 1139015849029772929}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7671,7 +7671,7 @@ GameObject:
   - component: {fileID: 4354453763869594728}
   - component: {fileID: 7823078048775530163}
   - component: {fileID: 738364660002078101}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BigButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8693,7 +8693,7 @@ GameObject:
   - component: {fileID: 7693677852639054859}
   - component: {fileID: 5811264087427390640}
   - component: {fileID: 1195703653363665956}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ProgramButton.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8774,26 +8774,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &1550288009308302242 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5695222208271906888, guid: 392da537602d78644a1063fbeb98c613,
-    type: 3}
-  m_PrefabInstance: {fileID: 6524243440289977322}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1550288009308302243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1550288009308302242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddc74cf5adb9daf408ccf1a3152d6da0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
 --- !u!23 &1558643247993978203
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9064,7 +9044,7 @@ GameObject:
   - component: {fileID: 4818193332589793103}
   - component: {fileID: 7847054637000682927}
   - component: {fileID: 8297762266464402453}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9093,15 +9073,40 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1296296888}
     m_Modifications:
+    - target: {fileID: 3785691081967082679, guid: 161345271fdfa2d418409a31945a87cf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4076761179606129986, guid: 161345271fdfa2d418409a31945a87cf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656268656636420592, guid: 161345271fdfa2d418409a31945a87cf,
+        type: 3}
+      propertyPath: m_AttachPointCompatibilityMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4656268656636420598, guid: 161345271fdfa2d418409a31945a87cf,
         type: 3}
       propertyPath: m_Name
       value: Bottle
       objectReference: {fileID: 0}
+    - target: {fileID: 4656268656636420598, guid: 161345271fdfa2d418409a31945a87cf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4656268656636420606, guid: 161345271fdfa2d418409a31945a87cf,
         type: 3}
       propertyPath: sceneId
       value: 574381805
+      objectReference: {fileID: 0}
+    - target: {fileID: 5175596883675344579, guid: 161345271fdfa2d418409a31945a87cf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5464470538739596108, guid: 161345271fdfa2d418409a31945a87cf,
         type: 3}
@@ -9697,7 +9702,7 @@ GameObject:
   - component: {fileID: 8669409548304869883}
   - component: {fileID: 3857353880621849244}
   - component: {fileID: 2286016039651280685}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9977,7 +9982,7 @@ GameObject:
   - component: {fileID: 1739879506349287925}
   - component: {fileID: 3355952630187406286}
   - component: {fileID: 593691062721445745}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: IRPlaceHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10733,26 +10738,6 @@ Transform:
   m_Father: {fileID: 3327331583796746113}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3111938703306009043 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9208201543908067380, guid: 06a657cdcaf7f2c42abf9906db35f04e,
-    type: 3}
-  m_PrefabInstance: {fileID: 6117516975926157799}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3111938703306009044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3111938703306009043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddc74cf5adb9daf408ccf1a3152d6da0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
 --- !u!23 &3129779573308725928
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11494,7 +11479,7 @@ GameObject:
   - component: {fileID: 5166262280765946894}
   - component: {fileID: 915438612304101815}
   - component: {fileID: 1110412262818829706}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button9.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11907,7 +11892,7 @@ GameObject:
   - component: {fileID: 7922512141650337751}
   - component: {fileID: 2615832829844440902}
   - component: {fileID: 7048628634614710151}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button5.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11972,7 +11957,7 @@ GameObject:
   - component: {fileID: 6201038599872192591}
   - component: {fileID: 2383526679620070652}
   - component: {fileID: 188646249860492451}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button0.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12277,7 +12262,7 @@ GameObject:
   - component: {fileID: 2929884405118571049}
   - component: {fileID: 8825720788582649064}
   - component: {fileID: 8602733768930961617}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13103,7 +13088,7 @@ GameObject:
   - component: {fileID: 5541891440826473599}
   - component: {fileID: 4395691002788221857}
   - component: {fileID: 5727233446770574777}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button2.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13176,7 +13161,7 @@ GameObject:
   - component: {fileID: 5054422973381641262}
   - component: {fileID: 2476881344962246981}
   - component: {fileID: 2377440174863441903}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button4.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13431,7 +13416,7 @@ GameObject:
   - component: {fileID: 2133283190931549756}
   - component: {fileID: 8533670613256476912}
   - component: {fileID: 4782435721061541638}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button1.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13449,7 +13434,7 @@ GameObject:
   - component: {fileID: 4458336518011613029}
   - component: {fileID: 5763868159269267306}
   - component: {fileID: 4597725209344906264}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ProgramButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13580,7 +13565,7 @@ GameObject:
   - component: {fileID: 467692651122375652}
   - component: {fileID: 4184358129658431584}
   - component: {fileID: 6077774828325962429}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13679,7 +13664,7 @@ GameObject:
   - component: {fileID: 9140524737387082449}
   - component: {fileID: 6917384345770720417}
   - component: {fileID: 2624762853369320768}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VolumeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13841,7 +13826,7 @@ GameObject:
   - component: {fileID: 3459576178708141445}
   - component: {fileID: 5718551669734967548}
   - component: {fileID: 6894165279538867618}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13978,7 +13963,7 @@ GameObject:
   - component: {fileID: 1680336460051396400}
   - component: {fileID: 6100298649935944885}
   - component: {fileID: 8289444796597364634}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VolumeButton.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14084,7 +14069,7 @@ GameObject:
   - component: {fileID: 848541447412508081}
   - component: {fileID: 5521451318817157705}
   - component: {fileID: 241276865933183867}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14380,7 +14365,7 @@ GameObject:
   - component: {fileID: 806619229439228654}
   - component: {fileID: 4030445209622687806}
   - component: {fileID: 1496704805462444772}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14416,7 +14401,7 @@ GameObject:
   - component: {fileID: 2759719846843672934}
   - component: {fileID: 8207494064274632}
   - component: {fileID: 7692352582674258835}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: OnOffButton.001
   m_TagString: TVRemoteButton
   m_Icon: {fileID: 0}
@@ -14502,7 +14487,7 @@ GameObject:
   - component: {fileID: 6575078324473717825}
   - component: {fileID: 2735347780191384413}
   - component: {fileID: 3806166439060390176}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: OnOffButton
   m_TagString: TVRemoteButton
   m_Icon: {fileID: 0}
@@ -14556,7 +14541,7 @@ GameObject:
   - component: {fileID: 5767689249349372889}
   - component: {fileID: 1267171396727403247}
   - component: {fileID: 1292433278674367022}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BigButton.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14708,6 +14693,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1296296888}
     m_Modifications:
+    - target: {fileID: 560673524080440448, guid: 06a657cdcaf7f2c42abf9906db35f04e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 854840411838117237, guid: 06a657cdcaf7f2c42abf9906db35f04e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 8395213456871543438, guid: 06a657cdcaf7f2c42abf9906db35f04e,
         type: 3}
       propertyPath: m_RootOrder
@@ -14763,10 +14758,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 8684928933777835777, guid: 06a657cdcaf7f2c42abf9906db35f04e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208201543908067379, guid: 06a657cdcaf7f2c42abf9906db35f04e,
+        type: 3}
+      propertyPath: m_MovementType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9208201543908067380, guid: 06a657cdcaf7f2c42abf9906db35f04e,
         type: 3}
       propertyPath: m_Name
       value: Bottle (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208201543908067380, guid: 06a657cdcaf7f2c42abf9906db35f04e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 9208201543908067388, guid: 06a657cdcaf7f2c42abf9906db35f04e,
         type: 3}
@@ -14871,26 +14881,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &6319857862595320706 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4656268656636420598, guid: 161345271fdfa2d418409a31945a87cf,
-    type: 3}
-  m_PrefabInstance: {fileID: 1669364940842826356}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6319857862595320707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6319857862595320706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddc74cf5adb9daf408ccf1a3152d6da0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
 --- !u!4 &6348950775644707466
 Transform:
   m_ObjectHideFlags: 0
@@ -15012,6 +15002,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1296296888}
     m_Modifications:
+    - target: {fileID: 3964449091180135676, guid: 392da537602d78644a1063fbeb98c613,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4259952504578245897, guid: 392da537602d78644a1063fbeb98c613,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4918685883139760882, guid: 392da537602d78644a1063fbeb98c613,
         type: 3}
       propertyPath: m_RootOrder
@@ -15067,6 +15067,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5207414824584705917, guid: 392da537602d78644a1063fbeb98c613,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5695222208271906880, guid: 392da537602d78644a1063fbeb98c613,
         type: 3}
       propertyPath: sceneId
@@ -15076,6 +15081,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bottle (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695222208271906888, guid: 392da537602d78644a1063fbeb98c613,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695222208271906894, guid: 392da537602d78644a1063fbeb98c613,
+        type: 3}
+      propertyPath: m_MovementType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695222208271906894, guid: 392da537602d78644a1063fbeb98c613,
+        type: 3}
+      propertyPath: m_AttachPointCompatibilityMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 392da537602d78644a1063fbeb98c613, type: 3}
@@ -15656,7 +15676,7 @@ GameObject:
   - component: {fileID: 2505507776221112252}
   - component: {fileID: 6448288233073107455}
   - component: {fileID: 7398046195170481954}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button8.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15826,7 +15846,7 @@ GameObject:
   - component: {fileID: 7043166450164949771}
   - component: {fileID: 7043166450164949773}
   - component: {fileID: 7043166450164949772}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TVRemote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15904,7 +15924,7 @@ MonoBehaviour:
       m_Calls: []
   m_AttachTransform: {fileID: 0}
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 1
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -16066,7 +16086,7 @@ GameObject:
   - component: {fileID: 7865448108240255832}
   - component: {fileID: 9002031169095252086}
   - component: {fileID: 3252833690527325703}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16084,7 +16104,7 @@ GameObject:
   - component: {fileID: 787175917824959348}
   - component: {fileID: 3841769226663654843}
   - component: {fileID: 8687929062596439211}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button6.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17198,7 +17218,7 @@ GameObject:
   - component: {fileID: 1444868491867264994}
   - component: {fileID: 7340710818388396255}
   - component: {fileID: 5282060777145065617}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18204,7 +18224,7 @@ GameObject:
   - component: {fileID: 5775071054481526091}
   - component: {fileID: 1728966309041056077}
   - component: {fileID: 3500648740606047414}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LogoRemotePlaceHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19251,7 +19271,7 @@ GameObject:
   - component: {fileID: 6683919242059428722}
   - component: {fileID: 4242100354435258526}
   - component: {fileID: 1633279568791131889}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Button7.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}

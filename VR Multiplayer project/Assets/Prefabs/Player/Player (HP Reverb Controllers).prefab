@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 6530133720777726062}
   - component: {fileID: 8958004131017532791}
   - component: {fileID: 4249384220893441119}
+  - component: {fileID: 2502813580465067966}
   m_Layer: 0
   m_Name: RightController
   m_TagString: RightController
@@ -323,6 +324,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.049445234, y: 0.110225335, z: 0.16213164}
   m_Center: {x: 0.0021377802, y: 0.012361469, z: -0.0053967834}
+--- !u!114 &2502813580465067966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4071263328435177766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7ee35ae9e0526498732f07fcf2b0d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4254969924763305379
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,6 +532,7 @@ GameObject:
   - component: {fileID: -8557955457647793105}
   - component: {fileID: 7167339889536513487}
   - component: {fileID: 2105119957541730900}
+  - component: {fileID: 1188733725636467153}
   m_Layer: 8
   m_Name: Player (HP Reverb Controllers)
   m_TagString: Player
@@ -854,6 +868,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+--- !u!114 &1188733725636467153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4254969925439542407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec70b369d9b43954c9b268609c653ccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!114 &4910937999900162877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -881,6 +909,7 @@ GameObject:
   - component: {fileID: 2283533821669184899}
   - component: {fileID: 4977637979457932478}
   - component: {fileID: 4177353759299006265}
+  - component: {fileID: 2735714760281885304}
   m_Layer: 0
   m_Name: LeftController
   m_TagString: LeftController
@@ -1068,6 +1097,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.049445234, y: 0.110225335, z: 0.16213164}
   m_Center: {x: 0.0021377802, y: 0.012361469, z: -0.0053967834}
+--- !u!114 &2735714760281885304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6197890650406590530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7ee35ae9e0526498732f07fcf2b0d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6980812295119865966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,15 +1474,15 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4892608040228600679, guid: 13173dd926b1f5a43a22227f54e827fd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 13173dd926b1f5a43a22227f54e827fd, type: 3}
---- !u!1 &5956070972319153673 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1306230381332696143, guid: 13173dd926b1f5a43a22227f54e827fd,
-    type: 3}
-  m_PrefabInstance: {fileID: 4650141859861082694}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3147315156693137146 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7720609124690691260, guid: 13173dd926b1f5a43a22227f54e827fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 4650141859861082694}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5956070972319153673 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1306230381332696143, guid: 13173dd926b1f5a43a22227f54e827fd,
     type: 3}
   m_PrefabInstance: {fileID: 4650141859861082694}
   m_PrefabAsset: {fileID: 0}
