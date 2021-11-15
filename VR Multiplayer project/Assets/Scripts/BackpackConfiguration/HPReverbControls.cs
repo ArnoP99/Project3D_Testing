@@ -9,6 +9,7 @@ public class HPReverbControls : MonoBehaviour
     GameObject nurse;
     GameObject textPopUp;
     GameObject activeChoice;
+    bool triggerValue = true;
 
     public void PressTrigger(InputAction.CallbackContext context)
     {
@@ -45,18 +46,21 @@ public class HPReverbControls : MonoBehaviour
 
     public void PrimaryButton(InputAction.CallbackContext context)
     {
-        Debug.Log("Context Performed: " + context.ReadValueAsButton());
-        if (context.ReadValueAsButton() == true)
+        if (triggerValue == true)
         {
             this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).GetComponent<BoxCollider>().isTrigger = false;
 
             this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(1).GetComponent<BoxCollider>().isTrigger = false;
+
+            triggerValue = false;
         }
-        else if (context.ReadValueAsButton() == false)
+        else if (triggerValue == false)
         {
             this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).GetComponent<BoxCollider>().isTrigger = true;
 
             this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(1).GetComponent<BoxCollider>().isTrigger = true;
+
+            triggerValue = true;
         }
     }
 }
