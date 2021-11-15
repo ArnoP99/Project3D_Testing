@@ -35,7 +35,7 @@ public class HPReverbControls : MonoBehaviour
         //    Debug.Log("No Active Choice Found.");
         //}
 
-        //Debug.Log(activeChoice);
+        Debug.Log("Trigger Pressed");
     }
 
     public void Joystick(InputAction.CallbackContext context)
@@ -45,15 +45,14 @@ public class HPReverbControls : MonoBehaviour
 
     public void PrimaryButton(InputAction.CallbackContext context)
     {
-        Debug.Log("Context Performed: " + context.performed);
-        Debug.Log("Context Canceled: " + context.canceled);
-        if (context.performed)
+        Debug.Log("Context Performed: " + context.ReadValueAsButton());
+        if (context.ReadValueAsButton() == true)
         {
             this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).GetComponent<BoxCollider>().isTrigger = false;
 
             this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(1).GetComponent<BoxCollider>().isTrigger = false;
         }
-        else if (context.canceled)
+        else if (context.ReadValueAsButton() == false)
         {
             this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).GetComponent<BoxCollider>().isTrigger = true;
 
