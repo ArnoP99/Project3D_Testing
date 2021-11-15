@@ -46,7 +46,7 @@ public class AssignAuth : NetworkBehaviour
     [Command (requiresAuthority = false)]
     public void CmdAssignAuthority(NetworkIdentity objectID, NetworkIdentity playerID)
     {
-        Debug.Log("Authority Assigned to: " + gameObject.transform.parent.transform.parent.transform.parent.gameObject);
+        Debug.Log("Authority Assigned to: " + this);
         objectID.AssignClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
     }
 
