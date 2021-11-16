@@ -1,4 +1,5 @@
 using Mirror;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,21 +18,19 @@ public class RequestAuth : MonoBehaviour
     {
         if (other.gameObject.layer == 9)
         {
-            //Debug.Log("Other GO: " + other.gameObject);
-            //Debug.Log("Other GO Layer: " + other.gameObject.layer);
-            //Debug.Log("Other GO NetID: " + other.GetComponent<NetworkIdentity>());
+            try
+            {
+                player.GetComponent<AssignAuth>().ExecuteCmdRemoveAuthority(other.GetComponent<NetworkIdentity>());
+            }
+            catch (Exception ex)
+            {
+                Debug.Log("Object did not have any authority. " + ex);
+            }
             player.GetComponent<AssignAuth>().ExecuteCmdAssignAuthority(other.GetComponent<NetworkIdentity>());
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == 9)
-        {
-            //Debug.Log("Other GO: " + other.gameObject);
-            //Debug.Log("Other GO Layer: " + other.gameObject.layer);
-            //Debug.Log("Other GO NetID: " + other.GetComponent<NetworkIdentity>());
-            player.GetComponent<AssignAuth>().ExecuteCmdRemoveAuthority(other.GetComponent<NetworkIdentity>());
-        }
     }
 }
