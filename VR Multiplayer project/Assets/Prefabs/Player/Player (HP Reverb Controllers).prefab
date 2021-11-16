@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 6530133720777726062}
   - component: {fileID: 8958004131017532791}
   - component: {fileID: 2502813580465067966}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: RightController
   m_TagString: RightController
   m_Icon: {fileID: 0}
@@ -911,7 +911,7 @@ GameObject:
   - component: {fileID: 2283533821669184899}
   - component: {fileID: 4977637979457932478}
   - component: {fileID: 2735714760281885304}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: LeftController
   m_TagString: LeftController
   m_Icon: {fileID: 0}
