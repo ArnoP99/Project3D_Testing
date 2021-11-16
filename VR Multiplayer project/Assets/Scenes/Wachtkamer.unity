@@ -5664,7 +5664,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   clientAuthority: 1
-  sendInterval: 0.05
+  sendInterval: 0.01
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -6864,6 +6864,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 188362377}
+    - target: {fileID: 5458156527004682986, guid: 392da537602d78644a1063fbeb98c613,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6968129418125192174, guid: 392da537602d78644a1063fbeb98c613,
         type: 3}
       propertyPath: m_RootOrder
@@ -6924,10 +6929,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bottle (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7779990784182153556, guid: 392da537602d78644a1063fbeb98c613,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7779990784182153564, guid: 392da537602d78644a1063fbeb98c613,
         type: 3}
       propertyPath: sceneId
       value: 2215955567
+      objectReference: {fileID: 0}
+    - target: {fileID: 7779990784182153567, guid: 392da537602d78644a1063fbeb98c613,
+        type: 3}
+      propertyPath: sendInterval
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 392da537602d78644a1063fbeb98c613, type: 3}
