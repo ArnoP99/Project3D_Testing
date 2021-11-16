@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4448455365948943806}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: VisualRepresentation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1941967407141896673}
   - component: {fileID: 4581685214593739359}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Hands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7593292599797178387}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: KeuzePopUp
   m_TagString: ChoicePopUp
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 6530133720777726062}
   - component: {fileID: 8958004131017532791}
   - component: {fileID: 2502813580465067966}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RightController
   m_TagString: RightController
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 4254969924763305407}
   - component: {fileID: 4254969924763305406}
   - component: {fileID: 4254969924763305405}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Player camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 4254969925409791352}
   - component: {fileID: 4254969925409791358}
   - component: {fileID: 7960259209572343330}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: HMD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 7167339889536513487}
   - component: {fileID: 2105119957541730900}
   - component: {fileID: 1188733725636467153}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Player (HP Reverb Controllers)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -911,7 +911,7 @@ GameObject:
   - component: {fileID: 2283533821669184899}
   - component: {fileID: 4977637979457932478}
   - component: {fileID: 2735714760281885304}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LeftController
   m_TagString: LeftController
   m_Icon: {fileID: 0}
@@ -1108,7 +1108,7 @@ GameObject:
   - component: {fileID: 2959936671245439624}
   - component: {fileID: 3541075258665180317}
   - component: {fileID: 358285064668416155}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1201,6 +1201,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: C
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306230381332696143, guid: 13173dd926b1f5a43a22227f54e827fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1306230381332696143, guid: 13173dd926b1f5a43a22227f54e827fd,
         type: 3}
@@ -1346,6 +1351,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1306230381332696143, guid: 13173dd926b1f5a43a22227f54e827fd,
         type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306230381332696143, guid: 13173dd926b1f5a43a22227f54e827fd,
+        type: 3}
       propertyPath: m_TagString
       value: InactiveChoice
       objectReference: {fileID: 0}
@@ -1485,6 +1495,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306230381332696143, guid: 13173dd926b1f5a43a22227f54e827fd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1306230381332696143, guid: 13173dd926b1f5a43a22227f54e827fd,
         type: 3}
