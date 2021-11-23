@@ -13,7 +13,6 @@ public class ExecuteChangeVisualRep : NetworkBehaviour
 
     public void ExecuteNurseChange(GameObject player)
     {
-        Debug.Log("IsLocalPlayer N: " + (player == isClient));
         if (player == isClient)
         {
             CmdUpdateNurse(player);
@@ -22,8 +21,6 @@ public class ExecuteChangeVisualRep : NetworkBehaviour
 
     public void ExecuteAgressorChange(GameObject player)
     {
-        Debug.Log("IsLocalPlayer A: " + (player == isClient));
-
         if (player == isClient)
         {
             CmdUpdateAgressor(player);
