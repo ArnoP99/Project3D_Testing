@@ -14,6 +14,7 @@ public class InitializeConversation : NetworkBehaviour
         if (this == isClient)
         {
             tempPlayer = GameObject.FindGameObjectWithTag("Nurse");
+            Debug.Log(tempPlayer);
             if (tempPlayer == isClient && tempPlayer == isLocalPlayer)
             {
                 nurse = tempPlayer;
