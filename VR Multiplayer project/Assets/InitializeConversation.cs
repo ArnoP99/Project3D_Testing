@@ -26,8 +26,8 @@ public class InitializeConversation : NetworkBehaviour
             {
                 tempPlayers.Add(tempPlayer);
                 Debug.Log(tempPlayer);
-                Debug.Log(tempPlayer == isClient);
-                Debug.Log(tempPlayer == isLocalPlayer);
+                Debug.Log(tempPlayer.transform.parent.transform.parent.gameObject == isClient);
+                Debug.Log(tempPlayer.transform.parent.transform.parent.gameObject == isLocalPlayer);
                 Debug.Log(tempPlayer.transform.parent.transform.parent.gameObject);
 
 
