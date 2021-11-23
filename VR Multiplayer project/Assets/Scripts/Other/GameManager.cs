@@ -1,11 +1,14 @@
+using Mirror;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : NetworkBehaviour
 {
     private static GameManager instance = null;
     private static readonly object padlock = new object();
+
+    NetworkManager networkManager;
 
     private GameManager()
     {
@@ -28,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        networkManager = new NetworkManager();
         DontDestroyOnLoad(gameObject);
     }
 
@@ -45,7 +49,7 @@ public class GameManager : MonoBehaviour
         {
             nursePlayer = true;
         }
-        else if(button == 2)
+        else if (button == 2)
         {
             agressorPlayer = true;
         }
@@ -60,7 +64,7 @@ public class GameManager : MonoBehaviour
             ConversationManager.StartConversation(nurse, agressor);
         }*/
 
-        if(nursePlayer == true)
+        if (nursePlayer == true)
         {
             Debug.Log("Conversation Started.");
             ConversationManager.StartConversation();
