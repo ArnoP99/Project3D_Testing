@@ -23,7 +23,7 @@ public class ConversationElementInitializer : MonoBehaviour
     ConversationElement agressief1D1 = new ConversationElement("Als u denkt dat u het zelf beter kan doe maar.", ConversationElement.ElementState.Agressive, ConversationElement.UserState.Nurse);
     ConversationElement neutraal1D1 = new ConversationElement("Sorry meneer ik kan u niet laten gaan.", ConversationElement.ElementState.Defensive, ConversationElement.UserState.Nurse);
 
-    ConversationElement agressief1D2 = new ConversationElement("Omdat ik het zeg!", ConversationElement.ElementState.Agressive, ConversationElement.UserState.Nurse);
+    ConversationElement agressief1D2 = new ConversationElement("omdat ik het zeg!", ConversationElement.ElementState.Agressive, ConversationElement.UserState.Nurse);
     ConversationElement neutraal1D2 = new ConversationElement("U bent toch al wat beter een paar dagen extra ter controle zal nog wel lukken, toch?", ConversationElement.ElementState.Defensive, ConversationElement.UserState.Nurse);
 
     ConversationElement defensief1E = new ConversationElement("Oke, u hebt gelijk. Ik zal nog blijven.", ConversationElement.ElementState.Defensive, ConversationElement.UserState.Agressor);

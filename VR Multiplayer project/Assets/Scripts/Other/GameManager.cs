@@ -8,11 +8,7 @@ public class GameManager : NetworkBehaviour
     private static GameManager instance = null;
     private static readonly object padlock = new object();
 
-    private bool nurseOnSpawn = false;
-    private bool agressorOnSpawn = false;
-
-    //GameObject spawnNurse;
-    //GameObject spawnAgressor;
+    NetworkManager networkManager;
 
     private GameManager()
     {
@@ -35,9 +31,7 @@ public class GameManager : NetworkBehaviour
 
     void Start()
     {
-        //spawnNurse = GameObject.Find("SpawnPointNurse");
-        //spawnAgressor = GameObject.Find("SpawnPointAgressor");
-
+        networkManager = new NetworkManager();
         DontDestroyOnLoad(gameObject);
     }
 
@@ -76,31 +70,5 @@ public class GameManager : NetworkBehaviour
             ConversationManager.StartConversation();
         }
 
-    }
-
-    public void ChangeScene(int onSpawnCheck)
-    {
-        if (onSpawnCheck == 1 && nurseOnSpawn == false)
-        {
-            nurseOnSpawn = true;
-        }
-        else if (onSpawnCheck == 1 && nurseOnSpawn == true)
-        {
-            nurseOnSpawn = false;
-        }
-
-        if (onSpawnCheck == 2 && agressorOnSpawn == false)
-        {
-            agressorOnSpawn = true;
-        }
-        else if (onSpawnCheck == 2 && agressorOnSpawn == true)
-        {
-            agressorOnSpawn = false;
-        }
-
-        if (nurseOnSpawn == true && agressorOnSpawn == true && this == isServer)
-        {
-            NetworkManager.singleton.ServerChangeScene("ZiekenhuisKamer");
-        }
     }
 }
