@@ -6,48 +6,41 @@ using UnityEngine.SceneManagement;
 
 public class LoadNextScene : NetworkBehaviour
 {
-    bool nurseCheck;
-    bool agressorCheck;
-
     public void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Nurse")
         {
             if (this == isServer)
             {
-                //RpcChangeScene();
-                NetworkManager.singleton.ServerChangeScene("ZiekenhuisKamer");
+                GameManager.Instance.ChangeScene(1);
             }
-
-            
         }
         else if (other.tag == "Agressor")
         {
-            //SceneManager.LoadScene("ZiekenhuisKamer");
             if (this == isServer)
             {
-                
-                NetworkManager.singleton.ServerChangeScene("ZiekenhuisKamer");
+
+                GameManager.Instance.ChangeScene(2);
             }
         }
     }
 
-    //public void OnTriggerExit(Collider other)
-    //{
-    //    if (other.tag == "Nurse")
-    //    {
-    //        if (this == isServer)
-    //        {
-    //            gameManager.GetComponent<GameManager>().PrepNextScene(1);
-    //        }
-    //    }
-    //    else if (other.tag == "Agressor")
-    //    {
-    //        if (this == isServer)
-    //        {
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Nurse")
+        {
+            if (this == isServer)
+            {
+                GameManager.Instance.ChangeScene(1);
+            }
+        }
+        else if (other.tag == "Agressor")
+        {
+            if (this == isServer)
+            {
 
-    //            gameManager.GetComponent<GameManager>().PrepNextScene(2);
-    //        }
-    //    }
-    //}
+                GameManager.Instance.ChangeScene(2);
+            }
+        }
+    }
 }
