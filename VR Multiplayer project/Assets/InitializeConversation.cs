@@ -11,6 +11,12 @@ public class InitializeConversation : NetworkBehaviour
 
     void Start()
     {
+       
+
+    }
+
+    void Update()
+    {
         if (this == isClient && this != isServer)
         {
             tempPlayers = new List<GameObject>();
@@ -33,11 +39,5 @@ public class InitializeConversation : NetworkBehaviour
             }
 
         }
-
-    }
-
-    void Update()
-    {
-
     }
 }
