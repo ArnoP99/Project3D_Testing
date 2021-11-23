@@ -22,10 +22,10 @@ public class InitializeConversation : NetworkBehaviour
                 Debug.Log(tempPlayer);
                 Debug.Log(tempPlayer == isClient);
                 Debug.Log(tempPlayer == isLocalPlayer);
-                Debug.Log(tempPlayer.transform.parent.transform.parent.transform.parent.gameObject);
+                Debug.Log(tempPlayer.transform.parent.transform.parent.gameObject);
 
 
-                if (tempPlayer == isClient && tempPlayer == isLocalPlayer)
+                if (tempPlayer.transform.parent.transform.parent.gameObject == isClient && tempPlayer.transform.parent.transform.parent.gameObject == isLocalPlayer)
                 {
                     nurse = tempPlayer;
                     Debug.Log(nurse);
