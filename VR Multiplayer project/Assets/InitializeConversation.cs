@@ -13,16 +13,15 @@ public class InitializeConversation : NetworkBehaviour
     {
         if (this == isClient)
         {
-            tempPlayer = GameObject.FindGameObjectWithTag("Nurse");
+            tempPlayer = GameObject.Find("Players").transform.GetChild(1).gameObject;
             Debug.Log(tempPlayer);
-            Debug.Log(tempPlayer.transform.parent.transform.parent.transform.parent == isClient);
-            Debug.Log(tempPlayer.transform.parent.transform.parent.transform.parent == isLocalPlayer);
-            Debug.Log(tempPlayer.transform.parent.transform.parent.transform.parent);
+            Debug.Log(tempPlayer == isClient);
+            Debug.Log(tempPlayer == isLocalPlayer);
             Debug.Log(tempPlayer.transform.parent.transform.parent.transform.parent.gameObject)
                 ;
 
 
-            if (tempPlayer.transform.parent.transform.parent.transform.parent.gameObject == isClient && tempPlayer.transform.parent.transform.parent.transform.parent.gameObject == isLocalPlayer)
+            if (tempPlayer == isClient && tempPlayer == isLocalPlayer)
             {
                 nurse = tempPlayer;
                 Debug.Log(nurse);
