@@ -17,9 +17,11 @@ public class InitializeConversation : NetworkBehaviour
             Debug.Log(tempPlayer);
             Debug.Log(tempPlayer.transform.parent.transform.parent.transform.parent == isClient);
             Debug.Log(tempPlayer.transform.parent.transform.parent.transform.parent == isLocalPlayer);
+            Debug.Log(tempPlayer.transform.parent.transform.parent.transform.parent);
+            Debug.Log(tempPlayer.transform.parent.transform.parent.transform.parent.gameObject);
 
 
-            if (tempPlayer.transform.parent.transform.parent.transform.parent == isClient && tempPlayer.transform.parent.transform.parent.transform.parent == isLocalPlayer)
+            if (tempPlayer.transform.parent.transform.parent.transform.parent.gameObject == isClient && tempPlayer.transform.parent.transform.parent.transform.parent.gameObject == isLocalPlayer)
             {
                 nurse = tempPlayer;
                 Debug.Log(nurse);
