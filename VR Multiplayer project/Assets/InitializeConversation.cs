@@ -7,25 +7,31 @@ public class InitializeConversation : NetworkBehaviour
 {
     GameObject nurse;
     GameObject agressor;
-    GameObject tempPlayer;
+    List<GameObject> tempPlayers;
 
     void Start()
     {
         if (this == isClient && this != isServer)
         {
-            tempPlayer = GameObject.Find("Players").transform.GetChild(1).gameObject;
-            Debug.Log(tempPlayer);
-            Debug.Log(tempPlayer == isClient);
-            Debug.Log(tempPlayer == isLocalPlayer);
-            Debug.Log(tempPlayer.transform.parent.transform.parent.transform.parent.gameObject)
-                ;
-
-
-            if (tempPlayer == isClient && tempPlayer == isLocalPlayer)
+            tempPlayers = new List<GameObject>();
+            tempPlayers.Add(GameObject.Find("Players").transform.GetChild(0).gameObject);
+            tempPlayers.Add(GameObject.Find("Players").transform.GetChild(1).gameObject);
+            //tempPlayers.Add(GameObject.Find("Players").transform.GetChild(0).gameObject);
+            foreach (var tempPlayer in tempPlayers)
             {
-                nurse = tempPlayer;
-                Debug.Log(nurse);
+                Debug.Log(tempPlayer);
+                Debug.Log(tempPlayer == isClient);
+                Debug.Log(tempPlayer == isLocalPlayer);
+                Debug.Log(tempPlayer.transform.parent.transform.parent.transform.parent.gameObject);
+
+
+                if (tempPlayer == isClient && tempPlayer == isLocalPlayer)
+                {
+                    nurse = tempPlayer;
+                    Debug.Log(nurse);
+                }
             }
+
         }
 
     }
