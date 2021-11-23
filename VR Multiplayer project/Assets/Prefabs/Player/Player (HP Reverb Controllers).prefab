@@ -2161,7 +2161,7 @@ PrefabInstance:
     - target: {fileID: 4463421280674292054, guid: d290e166a43063241892d196dcd036b3,
         type: 3}
       propertyPath: m_TagString
-      value: Nurse
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4501247873427225174, guid: d290e166a43063241892d196dcd036b3,
         type: 3}
