@@ -16,8 +16,9 @@ public class InitializeConversation : NetworkBehaviour
             tempPlayers = new List<GameObject>();
             Debug.Log(GameObject.FindGameObjectsWithTag("Nurse").Length);
             //tempPlayers.Add(GameObject.Find("Players").transform.GetChild(0).gameObject);
-            foreach (var tempPlayer in tempPlayers)
+            foreach (var tempPlayer in GameObject.FindGameObjectsWithTag("Nurse"))
             {
+                tempPlayers.Add(tempPlayer);
                 Debug.Log(tempPlayer);
                 Debug.Log(tempPlayer == isClient);
                 Debug.Log(tempPlayer == isLocalPlayer);
