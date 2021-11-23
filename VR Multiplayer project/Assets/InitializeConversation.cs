@@ -14,8 +14,7 @@ public class InitializeConversation : NetworkBehaviour
         if (this == isClient && this != isServer)
         {
             tempPlayers = new List<GameObject>();
-            tempPlayers.Add(GameObject.Find("Players").transform.GetChild(0).gameObject);
-            tempPlayers.Add(GameObject.Find("Players").transform.GetChild(1).gameObject);
+            Debug.Log(GameObject.FindGameObjectsWithTag("Nurse").Length);
             //tempPlayers.Add(GameObject.Find("Players").transform.GetChild(0).gameObject);
             foreach (var tempPlayer in tempPlayers)
             {
