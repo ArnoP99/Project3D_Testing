@@ -9,20 +9,32 @@ public class LoadNextScene : NetworkBehaviour
     bool nurseCheck;
     bool agressorCheck;
 
+    GameObject gameManager;
+
+    private void Start()
+    {
+        if (this == isServer)
+        {
+            gameManager = GameObject.Find("GameManager");
+        }
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Nurse")
         {
             if (this == isServer)
             {
-                GameManager.Instance.ChangeScene(1);
+                Debug.Log("NurseOnSpawn");
+                gameManager.GetComponent<GameManager>().ChangeScene(1);
             }
         }
         else if (other.tag == "Agressor")
         {
             if (this == isServer)
             {
-                GameManager.Instance.ChangeScene(2);
+                Debug.Log("AgressorOnSpawn");
+                gameManager.GetComponent<GameManager>().ChangeScene(2);
             }
         }
     }
@@ -33,14 +45,14 @@ public class LoadNextScene : NetworkBehaviour
         {
             if (this == isServer)
             {
-                GameManager.Instance.ChangeScene(1);
+                gameManager.GetComponent<GameManager>().ChangeScene(1);
             }
         }
         else if (other.tag == "Agressor")
         {
             if (this == isServer)
             {
-                GameManager.Instance.ChangeScene(2);
+                gameManager.GetComponent<GameManager>().ChangeScene(2);
             }
         }
     }
