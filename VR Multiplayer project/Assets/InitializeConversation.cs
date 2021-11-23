@@ -11,7 +11,7 @@ public class InitializeConversation : NetworkBehaviour
 
     void Start()
     {
-        if (this == isClient)
+        if (this == isClient && this != isServer)
         {
             tempPlayer = GameObject.Find("Players").transform.GetChild(1).gameObject;
             Debug.Log(tempPlayer);
