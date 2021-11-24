@@ -64,9 +64,13 @@ public class ConversationManager : NetworkBehaviour
 
     public void StartConversation(GameObject nurse)
     {
-        Debug.Log("Before cmd: " + nurse);
-        CmdStartConversation(nurse);
-        Debug.Log("After cmd: " + nurse);
+        conversationParticipants.Add(nurse);
+        activeParticipant = nurse;
+
+        nurse.transform.GetChild(0).transform.GetChild(3).gameObject.SetActive(true);
+        nurse.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshPro>().text = generalCheckUp.StartElement.Text;
+        nurse.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(1).GetComponent<TextMeshPro>().text = timeForMedication.StartElement.Text;
+        nurse.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(2).GetComponent<TextMeshPro>().text = helpButton.StartElement.Text;
     }
 
     private void EndConversation(Conversation conversationToEnd)
@@ -87,26 +91,20 @@ public class ConversationManager : NetworkBehaviour
         }
     }
 
-    [Command(requiresAuthority = false)]
-    public void CmdStartConversation(GameObject nurse)
-    {
-        Debug.Log("During cmd: " + nurse);
-        TargetStartConversation(nurse.GetComponent<NetworkIdentity>().connectionToServer, nurse);
-        Debug.Log("After TargetRpc: " + nurse);
-    }
+    //[Command(requiresAuthority = false)]
+    //public void CmdStartConversation(GameObject nurse)
+    //{
+    //    Debug.Log("During cmd: " + nurse);
+    //    TargetStartConversation(nurse.GetComponent<NetworkIdentity>().connectionToServer, nurse);
+    //    Debug.Log("After TargetRpc: " + nurse);
+    //}
 
-    [TargetRpc]
-    public void TargetStartConversation(NetworkConnection target, GameObject nurse)
-    {
-        Debug.Log("During TargetRpc: " + nurse);
-        conversationParticipants.Add(nurse);
-        activeParticipant = nurse;
+    //[TargetRpc]
+    //public void TargetStartConversation(NetworkConnection target, GameObject nurse)
+    //{
+    //    Debug.Log("During TargetRpc: " + nurse);
 
-        nurse.transform.GetChild(0).transform.GetChild(3).gameObject.SetActive(true);
-        nurse.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshPro>().text = generalCheckUp.StartElement.Text;
-        nurse.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(1).GetComponent<TextMeshPro>().text = timeForMedication.StartElement.Text;
-        nurse.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(2).GetComponent<TextMeshPro>().text = helpButton.StartElement.Text;
-    }
+    //}
 
-
+    //pass choice to server with an int and then from server to agressor
 }
