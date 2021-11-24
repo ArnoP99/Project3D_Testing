@@ -15,21 +15,18 @@ public class InitializeConversation : NetworkBehaviour
 
         foreach (var tempPlayer in tempPlayers)
         {
-            Debug.Log(tempPlayer);
-            Debug.Log("IsServer: " + (tempPlayer == isServer));
-            Debug.Log("IsClient: " + (tempPlayer == isClient));
-            Debug.Log("IsLocalPlayer: " + (tempPlayer.GetComponent<NetworkIdentity>().isLocalPlayer));
-
-            if (tempPlayer.GetComponent<NetworkIdentity>().isLocalPlayer == true && tempPlayer.GetComponent<NetworkIdentity>().isClient == true)
+            if (tempPlayer.GetComponent<NetworkIdentity>().isLocalPlayer == true && tempPlayer.GetComponent<NetworkIdentity>().isClient == true && tempPlayer.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse")
             {
                 nurse = tempPlayer;
-                Debug.Log(nurse);
+            }
+            else if (tempPlayer.GetComponent<NetworkIdentity>().isLocalPlayer == true && tempPlayer.GetComponent<NetworkIdentity>().isClient == true && tempPlayer.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor")
+            {
+                agressor = tempPlayer;
             }
         }
-    }
 
-    void Update()
-    {
+        ConversationManager.Instance.StartConversation(nurse);
+
 
     }
 }

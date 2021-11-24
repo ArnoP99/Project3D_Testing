@@ -1,10 +1,11 @@
+using Mirror;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ConversationManager : MonoBehaviour
+public class ConversationManager : NetworkBehaviour
 {
 
     private static ConversationManager instance = null;
@@ -16,6 +17,8 @@ public class ConversationManager : MonoBehaviour
     private static GameObject activeParticipant;
 
     private static Conversation generalCheckUp;
+    private static Conversation timeForMedication;
+    private static Conversation helpButton;
 
     private ConversationManager()
     {
@@ -42,20 +45,35 @@ public class ConversationManager : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
 
-        generalCheckUp = new Conversation();
+        if (this.GetComponent<NetworkIdentity>().isServer == true)
+        {
+            generalCheckUp = new Conversation();
+            timeForMedication = new Conversation();
+            helpButton = new Conversation();
 
-        generalCheckUp.StartElement = ConversationElementInitializer.GeneralCheckupConversation();
-        generalCheckUp.ActiveElement = generalCheckUp.StartElement;
+            generalCheckUp.StartElement = ConversationElementInitializer.GeneralCheckupConversation();
+            generalCheckUp.ActiveElement = generalCheckUp.StartElement;
+
+            timeForMedication.StartElement = ConversationElementInitializer.TimeForMedicationConversation();
+            timeForMedication.ActiveElement = timeForMedication.StartElement;
+
+            helpButton.StartElement = ConversationElementInitializer.HelpButtonConversation();
+            helpButton.ActiveElement = helpButton.StartElement;
+        }
     }
 
-    public static void StartConversation()
+    public void StartConversation(GameObject nurse)
     {
-            GameObject nurse = GameObject.FindGameObjectWithTag("Nurse").gameObject;
-            Debug.Log(nurse.tag);
+        if (this.GetComponent<NetworkIdentity>().isServer == true)
+        {
             conversationParticipants.Add(nurse);
-
             activeParticipant = nurse;
+
+            nurse.transform.GetChild(0).transform.GetChild(3).gameObject.SetActive(true);
             nurse.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshPro>().text = generalCheckUp.StartElement.Text;
+            nurse.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(1).GetComponent<TextMeshPro>().text = timeForMedication.StartElement.Text;
+            nurse.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(2).GetComponent<TextMeshPro>().text = helpButton.StartElement.Text;
+        }
     }
 
     private void EndConversation(Conversation conversationToEnd)
