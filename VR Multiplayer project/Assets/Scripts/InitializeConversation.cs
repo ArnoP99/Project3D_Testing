@@ -23,9 +23,9 @@ public class InitializeConversation : NetworkBehaviour
             Debug.Log(tempPlayer);
             Debug.Log("IsServer: " + (tempPlayer == isServer));
             Debug.Log("IsClient: " + (tempPlayer == isClient));
-            Debug.Log("IsLocalPlayer: " + (tempPlayer == isLocalPlayer));
+            Debug.Log("IsLocalPlayer: " + (tempPlayer.GetComponent<NetworkIdentity>().isLocalPlayer));
 
-            if (tempPlayer.transform.parent.transform.parent.gameObject == isClient && tempPlayer.transform.parent.transform.parent.gameObject == isLocalPlayer)
+            if (tempPlayer == isClient && tempPlayer == isLocalPlayer)
             {
                 nurse = tempPlayer;
                 Debug.Log(nurse);
