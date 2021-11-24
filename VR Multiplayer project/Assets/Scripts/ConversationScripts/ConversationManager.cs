@@ -68,9 +68,12 @@ public class ConversationManager : NetworkBehaviour
         activeParticipant = nurse;
 
         nurse.transform.GetChild(0).transform.GetChild(3).gameObject.SetActive(true);
-        nurse.transform.GetChild(0).transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshPro>().text = generalCheckUp.StartElement.Text;
-        nurse.transform.GetChild(0).transform.GetChild(3).transform.GetChild(1).GetComponent<TextMeshPro>().text = timeForMedication.StartElement.Text;
-        nurse.transform.GetChild(0).transform.GetChild(3).transform.GetChild(2).GetComponent<TextMeshPro>().text = helpButton.StartElement.Text;
+        Debug.Log(nurse.transform.GetChild(0).transform.GetChild(3).transform.GetChild(0));
+        Debug.Log(nurse.transform.GetChild(0).transform.GetChild(3).transform.GetChild(1));
+        Debug.Log(nurse.transform.GetChild(0).transform.GetChild(3).transform.GetChild(2));
+        //nurse.transform.GetChild(0).transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshPro>().text = generalCheckUp.StartElement.Text;
+        //nurse.transform.GetChild(0).transform.GetChild(3).transform.GetChild(1).GetComponent<TextMeshPro>().text = timeForMedication.StartElement.Text;
+        //nurse.transform.GetChild(0).transform.GetChild(3).transform.GetChild(2).GetComponent<TextMeshPro>().text = helpButton.StartElement.Text;
     }
 
     private void EndConversation(Conversation conversationToEnd)
