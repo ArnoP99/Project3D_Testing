@@ -64,15 +64,12 @@ public class ConversationManager : NetworkBehaviour
 
     public void StartConversation(GameObject nurse)
     {
-        if (this.GetComponent<NetworkIdentity>().isServer == true)
+        if (gameObject.GetComponent<NetworkIdentity>().isServer == true)
         {
             conversationParticipants.Add(nurse);
             activeParticipant = nurse;
 
-            nurse.transform.GetChild(0).transform.GetChild(3).gameObject.SetActive(true);
-            nurse.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshPro>().text = generalCheckUp.StartElement.Text;
-            nurse.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(1).GetComponent<TextMeshPro>().text = timeForMedication.StartElement.Text;
-            nurse.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(2).GetComponent<TextMeshPro>().text = helpButton.StartElement.Text;
+            TargetStartConversation(nurse.GetComponent<NetworkIdentity>().connectionToClient, nurse);
         }
     }
 
@@ -93,4 +90,15 @@ public class ConversationManager : NetworkBehaviour
 
         }
     }
+
+    [TargetRpc]
+    public void TargetStartConversation(NetworkConnection target, GameObject nurse)
+    {
+        nurse.transform.GetChild(0).transform.GetChild(3).gameObject.SetActive(true);
+        nurse.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshPro>().text = generalCheckUp.StartElement.Text;
+        nurse.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(1).GetComponent<TextMeshPro>().text = timeForMedication.StartElement.Text;
+        nurse.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(2).GetComponent<TextMeshPro>().text = helpButton.StartElement.Text;
+    }
+
+
 }
