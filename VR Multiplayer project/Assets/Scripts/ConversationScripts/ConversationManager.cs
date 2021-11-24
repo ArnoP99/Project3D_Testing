@@ -64,10 +64,13 @@ public class ConversationManager : NetworkBehaviour
 
     public void StartConversation(GameObject nurse)
     {
-        if (gameObject.GetComponent<NetworkIdentity>().isClient == true)
+        Debug.Log("Before cmd: " + nurse);
+
+        if (this.GetComponent<NetworkIdentity>().isClient == true)
         {
             CmdStartConversation(nurse);
         }
+        Debug.Log("After cmd: " + nurse);
     }
 
     private void EndConversation(Conversation conversationToEnd)
@@ -91,12 +94,15 @@ public class ConversationManager : NetworkBehaviour
     [Command (requiresAuthority = false)]
     public void CmdStartConversation(GameObject nurse)
     {
+        Debug.Log("During cmd: " + nurse);
         TargetStartConversation(nurse.GetComponent<NetworkIdentity>().connectionToClient, nurse);
+        Debug.Log("After TargetRpc: " + nurse);
     }
 
     [TargetRpc]
     public void TargetStartConversation(NetworkConnection target, GameObject nurse)
     {
+        Debug.Log("During TargetRpc: " + nurse);
         conversationParticipants.Add(nurse);
         activeParticipant = nurse;
 
