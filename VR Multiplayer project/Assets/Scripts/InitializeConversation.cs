@@ -11,11 +11,6 @@ public class InitializeConversation : NetworkBehaviour
 
     private void Start()
     {
-
-    }
-
-    void Update()
-    {
         tempPlayers = GameObject.FindGameObjectsWithTag("Player");
 
         foreach (var tempPlayer in tempPlayers)
@@ -31,5 +26,10 @@ public class InitializeConversation : NetworkBehaviour
                 Debug.Log(nurse);
             }
         }
+    }
+
+    void Update()
+    {
+
     }
 }
