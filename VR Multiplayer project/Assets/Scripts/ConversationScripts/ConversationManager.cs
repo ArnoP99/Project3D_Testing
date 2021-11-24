@@ -64,12 +64,9 @@ public class ConversationManager : NetworkBehaviour
 
     public void StartConversation(GameObject nurse)
     {
-        if (gameObject.GetComponent<NetworkIdentity>().isServer == true)
+        if (gameObject.GetComponent<NetworkIdentity>().isClient == true)
         {
-            conversationParticipants.Add(nurse);
-            activeParticipant = nurse;
-
-            TargetStartConversation(nurse.GetComponent<NetworkIdentity>().connectionToClient, nurse);
+            CmdStartConversation(nurse);
         }
     }
 
@@ -91,9 +88,18 @@ public class ConversationManager : NetworkBehaviour
         }
     }
 
+    [Command (requiresAuthority = false)]
+    public void CmdStartConversation(GameObject nurse)
+    {
+        TargetStartConversation(nurse.GetComponent<NetworkIdentity>().connectionToClient, nurse);
+    }
+
     [TargetRpc]
     public void TargetStartConversation(NetworkConnection target, GameObject nurse)
     {
+        conversationParticipants.Add(nurse);
+        activeParticipant = nurse;
+
         nurse.transform.GetChild(0).transform.GetChild(3).gameObject.SetActive(true);
         nurse.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(0).GetComponent<TextMeshPro>().text = generalCheckUp.StartElement.Text;
         nurse.gameObject.transform.GetChild(0).transform.GetChild(3).transform.GetChild(1).GetComponent<TextMeshPro>().text = timeForMedication.StartElement.Text;
