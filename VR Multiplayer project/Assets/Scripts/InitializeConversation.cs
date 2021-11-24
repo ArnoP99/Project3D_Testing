@@ -11,27 +11,24 @@ public class InitializeConversation : NetworkBehaviour
 
     private void Start()
     {
-        
+
     }
 
     void Update()
     {
-        if (this == isClient && this != isServer)
+        tempPlayers = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (var tempPlayer in tempPlayers)
         {
-            tempPlayers = GameObject.FindGameObjectsWithTag("Player");
+            Debug.Log(tempPlayer);
+            Debug.Log("IsServer: " + (tempPlayer == isServer));
+            Debug.Log("IsClient: " + (tempPlayer == isClient));
+            Debug.Log("IsLocalPlayer: " + (tempPlayer == isLocalPlayer));
 
-            foreach (var tempPlayer in tempPlayers)
+            if (tempPlayer.transform.parent.transform.parent.gameObject == isClient && tempPlayer.transform.parent.transform.parent.gameObject == isLocalPlayer)
             {
-                Debug.Log(tempPlayer);
-                Debug.Log("IsServer: " + (tempPlayer == isServer));
-                Debug.Log("IsClient: " + (tempPlayer == isClient));
-                Debug.Log("IsLocalPlayer: " + (tempPlayer == isLocalPlayer));
-
-                if (tempPlayer.transform.parent.transform.parent.gameObject == isClient && tempPlayer.transform.parent.transform.parent.gameObject == isLocalPlayer)
-                {
-                    nurse = tempPlayer;
-                    Debug.Log(nurse);
-                }
+                nurse = tempPlayer;
+                Debug.Log(nurse);
             }
         }
     }
