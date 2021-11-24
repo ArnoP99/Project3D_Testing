@@ -18,15 +18,18 @@ public class InitializeConversation : NetworkBehaviour
             if (tempPlayer.GetComponent<NetworkIdentity>().isLocalPlayer == true && tempPlayer.GetComponent<NetworkIdentity>().isClient == true && tempPlayer.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse")
             {
                 nurse = tempPlayer;
+                CmdStartConversation(nurse);
             }
             else if (tempPlayer.GetComponent<NetworkIdentity>().isLocalPlayer == true && tempPlayer.GetComponent<NetworkIdentity>().isClient == true && tempPlayer.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor")
             {
                 agressor = tempPlayer;
             }
         }
+    }
 
+    [Command(requiresAuthority = false)]
+    public void CmdStartConversation(GameObject nurse)
+    {
         ConversationManager.Instance.StartConversation(nurse);
-
-
     }
 }
