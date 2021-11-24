@@ -65,11 +65,7 @@ public class ConversationManager : NetworkBehaviour
     public void StartConversation(GameObject nurse)
     {
         Debug.Log("Before cmd: " + nurse);
-
-        if (this.GetComponent<NetworkIdentity>().isClient == true)
-        {
-            CmdStartConversation(nurse);
-        }
+        CmdStartConversation(nurse);
         Debug.Log("After cmd: " + nurse);
     }
 
@@ -91,7 +87,7 @@ public class ConversationManager : NetworkBehaviour
         }
     }
 
-    [Command (requiresAuthority = false)]
+    [Command(requiresAuthority = false)]
     public void CmdStartConversation(GameObject nurse)
     {
         Debug.Log("During cmd: " + nurse);
