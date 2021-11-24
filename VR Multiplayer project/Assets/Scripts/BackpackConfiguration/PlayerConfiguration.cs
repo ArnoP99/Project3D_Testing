@@ -80,6 +80,7 @@ public class PlayerConfiguration : NetworkBehaviour
             TrackedPoseDriver.enabled = false;
             myCamera.enabled = false;
             myCamera.GetComponent<AudioListener>().enabled = false;
+            this.transform.GetChild(0).transform.GetChild(3).gameObject.SetActive(false);
         }
 
         //Make server/PC player invisible and make hands invisible
