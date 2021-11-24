@@ -91,7 +91,7 @@ public class ConversationManager : NetworkBehaviour
     public void CmdStartConversation(GameObject nurse)
     {
         Debug.Log("During cmd: " + nurse);
-        TargetStartConversation(nurse.GetComponent<NetworkIdentity>().connectionToClient, nurse);
+        TargetStartConversation(nurse.GetComponent<NetworkIdentity>().connectionToServer, nurse);
         Debug.Log("After TargetRpc: " + nurse);
     }
 
