@@ -7,36 +7,17 @@ using UnityEngine.InputSystem;
 public class HPReverbControls : MonoBehaviour
 {
     GameObject nurse;
+    GameObject agressor;
     GameObject textPopUp;
     GameObject activeChoice;
     bool triggerValue = true;
 
     public void PressTrigger(InputAction.CallbackContext context)
     {
-        //nurse = GameObject.FindGameObjectWithTag("Nurse");
-        //textPopUp = nurse.transform.GetChild(0).transform.GetChild(3).gameObject;
-
-        //if (textPopUp.transform.GetChild(0).GetComponent<TextMeshPro>().color == Color.red)
-        //{
-        //    activeChoice = textPopUp.transform.GetChild(0).gameObject;
-        //    textPopUp.SetActive(false);
-        //}
-        //else if (textPopUp.transform.GetChild(1).GetComponent<TextMeshPro>().color == Color.red)
-        //{
-        //    activeChoice = textPopUp.transform.GetChild(1).gameObject;
-        //    textPopUp.SetActive(false);
-        //}
-        //else if (textPopUp.transform.GetChild(2).GetComponent<TextMeshPro>().color == Color.red)
-        //{
-        //    activeChoice = textPopUp.transform.GetChild(2).gameObject;
-        //    textPopUp.SetActive(false);
-        //}
-        //else
-        //{
-        //    Debug.Log("No Active Choice Found.");
-        //}
-
         Debug.Log("Trigger Pressed");
+
+        GetAgressorActiveChoice();
+        GetNurseActiveChoice();
     }
 
     public void Joystick(InputAction.CallbackContext context)
@@ -46,23 +27,79 @@ public class HPReverbControls : MonoBehaviour
 
     public void PrimaryButton(InputAction.CallbackContext context)
     {
-        Debug.Log("PrimaryButton Pressed");
+        //Debug.Log("PrimaryButton Pressed");
 
-        if (triggerValue == true)
+        //if (triggerValue == true)
+        //{
+        //    this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).GetComponent<BoxCollider>().isTrigger = false;
+
+        //    this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(1).GetComponent<BoxCollider>().isTrigger = false;
+
+        //    triggerValue = false;
+        //}
+        //else if (triggerValue == false)
+        //{
+        //    this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).GetComponent<BoxCollider>().isTrigger = true;
+
+        //    this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(1).GetComponent<BoxCollider>().isTrigger = true;
+
+        //    triggerValue = true;
+        //}
+    }
+
+    public void GetNurseActiveChoice()
+    {
+        nurse = GameObject.FindGameObjectWithTag("Nurse");
+        textPopUp = nurse.transform.parent.transform.parent.transform.GetChild(3).gameObject;
+
+        if (textPopUp.transform.GetChild(0).GetComponent<TextMeshPro>().color == Color.red)
         {
-            this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).GetComponent<BoxCollider>().isTrigger = false;
-
-            this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(1).GetComponent<BoxCollider>().isTrigger = false;
-
-            triggerValue = false;
+            activeChoice = textPopUp.transform.GetChild(0).gameObject;
+            textPopUp.SetActive(false);
         }
-        else if (triggerValue == false)
+        else if (textPopUp.transform.GetChild(1).GetComponent<TextMeshPro>().color == Color.red)
         {
-            this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).GetComponent<BoxCollider>().isTrigger = true;
-
-            this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(1).GetComponent<BoxCollider>().isTrigger = true;
-
-            triggerValue = true;
+            activeChoice = textPopUp.transform.GetChild(1).gameObject;
+            textPopUp.SetActive(false);
         }
+        else if (textPopUp.transform.GetChild(2).GetComponent<TextMeshPro>().color == Color.red)
+        {
+            activeChoice = textPopUp.transform.GetChild(2).gameObject;
+            textPopUp.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("No Active Choice Found.");
+        }
+
+        Debug.Log("ActiveChoice Nurse: " + activeChoice);
+    }
+
+    public void GetAgressorActiveChoice()
+    {
+        agressor = GameObject.FindGameObjectWithTag("Agressor");
+        textPopUp = agressor.transform.parent.transform.parent.transform.GetChild(3).gameObject;
+
+        if (textPopUp.transform.GetChild(0).GetComponent<TextMeshPro>().color == Color.red)
+        {
+            activeChoice = textPopUp.transform.GetChild(0).gameObject;
+            textPopUp.SetActive(false);
+        }
+        else if (textPopUp.transform.GetChild(1).GetComponent<TextMeshPro>().color == Color.red)
+        {
+            activeChoice = textPopUp.transform.GetChild(1).gameObject;
+            textPopUp.SetActive(false);
+        }
+        else if (textPopUp.transform.GetChild(2).GetComponent<TextMeshPro>().color == Color.red)
+        {
+            activeChoice = textPopUp.transform.GetChild(2).gameObject;
+            textPopUp.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("No Active Choice Found.");
+        }
+
+        Debug.Log("ActiveChoice Agressor: " + activeChoice);
     }
 }
