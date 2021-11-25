@@ -45,7 +45,6 @@ public class ConversationManager : NetworkBehaviour
     {
         DontDestroyOnLoad(gameObject);
 
-
         generalCheckUpCv = new Conversation();
         timeForMedicationCv = new Conversation();
         helpButtonCv = new Conversation();
