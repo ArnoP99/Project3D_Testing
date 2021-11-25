@@ -45,21 +45,20 @@ public class ConversationManager : NetworkBehaviour
     {
         DontDestroyOnLoad(gameObject);
 
-        if (this.GetComponent<NetworkIdentity>().isServer == true)
-        {
-            generalCheckUpCv = new Conversation();
-            timeForMedicationCv = new Conversation();
-            helpButtonCv = new Conversation();
 
-            generalCheckUpCv.StartElement = ConversationElementInitializer.GeneralCheckupConversation();
-            generalCheckUpCv.ActiveElement = generalCheckUpCv.StartElement;
+        generalCheckUpCv = new Conversation();
+        timeForMedicationCv = new Conversation();
+        helpButtonCv = new Conversation();
 
-            timeForMedicationCv.StartElement = ConversationElementInitializer.TimeForMedicationConversation();
-            timeForMedicationCv.ActiveElement = timeForMedicationCv.StartElement;
+        generalCheckUpCv.StartElement = ConversationElementInitializer.GeneralCheckupConversation();
+        generalCheckUpCv.ActiveElement = generalCheckUpCv.StartElement;
 
-            helpButtonCv.StartElement = ConversationElementInitializer.HelpButtonConversation();
-            helpButtonCv.ActiveElement = helpButtonCv.StartElement;
-        }
+        timeForMedicationCv.StartElement = ConversationElementInitializer.TimeForMedicationConversation();
+        timeForMedicationCv.ActiveElement = timeForMedicationCv.StartElement;
+
+        helpButtonCv.StartElement = ConversationElementInitializer.HelpButtonConversation();
+        helpButtonCv.ActiveElement = helpButtonCv.StartElement;
+
     }
 
     public void StartConversation(GameObject nurse, GameObject agressor)
@@ -153,7 +152,7 @@ public class ConversationManager : NetworkBehaviour
             return timeForMedicationCv;
         }
     }
-    
+
     public Conversation HelpButtonConversation
     {
         get
