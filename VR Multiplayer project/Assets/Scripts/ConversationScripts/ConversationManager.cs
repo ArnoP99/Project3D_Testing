@@ -87,10 +87,7 @@ public class ConversationManager : NetworkBehaviour
     public void Update()
     {
         //Debug.Log(activeConversation.StartElement);
-        Debug.Log(gameObject.GetComponent<NetworkIdentity>().netId);
-        Debug.Log("1" + generalCheckUpCv.CurrentState);
-        Debug.Log("2" + timeForMedicationCv.CurrentState);
-        Debug.Log("3" + helpButtonCv.CurrentState);
+        Debug.Log(generalCheckUpCv.ToString());
     }
     public void SetConversation(int choice)
     {
@@ -99,17 +96,14 @@ public class ConversationManager : NetworkBehaviour
             if (choice == 1)
             {
                 activeConversation = generalCheckUpCv;
-                activeConversation.CurrentState = Conversation.ConversationState.Started;
             }
             else if (choice == 2)
             {
                 activeConversation = timeForMedicationCv;
-                activeConversation.CurrentState = Conversation.ConversationState.Started;
             }
             else if (choice == 3)
             {
                 activeConversation = helpButtonCv;
-                activeConversation.CurrentState = Conversation.ConversationState.Started;
             }
             Debug.Log(choice);
         }
