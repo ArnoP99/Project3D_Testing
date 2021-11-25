@@ -88,9 +88,9 @@ public class ConversationManager : NetworkBehaviour
     public void Update()
     {
         //Debug.Log(activeConversation.StartElement);
-        Debug.Log("1" + generalCheckUpCv.StartElement);
-        Debug.Log("2" + timeForMedicationCv.StartElement);
-        Debug.Log("3" + helpButtonCv.StartElement);
+        Debug.Log("1" + generalCheckUpCv.CurrentState);
+        Debug.Log("2" + timeForMedicationCv.CurrentState);
+        Debug.Log("3" + helpButtonCv.CurrentState);
     }
     //public void SetConversation(int choice)
     //{

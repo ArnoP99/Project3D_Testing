@@ -146,14 +146,17 @@ public class HPReverbControls : NetworkBehaviour
                 if (currentConversation == 1)
                 {
                     ConversationManager.Instance.ActiveConversation = ConversationManager.Instance.GeneralCheckupConversation;
+                    ConversationManager.Instance.GeneralCheckupConversation.CurrentState = Conversation.ConversationState.Started;
                 }
                 else if (currentConversation == 2)
                 {
                     ConversationManager.Instance.ActiveConversation = ConversationManager.Instance.TimeForMedicationConversation;
+                    ConversationManager.Instance.TimeForMedicationConversation.CurrentState = Conversation.ConversationState.Started;
                 }
                 else if (currentConversation == 3)
                 {
                     ConversationManager.Instance.ActiveConversation = ConversationManager.Instance.HelpButtonConversation;
+                    ConversationManager.Instance.HelpButtonConversation.CurrentState = Conversation.ConversationState.Started;
                 }
             }
         }
@@ -169,14 +172,17 @@ public class HPReverbControls : NetworkBehaviour
             if (currentConversation == 1)
             {
                 ConversationManager.Instance.ActiveConversation = ConversationManager.Instance.GeneralCheckupConversation;
+                ConversationManager.Instance.GeneralCheckupConversation.CurrentState = Conversation.ConversationState.Started;
             }
             else if (currentConversation == 2)
             {
                 ConversationManager.Instance.ActiveConversation = ConversationManager.Instance.TimeForMedicationConversation;
+                ConversationManager.Instance.TimeForMedicationConversation.CurrentState = Conversation.ConversationState.Started;
             }
             else if (currentConversation == 3)
             {
                 ConversationManager.Instance.ActiveConversation = ConversationManager.Instance.HelpButtonConversation;
+                ConversationManager.Instance.HelpButtonConversation.CurrentState = Conversation.ConversationState.Started;
             }
         }
     }
