@@ -12,7 +12,7 @@ public class ConversationManager : NetworkBehaviour
     private static readonly object padlock = new object();
 
     private List<Conversation> allConversations;
-    public Conversation activeConversation;
+    private Conversation activeConversation;
     private static List<GameObject> conversationParticipants = new List<GameObject>();
     private static GameObject activeParticipant;
 
