@@ -55,7 +55,7 @@ public class GameManager : NetworkBehaviour
             agressorOnSpawn = false;
         }
 
-        if (nurseOnSpawn == true /*&& agressorOnSpawn == true*/ && this == isServer)
+        if (nurseOnSpawn == true && agressorOnSpawn == true && this == isServer)
         {
             NetworkManager.singleton.ServerChangeScene("ZiekenhuisKamer");
         }
