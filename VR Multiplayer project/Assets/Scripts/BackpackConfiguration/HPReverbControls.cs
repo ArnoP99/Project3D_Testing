@@ -138,10 +138,29 @@ public class HPReverbControls : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdSetConversation(int currentConversation)
     {
-        RpcSetConversation(currentConversation);
+        Debug.Log("IsServer: " + gameObject.GetComponent<NetworkIdentity>().isServer);
+        if (gameObject.GetComponent<NetworkIdentity>().isServer)
+        {
+            if (ConversationManager.Instance.ActiveConversation != ConversationManager.Instance.GeneralCheckupConversation && ConversationManager.Instance.ActiveConversation != ConversationManager.Instance.TimeForMedicationConversation && ConversationManager.Instance.ActiveConversation != ConversationManager.Instance.HelpButtonConversation)
+            {
+                if (currentConversation == 1)
+                {
+                    ConversationManager.Instance.ActiveConversation = ConversationManager.Instance.GeneralCheckupConversation;
+                }
+                else if (currentConversation == 2)
+                {
+                    ConversationManager.Instance.ActiveConversation = ConversationManager.Instance.TimeForMedicationConversation;
+                }
+                else if (currentConversation == 3)
+                {
+                    ConversationManager.Instance.ActiveConversation = ConversationManager.Instance.HelpButtonConversation;
+                }
+            }
+        }
+        //RpcSetConversation(currentConversation);
     }
 
-    [ClientRpc(includeOwner = false)]
+    [ClientRpc(includeOwner = true)]
     public void RpcSetConversation(int currentConversation)
     {
         if (ConversationManager.Instance.ActiveConversation != ConversationManager.Instance.GeneralCheckupConversation && ConversationManager.Instance.ActiveConversation != ConversationManager.Instance.TimeForMedicationConversation && ConversationManager.Instance.ActiveConversation != ConversationManager.Instance.HelpButtonConversation)
