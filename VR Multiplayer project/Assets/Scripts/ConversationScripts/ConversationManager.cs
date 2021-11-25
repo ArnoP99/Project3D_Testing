@@ -85,6 +85,10 @@ public class ConversationManager : NetworkBehaviour
         }
     }
 
+    public void Update()
+    {
+        Debug.Log(activeConversation);
+    }
     //public void SetConversation(int choice)
     //{
     //    if (activeConversation == null)

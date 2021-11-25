@@ -156,13 +156,12 @@ public class HPReverbControls : NetworkBehaviour
                     ConversationManager.Instance.ActiveConversation = ConversationManager.Instance.HelpButtonConversation;
                 }
             }
-            Debug.Log("ActiveConvo" + ConversationManager.Instance.ActiveConversation.StartElement);
         }
         
-        //RpcSetConversation(currentConversation);
+        RpcSetConversation(currentConversation);
     }
 
-    [ClientRpc(includeOwner = true)]
+    [ClientRpc(includeOwner = false)]
     public void RpcSetConversation(int currentConversation)
     {
         if (ConversationManager.Instance.ActiveConversation != ConversationManager.Instance.GeneralCheckupConversation && ConversationManager.Instance.ActiveConversation != ConversationManager.Instance.TimeForMedicationConversation && ConversationManager.Instance.ActiveConversation != ConversationManager.Instance.HelpButtonConversation)
