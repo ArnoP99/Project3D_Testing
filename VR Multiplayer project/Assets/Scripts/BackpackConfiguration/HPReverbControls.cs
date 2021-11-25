@@ -138,32 +138,15 @@ public class HPReverbControls : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdSetConversation(int currentConversation)
     {
-        Debug.Log("IsServer: " + gameObject.GetComponent<NetworkIdentity>().isServer);
-        Debug.Log("Netid CVM in cmd: " + GameObject.Find("ConversationManager").gameObject.GetComponent<NetworkIdentity>().netId);
         if (gameObject.GetComponent<NetworkIdentity>().isServer)
         {
-            if (ConversationManager.Instance.ActiveConversation != ConversationManager.Instance.GeneralCheckupConversation && ConversationManager.Instance.ActiveConversation != ConversationManager.Instance.TimeForMedicationConversation && ConversationManager.Instance.ActiveConversation != ConversationManager.Instance.HelpButtonConversation)
-            {
-                if (currentConversation == 1)
-                {
-                    ConversationManager.Instance.ActiveConversation = ConversationManager.Instance.GeneralCheckupConversation;
-                    ConversationManager.Instance.GeneralCheckupConversation.CurrentState = Conversation.ConversationState.Started;
-                }
-                else if (currentConversation == 2)
-                {
-                    ConversationManager.Instance.ActiveConversation = ConversationManager.Instance.TimeForMedicationConversation;
-                    ConversationManager.Instance.TimeForMedicationConversation.CurrentState = Conversation.ConversationState.Started;
-                }
-                else if (currentConversation == 3)
-                {
-                    ConversationManager.Instance.ActiveConversation = ConversationManager.Instance.HelpButtonConversation;
-                    ConversationManager.Instance.HelpButtonConversation.CurrentState = Conversation.ConversationState.Started;
-                }
-            }
+            ConversationManager.Instance.SetConversation(currentConversation);
         }
-        
         RpcSetConversation(currentConversation);
     }
+
+
+
 
     [ClientRpc(includeOwner = false)]
     public void RpcSetConversation(int currentConversation)

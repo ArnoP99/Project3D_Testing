@@ -18,7 +18,7 @@ public class InitializeConversation : NetworkBehaviour
             if (tempPlayer.GetComponent<NetworkIdentity>().isLocalPlayer == true && tempPlayer.GetComponent<NetworkIdentity>().isClient == true && tempPlayer.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse")
             {
                 nurse = tempPlayer;
-
+                ConversationManager.Instance.StartConversation(nurse);
             }
             else if (tempPlayer.GetComponent<NetworkIdentity>().isLocalPlayer == true && tempPlayer.GetComponent<NetworkIdentity>().isClient == true && tempPlayer.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor")
             {
@@ -27,6 +27,6 @@ public class InitializeConversation : NetworkBehaviour
         }
         Debug.Log("Nurse: " + nurse);
         Debug.Log("Agressor: " + agressor);
-        ConversationManager.Instance.StartConversation(nurse, agressor);
+
     }
 }

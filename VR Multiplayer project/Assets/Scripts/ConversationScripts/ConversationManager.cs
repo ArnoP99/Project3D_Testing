@@ -60,10 +60,9 @@ public class ConversationManager : NetworkBehaviour
 
     }
 
-    public void StartConversation(GameObject nurse, GameObject agressor)
+    public void StartConversation(GameObject nurse)
     {
         conversationParticipants.Add(nurse);
-        conversationParticipants.Add(agressor);
         activeParticipant = nurse;
 
         nurse.transform.GetChild(0).transform.GetChild(3).gameObject.SetActive(true);
@@ -93,25 +92,28 @@ public class ConversationManager : NetworkBehaviour
         Debug.Log("2" + timeForMedicationCv.CurrentState);
         Debug.Log("3" + helpButtonCv.CurrentState);
     }
-    //public void SetConversation(int choice)
-    //{
-    //    if (activeConversation == null)
-    //    {
-    //        if (choice == 1)
-    //        {
-    //            activeConversation = generalCheckUpCv;
-    //        }
-    //        else if (choice == 2)
-    //        {
-    //            activeConversation = timeForMedicationCv;
-    //        }
-    //        else if (choice == 3)
-    //        {
-    //            activeConversation = helpButtonCv;
-    //        }
-    //        Debug.Log(choice);
-    //    }
-    //}
+    public void SetConversation(int choice)
+    {
+        if (activeConversation == null)
+        {
+            if (choice == 1)
+            {
+                activeConversation = generalCheckUpCv;
+                activeConversation.CurrentState = Conversation.ConversationState.Started;
+            }
+            else if (choice == 2)
+            {
+                activeConversation = timeForMedicationCv;
+                activeConversation.CurrentState = Conversation.ConversationState.Started;
+            }
+            else if (choice == 3)
+            {
+                activeConversation = helpButtonCv;
+                activeConversation.CurrentState = Conversation.ConversationState.Started;
+            }
+            Debug.Log(choice);
+        }
+    }
 
 
 
