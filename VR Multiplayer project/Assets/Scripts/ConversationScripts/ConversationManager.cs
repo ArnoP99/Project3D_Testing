@@ -103,6 +103,7 @@ public class ConversationManager : NetworkBehaviour
             {
                 activeConversation = helpButtonCv;
             }
+            Debug.Log(choice);
             CmdSetConversation(choice);
         }
     }
