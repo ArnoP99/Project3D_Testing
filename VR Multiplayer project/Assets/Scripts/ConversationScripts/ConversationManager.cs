@@ -13,12 +13,12 @@ public class ConversationManager : NetworkBehaviour
 
     private List<Conversation> allConversations;
     private Conversation activeConversation;
-    private static List<GameObject> conversationParticipants = new List<GameObject>();
-    private static GameObject activeParticipant;
+    private List<GameObject> conversationParticipants = new List<GameObject>();
+    private GameObject activeParticipant;
 
-    private static Conversation generalCheckUpCv;
-    private static Conversation timeForMedicationCv;
-    private static Conversation helpButtonCv;
+    private Conversation generalCheckUpCv;
+    private Conversation timeForMedicationCv;
+    private Conversation helpButtonCv;
 
     private ConversationManager()
     {
@@ -87,10 +87,10 @@ public class ConversationManager : NetworkBehaviour
 
     public void Update()
     {
-        Debug.Log(activeConversation.StartElement);
-        Debug.Log("1" + generalCheckUpCv);
-        Debug.Log("2" + timeForMedicationCv);
-        Debug.Log("3" + helpButtonCv);
+        //Debug.Log(activeConversation.StartElement);
+        Debug.Log("1" + generalCheckUpCv.StartElement);
+        Debug.Log("2" + timeForMedicationCv.StartElement);
+        Debug.Log("3" + helpButtonCv.StartElement);
     }
     //public void SetConversation(int choice)
     //{
