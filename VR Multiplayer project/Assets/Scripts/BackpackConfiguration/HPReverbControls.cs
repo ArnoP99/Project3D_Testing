@@ -65,7 +65,7 @@ public class HPReverbControls : MonoBehaviour
     public void GetNurseActiveChoice()
     {
         nurse = GameObject.FindGameObjectWithTag("Nurse");
-        textPopUp = nurse.transform.parent.transform.parent.transform.GetChild(3).gameObject;
+        textPopUp = nurse.transform.parent.transform.GetChild(3).gameObject;
 
         if (textPopUp.transform.GetChild(0).GetComponent<TextMeshPro>().color == Color.red)
         {
@@ -93,7 +93,7 @@ public class HPReverbControls : MonoBehaviour
     public void GetAgressorActiveChoice()
     {
         agressor = GameObject.FindGameObjectWithTag("Agressor");
-        textPopUp = agressor.transform.parent.transform.parent.transform.GetChild(3).gameObject;
+        textPopUp = agressor.transform.parent.transform.GetChild(3).gameObject;
 
         if (textPopUp.transform.GetChild(0).GetComponent<TextMeshPro>().color == Color.red)
         {
