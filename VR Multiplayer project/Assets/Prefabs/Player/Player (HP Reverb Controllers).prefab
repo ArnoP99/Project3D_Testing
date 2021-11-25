@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4453248782723660291}
   - component: {fileID: 4189432981104516285}
   - component: {fileID: 330052651957864881}
+  - component: {fileID: 7530562036941770164}
   - component: {fileID: 6657182055027919203}
   m_Layer: 0
   m_Name: RightController
@@ -172,7 +173,7 @@ MonoBehaviour:
   m_AudioClipForOnHoverExited: {fileID: 0}
   m_PlayAudioClipOnHoverCanceled: 0
   m_AudioClipForOnHoverCanceled: {fileID: 0}
-  m_PlayHapticsOnSelectEntered: 1
+  m_PlayHapticsOnSelectEntered: 0
   m_HapticSelectEnterIntensity: 0.3
   m_HapticSelectEnterDuration: 0.1
   m_PlayHapticsOnSelectExited: 0
@@ -181,7 +182,7 @@ MonoBehaviour:
   m_PlayHapticsOnSelectCanceled: 0
   m_HapticSelectCancelIntensity: 0
   m_HapticSelectCancelDuration: 0
-  m_PlayHapticsOnHoverEntered: 1
+  m_PlayHapticsOnHoverEntered: 0
   m_HapticHoverEnterIntensity: 0.1
   m_HapticHoverEnterDuration: 0.1
   m_PlayHapticsOnHoverExited: 0
@@ -200,6 +201,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a79d6b9bcfd482e4f9ba8849c7fae60a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7530562036941770164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229979407110638416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8da8e746c3a8b854c86077be58b12970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6657182055027919203
@@ -794,7 +807,7 @@ MonoBehaviour:
   m_AudioClipForOnHoverExited: {fileID: 0}
   m_PlayAudioClipOnHoverCanceled: 0
   m_AudioClipForOnHoverCanceled: {fileID: 0}
-  m_PlayHapticsOnSelectEntered: 1
+  m_PlayHapticsOnSelectEntered: 0
   m_HapticSelectEnterIntensity: 0.3
   m_HapticSelectEnterDuration: 0.1
   m_PlayHapticsOnSelectExited: 0
@@ -803,7 +816,7 @@ MonoBehaviour:
   m_PlayHapticsOnSelectCanceled: 0
   m_HapticSelectCancelIntensity: 0
   m_HapticSelectCancelDuration: 0
-  m_PlayHapticsOnHoverEntered: 1
+  m_PlayHapticsOnHoverEntered: 0
   m_HapticHoverEnterIntensity: 0.1
   m_HapticHoverEnterDuration: 0.1
   m_PlayHapticsOnHoverExited: 0

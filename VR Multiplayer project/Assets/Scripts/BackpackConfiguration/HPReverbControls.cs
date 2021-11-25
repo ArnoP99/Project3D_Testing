@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -15,9 +16,23 @@ public class HPReverbControls : MonoBehaviour
     public void PressTrigger(InputAction.CallbackContext context)
     {
         Debug.Log("Trigger Pressed");
+        try
+        {
+            GetAgressorActiveChoice();
+        }
+        catch (Exception ex)
+        {
+            Debug.Log(ex);
+        }
 
-        GetAgressorActiveChoice();
-        GetNurseActiveChoice();
+        try
+        {
+            GetNurseActiveChoice();
+        }
+        catch (Exception ex)
+        {
+            Debug.Log(ex);
+        }
     }
 
     public void Joystick(InputAction.CallbackContext context)
