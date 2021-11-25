@@ -144,7 +144,7 @@ public class HPReverbControls : NetworkBehaviour
     [ClientRpc(includeOwner = false)]
     public void RpcSetConversation(int currentConversation)
     {
-        if (ConversationManager.Instance.ActiveConversation == null)
+        if (ConversationManager.Instance.ActiveConversation != ConversationManager.Instance.GeneralCheckupConversation && ConversationManager.Instance.ActiveConversation != ConversationManager.Instance.TimeForMedicationConversation && ConversationManager.Instance.ActiveConversation != ConversationManager.Instance.HelpButtonConversation)
         {
             if (currentConversation == 1)
             {
