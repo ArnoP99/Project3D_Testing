@@ -1891,6 +1891,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 2519201845598561025, guid: 13173dd926b1f5a43a22227f54e827fd,
+        type: 3}
+      propertyPath: m_enableKerning
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2519201845598561025, guid: 13173dd926b1f5a43a22227f54e827fd,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 7720609124690691260, guid: 13173dd926b1f5a43a22227f54e827fd,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1996,6 +2006,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8673465774918589720, guid: 13173dd926b1f5a43a22227f54e827fd,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     m_RemovedComponents:
     - {fileID: 4892608040228600679, guid: 13173dd926b1f5a43a22227f54e827fd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 13173dd926b1f5a43a22227f54e827fd, type: 3}
