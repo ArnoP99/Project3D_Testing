@@ -159,6 +159,5 @@ public class HPReverbControls : NetworkBehaviour
                 ConversationManager.Instance.ActiveConversation = ConversationManager.Instance.HelpButtonConversation;
             }
         }
-        Debug.Log("ActiveConversation = " + ConversationManager.Instance.ActiveConversation.StartElement);
     }
 }
