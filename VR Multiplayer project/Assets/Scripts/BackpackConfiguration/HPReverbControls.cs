@@ -139,6 +139,7 @@ public class HPReverbControls : NetworkBehaviour
     public void CmdSetConversation(int currentConversation)
     {
         Debug.Log("IsServer: " + gameObject.GetComponent<NetworkIdentity>().isServer);
+        Debug.Log("Netid CVM in cmd: " + GameObject.Find("ConversationManager").gameObject.GetComponent<NetworkIdentity>().netId);
         if (gameObject.GetComponent<NetworkIdentity>().isServer)
         {
             if (ConversationManager.Instance.ActiveConversation != ConversationManager.Instance.GeneralCheckupConversation && ConversationManager.Instance.ActiveConversation != ConversationManager.Instance.TimeForMedicationConversation && ConversationManager.Instance.ActiveConversation != ConversationManager.Instance.HelpButtonConversation)
@@ -167,6 +168,7 @@ public class HPReverbControls : NetworkBehaviour
     [ClientRpc(includeOwner = false)]
     public void RpcSetConversation(int currentConversation)
     {
+        Debug.Log("Netid CVM in cmd: " + GameObject.Find("ConversationManager").gameObject.GetComponent<NetworkIdentity>().netId);
         if (ConversationManager.Instance.ActiveConversation != ConversationManager.Instance.GeneralCheckupConversation && ConversationManager.Instance.ActiveConversation != ConversationManager.Instance.TimeForMedicationConversation && ConversationManager.Instance.ActiveConversation != ConversationManager.Instance.HelpButtonConversation)
         {
             if (currentConversation == 1)

@@ -88,6 +88,7 @@ public class ConversationManager : NetworkBehaviour
     public void Update()
     {
         //Debug.Log(activeConversation.StartElement);
+        Debug.Log(gameObject.GetComponent<NetworkIdentity>().netId);
         Debug.Log("1" + generalCheckUpCv.CurrentState);
         Debug.Log("2" + timeForMedicationCv.CurrentState);
         Debug.Log("3" + helpButtonCv.CurrentState);
