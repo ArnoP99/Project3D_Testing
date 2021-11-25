@@ -87,53 +87,27 @@ public class ConversationManager : NetworkBehaviour
         }
     }
 
-    public void SetConversation(int choice)
-    {
-        if (activeConversation == null)
-        {
-            if (choice == 1)
-            {
-                activeConversation = generalCheckUpCv;
-            }
-            else if (choice == 2)
-            {
-                activeConversation = timeForMedicationCv;
-            }
-            else if (choice == 3)
-            {
-                activeConversation = helpButtonCv;
-            }
-            Debug.Log(choice);
-            CmdSetConversation(choice);
-        }
-    }
+    //public void SetConversation(int choice)
+    //{
+    //    if (activeConversation == null)
+    //    {
+    //        if (choice == 1)
+    //        {
+    //            activeConversation = generalCheckUpCv;
+    //        }
+    //        else if (choice == 2)
+    //        {
+    //            activeConversation = timeForMedicationCv;
+    //        }
+    //        else if (choice == 3)
+    //        {
+    //            activeConversation = helpButtonCv;
+    //        }
+    //        Debug.Log(choice);
+    //    }
+    //}
 
-    [Command(requiresAuthority = false)]
-    public void CmdSetConversation(int currentConversation)
-    {
-        RpcSetConversation(currentConversation);
-    }
 
-    [ClientRpc(includeOwner = false)]
-    public void RpcSetConversation(int currentConversation)
-    {
-        if (activeConversation == null)
-        {
-            if (currentConversation == 1)
-            {
-                activeConversation = generalCheckUpCv;
-            }
-            else if (currentConversation == 2)
-            {
-                activeConversation = timeForMedicationCv;
-            }
-            else if (currentConversation == 3)
-            {
-                activeConversation = helpButtonCv;
-            }
-        }
-        Debug.Log("ActiveConversation = " + activeConversation);
-    }
 
     //[Command(requiresAuthority = false)]
     //public void CmdStartConversation(GameObject nurse)
@@ -161,6 +135,30 @@ public class ConversationManager : NetworkBehaviour
         set
         {
             activeConversation = value;
+        }
+    }
+
+    public Conversation GeneralCheckupConversation
+    {
+        get
+        {
+            return generalCheckUpCv;
+        }
+    }
+
+    public Conversation TimeForMedicationConversation
+    {
+        get
+        {
+            return timeForMedicationCv;
+        }
+    }
+    
+    public Conversation HelpButtonConversation
+    {
+        get
+        {
+            return helpButtonCv;
         }
     }
 
