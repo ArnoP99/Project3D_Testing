@@ -16,9 +16,9 @@ public class ConversationManager : NetworkBehaviour
     private static List<GameObject> conversationParticipants = new List<GameObject>();
     private static GameObject activeParticipant;
 
-    private static Conversation generalCheckUp;
-    private static Conversation timeForMedication;
-    private static Conversation helpButton;
+    private static Conversation generalCheckUpCv;
+    private static Conversation timeForMedicationCv;
+    private static Conversation helpButtonCv;
 
     private ConversationManager()
     {
@@ -47,24 +47,25 @@ public class ConversationManager : NetworkBehaviour
 
         if (this.GetComponent<NetworkIdentity>().isServer == true)
         {
-            generalCheckUp = new Conversation();
-            timeForMedication = new Conversation();
-            helpButton = new Conversation();
+            generalCheckUpCv = new Conversation();
+            timeForMedicationCv = new Conversation();
+            helpButtonCv = new Conversation();
 
-            generalCheckUp.StartElement = ConversationElementInitializer.GeneralCheckupConversation();
-            generalCheckUp.ActiveElement = generalCheckUp.StartElement;
+            generalCheckUpCv.StartElement = ConversationElementInitializer.GeneralCheckupConversation();
+            generalCheckUpCv.ActiveElement = generalCheckUpCv.StartElement;
 
-            timeForMedication.StartElement = ConversationElementInitializer.TimeForMedicationConversation();
-            timeForMedication.ActiveElement = timeForMedication.StartElement;
+            timeForMedicationCv.StartElement = ConversationElementInitializer.TimeForMedicationConversation();
+            timeForMedicationCv.ActiveElement = timeForMedicationCv.StartElement;
 
-            helpButton.StartElement = ConversationElementInitializer.HelpButtonConversation();
-            helpButton.ActiveElement = helpButton.StartElement;
+            helpButtonCv.StartElement = ConversationElementInitializer.HelpButtonConversation();
+            helpButtonCv.ActiveElement = helpButtonCv.StartElement;
         }
     }
 
-    public void StartConversation(GameObject nurse)
+    public void StartConversation(GameObject nurse, GameObject agressor)
     {
         conversationParticipants.Add(nurse);
+        conversationParticipants.Add(agressor);
         activeParticipant = nurse;
 
         nurse.transform.GetChild(0).transform.GetChild(3).gameObject.SetActive(true);
@@ -78,17 +79,59 @@ public class ConversationManager : NetworkBehaviour
 
     }
 
-    private void ChooseConversation(Conversation chosenConversation)
-    {
-
-    }
-
     private void UpdateConversation(Conversation conversationToUpdate)
     {
         if (conversationToUpdate.CurrentState == Conversation.ConversationState.Ended)
         {
 
         }
+    }
+
+    public void SetConversation(int choice)
+    {
+        if (activeConversation == null)
+        {
+            if (choice == 1)
+            {
+                activeConversation = generalCheckUpCv;
+            }
+            else if (choice == 2)
+            {
+                activeConversation = timeForMedicationCv;
+            }
+            else if (choice == 3)
+            {
+                activeConversation = helpButtonCv;
+            }
+            CmdSetConversation(choice);
+        }
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdSetConversation(int currentConversation)
+    {
+        RpcSetConversation(currentConversation);
+    }
+
+    [ClientRpc(includeOwner = false)]
+    public void RpcSetConversation(int currentConversation)
+    {
+        if (activeConversation == null)
+        {
+            if (currentConversation == 1)
+            {
+                activeConversation = generalCheckUpCv;
+            }
+            else if (currentConversation == 2)
+            {
+                activeConversation = timeForMedicationCv;
+            }
+            else if (currentConversation == 3)
+            {
+                activeConversation = helpButtonCv;
+            }
+        }
+        Debug.Log("ActiveConversation = " + activeConversation);
     }
 
     //[Command(requiresAuthority = false)]
@@ -107,4 +150,17 @@ public class ConversationManager : NetworkBehaviour
     //}
 
     //pass choice to server with an int and then from server to agressor
+
+    public Conversation ActiveConversation
+    {
+        get
+        {
+            return activeConversation;
+        }
+        set
+        {
+            activeConversation = value;
+        }
+    }
+
 }

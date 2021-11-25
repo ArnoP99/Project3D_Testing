@@ -71,16 +71,20 @@ public class HPReverbControls : MonoBehaviour
         {
             activeChoice = textPopUp.transform.GetChild(0).gameObject;
             textPopUp.SetActive(false);
+            ConversationManager.Instance.SetConversation(1);
+
         }
         else if (textPopUp.transform.GetChild(1).GetComponent<TextMeshPro>().color == Color.red)
         {
             activeChoice = textPopUp.transform.GetChild(1).gameObject;
             textPopUp.SetActive(false);
+            ConversationManager.Instance.SetConversation(1);
         }
         else if (textPopUp.transform.GetChild(2).GetComponent<TextMeshPro>().color == Color.red)
         {
             activeChoice = textPopUp.transform.GetChild(2).gameObject;
             textPopUp.SetActive(false);
+            ConversationManager.Instance.SetConversation(1);
         }
         else
         {
@@ -99,16 +103,19 @@ public class HPReverbControls : MonoBehaviour
         {
             activeChoice = textPopUp.transform.GetChild(0).gameObject;
             textPopUp.SetActive(false);
+
         }
         else if (textPopUp.transform.GetChild(1).GetComponent<TextMeshPro>().color == Color.red)
         {
             activeChoice = textPopUp.transform.GetChild(1).gameObject;
             textPopUp.SetActive(false);
+
         }
         else if (textPopUp.transform.GetChild(2).GetComponent<TextMeshPro>().color == Color.red)
         {
             activeChoice = textPopUp.transform.GetChild(2).gameObject;
             textPopUp.SetActive(false);
+
         }
         else
         {
