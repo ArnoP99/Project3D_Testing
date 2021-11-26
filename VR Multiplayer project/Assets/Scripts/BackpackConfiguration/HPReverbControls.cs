@@ -179,13 +179,15 @@ public class HPReverbControls : NetworkBehaviour
     public void TargetSetConversation(NetworkConnection target, int currentConversation)
     {
         Debug.Log("Dit is enkel op de client te zien");
+        Debug.Log(this.isClient + " ic     " + this.GetComponent<NetworkIdentity>().isLocalPlayer + "  ilp    " + this.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor");
         if (this.isClient && this.GetComponent<NetworkIdentity>().isLocalPlayer && this.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor")
         {
             Debug.Log("Agressor executed");
             conversationManagerAgressor = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
             conversationManagerAgressor.ActiveConversation = currentConversation;
         }
-        else if (this.isClient && this.GetComponent<NetworkIdentity>().isLocalPlayer && this.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse")
+
+        if (this.isClient && this.GetComponent<NetworkIdentity>().isLocalPlayer && this.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse")
         {
             Debug.Log("Nurse executed");
             conversationManagerNurse = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
