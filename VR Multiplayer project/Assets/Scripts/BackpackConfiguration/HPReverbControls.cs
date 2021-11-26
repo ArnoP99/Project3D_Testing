@@ -183,11 +183,13 @@ public class HPReverbControls : NetworkBehaviour
         if (this.isClient && this.GetComponent<NetworkIdentity>().isLocalPlayer && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse")
         {
             Debug.Log("Nurse executed");
+            conversationManagerNurse = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
             conversationManagerNurse.ActiveConversation = currentConversation;
         }
         if (this.isClient && this.GetComponent<NetworkIdentity>().isLocalPlayer && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor")
         {
             Debug.Log("Agressor executed");
+            conversationManagerAgressor = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
             conversationManagerAgressor.ActiveConversation = currentConversation;
         }
 
