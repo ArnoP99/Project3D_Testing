@@ -164,7 +164,10 @@ public class HPReverbControls : NetworkBehaviour
         {
             conversationManagerServer.ActiveConversation = currentConversation;
             Debug.Log(conversationManagerServer.ActiveConversation);
-            RpcSetConversation(currentConversation);
+            NetworkIdentity nurseID = GameObject.FindGameObjectWithTag("Nurse").transform.parent.transform.parent.gameObject.GetComponent<NetworkIdentity>();
+            NetworkIdentity AgressorID = GameObject.FindGameObjectWithTag("Agressor").transform.parent.transform.parent.gameObject.GetComponent<NetworkIdentity>();
+            TargetSetConversation(nurseID.connectionToClient, currentConversation);
+            TargetSetConversation(AgressorID.connectionToClient, currentConversation);
         }
 
     }
@@ -172,8 +175,8 @@ public class HPReverbControls : NetworkBehaviour
 
 
 
-    [ClientRpc(includeOwner = false)]
-    public void RpcSetConversation(int currentConversation)
+    [TargetRpc]
+    public void TargetSetConversation(NetworkConnection target, int currentConversation)
     {
         Debug.Log("Dit is enkel op de client te zien");
 
