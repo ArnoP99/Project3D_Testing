@@ -9,8 +9,11 @@ public class InitializeConversation : NetworkBehaviour
     public GameObject agressor;
     public GameObject[] tempPlayers;
 
+    ConversationManager conversationManager;
     private void Start()
     {
+        conversationManager = new ConversationManager();
+
         tempPlayers = GameObject.FindGameObjectsWithTag("Player");
 
         foreach (var tempPlayer in tempPlayers)
@@ -18,7 +21,7 @@ public class InitializeConversation : NetworkBehaviour
             if (tempPlayer.GetComponent<NetworkIdentity>().isLocalPlayer == true && tempPlayer.GetComponent<NetworkIdentity>().isClient == true && tempPlayer.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse")
             {
                 nurse = tempPlayer;
-                ConversationManager.Instance.StartConversation(nurse);
+                conversationManager.StartConversation(nurse);
             }
             else if (tempPlayer.GetComponent<NetworkIdentity>().isLocalPlayer == true && tempPlayer.GetComponent<NetworkIdentity>().isClient == true && tempPlayer.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor")
             {
