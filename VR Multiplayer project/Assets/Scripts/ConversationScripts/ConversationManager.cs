@@ -11,14 +11,14 @@ public class ConversationManager : NetworkBehaviour
     private static ConversationManager instance = null;
     private static readonly object padlock = new object();
 
-    private Conversation[] allConversations;
-    private int activeConversation;
-    private List<GameObject> conversationParticipants = new List<GameObject>();
-    private GameObject activeParticipant;
+    public Conversation[] allConversations;
+    public int activeConversation;
+    public List<GameObject> conversationParticipants = new List<GameObject>();
+    public GameObject activeParticipant;
 
-    private Conversation generalCheckUpCv;
-    private Conversation timeForMedicationCv;
-    private Conversation helpButtonCv;
+    public Conversation generalCheckUpCv;
+    public Conversation timeForMedicationCv;
+    public Conversation helpButtonCv;
 
     private ConversationManager()
     {
@@ -138,18 +138,6 @@ public class ConversationManager : NetworkBehaviour
     //}
 
     //pass choice to server with an int and then from server to agressor
-
-    public int ActiveConversation
-    {
-        get
-        {
-            return activeConversation;
-        }
-        set
-        {
-            activeConversation = value;
-        }
-    }
 
     public Conversation GeneralCheckupConversation
     {

@@ -8,11 +8,11 @@ using UnityEngine.InputSystem;
 
 public class HPReverbControls : NetworkBehaviour
 {
-    GameObject nurse;
-    GameObject agressor;
-    GameObject textPopUp;
-    GameObject activeChoice;
-    bool triggerValue = true;
+    public GameObject nurse;
+    public GameObject agressor;
+    public GameObject textPopUp;
+    public GameObject activeChoice;
+    public bool triggerValue = true;
 
     public void PressTrigger(InputAction.CallbackContext context)
     {
@@ -140,7 +140,7 @@ public class HPReverbControls : NetworkBehaviour
     {
         if (gameObject.GetComponent<NetworkIdentity>().isServer)
         {
-            ConversationManager.Instance.ActiveConversation = currentConversation;
+            ConversationManager.Instance.activeConversation = currentConversation;
         }
         RpcSetConversation(currentConversation);
     }
@@ -151,9 +151,9 @@ public class HPReverbControls : NetworkBehaviour
     [ClientRpc(includeOwner = false)]
     public void RpcSetConversation(int currentConversation)
     {
-        if (ConversationManager.Instance.ActiveConversation == -1)
+        if (ConversationManager.Instance.activeConversation == -1)
         {
-            ConversationManager.Instance.ActiveConversation = currentConversation;
+            ConversationManager.Instance.activeConversation = currentConversation;
         }
     }
 }

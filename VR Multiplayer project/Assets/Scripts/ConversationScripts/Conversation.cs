@@ -29,7 +29,6 @@ public class Conversation : MonoBehaviour
         startElement = new ConversationElement();
         startingUser = ConversationStartUser.Nurse;
         activeElement = null;
-
     }
     
 

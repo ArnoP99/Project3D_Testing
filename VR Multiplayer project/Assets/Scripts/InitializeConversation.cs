@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class InitializeConversation : NetworkBehaviour
 {
-    GameObject nurse;
-    GameObject agressor;
-    GameObject[] tempPlayers;
+    public GameObject nurse;
+    public GameObject agressor;
+    public GameObject[] tempPlayers;
 
     private void Start()
     {
