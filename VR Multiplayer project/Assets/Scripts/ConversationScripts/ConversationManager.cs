@@ -97,14 +97,17 @@ public class ConversationManager : NetworkBehaviour
             if (choice == 1)
             {
                 activeConversation = generalCheckUpCv;
+                activeConversation.StartElement = generalCheckUpCv.StartElement;
             }
             else if (choice == 2)
             {
                 activeConversation = timeForMedicationCv;
+                activeConversation.StartElement = timeForMedicationCv.StartElement;
             }
             else if (choice == 3)
             {
                 activeConversation = helpButtonCv;
+                activeConversation.StartElement = helpButtonCv.StartElement;
             }
             Debug.Log(choice);
         }

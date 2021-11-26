@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -7,10 +8,17 @@ public class TextSelection : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.parent.gameObject.tag == "ChoicePopUp")
+        try
         {
-            other.gameObject.GetComponent<TextMeshPro>().color = Color.red;
+            if (other.transform.parent.gameObject.tag == "ChoicePopUp")
+            {
+                other.gameObject.GetComponent<TextMeshPro>().color = Color.red;
 
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.Log(ex);
         }
     }
     private void OntriggerStay(Collider other)
@@ -20,10 +28,17 @@ public class TextSelection : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.transform.parent.gameObject.tag == "ChoicePopUp")
+        try
         {
-            other.gameObject.GetComponent<TextMeshPro>().color = Color.white;
+            if (other.transform.parent.gameObject.tag == "ChoicePopUp")
+            {
+                other.gameObject.GetComponent<TextMeshPro>().color = Color.white;
 
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.Log(ex);
         }
     }
 }
