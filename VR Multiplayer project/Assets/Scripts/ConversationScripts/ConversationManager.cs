@@ -45,22 +45,22 @@ public class ConversationManager : NetworkBehaviour
     {
         DontDestroyOnLoad(gameObject);
 
-        generalCheckUpCv = new Conversation();
-        timeForMedicationCv = new Conversation();
-        helpButtonCv = new Conversation();
-        activeConversation = new Conversation();
+        if (this.isServer)
+        {
+            generalCheckUpCv = new Conversation();
+            timeForMedicationCv = new Conversation();
+            helpButtonCv = new Conversation();
+            activeConversation = new Conversation();
 
-        generalCheckUpCv.StartElement = ConversationElementInitializer.GeneralCheckupConversation();
-        generalCheckUpCv.ActiveElement = generalCheckUpCv.StartElement;
+            generalCheckUpCv.StartElement = ConversationElementInitializer.GeneralCheckupConversation();
+            generalCheckUpCv.ActiveElement = generalCheckUpCv.StartElement;
 
-        timeForMedicationCv.StartElement = ConversationElementInitializer.TimeForMedicationConversation();
-        timeForMedicationCv.ActiveElement = timeForMedicationCv.StartElement;
+            timeForMedicationCv.StartElement = ConversationElementInitializer.TimeForMedicationConversation();
+            timeForMedicationCv.ActiveElement = timeForMedicationCv.StartElement;
 
-        helpButtonCv.StartElement = ConversationElementInitializer.HelpButtonConversation();
-        helpButtonCv.ActiveElement = helpButtonCv.StartElement;
-              
-        
-
+            helpButtonCv.StartElement = ConversationElementInitializer.HelpButtonConversation();
+            helpButtonCv.ActiveElement = helpButtonCv.StartElement;
+        }
     }
 
     public void StartConversation(GameObject nurse)
@@ -97,26 +97,29 @@ public class ConversationManager : NetworkBehaviour
     }
     public void SetConversation(int choice)
     {
-        if (activeConversation == null)
+        if (this.isServer)
         {
-            if (choice == 1)
+            if (activeConversation == null)
             {
-                Debug.Log("Choice 1 set");
-                activeConversation = generalCheckUpCv;
+                if (choice == 1)
+                {
+                    Debug.Log("Choice 1 set");
+                    activeConversation = generalCheckUpCv;
 
-            }
-            else if (choice == 2)
-            {
-                Debug.Log("Choice 2 set");
-                activeConversation = timeForMedicationCv;
+                }
+                else if (choice == 2)
+                {
+                    Debug.Log("Choice 2 set");
+                    activeConversation = timeForMedicationCv;
 
+                }
+                else if (choice == 3)
+                {
+                    Debug.Log("Choice 3 set");
+                    activeConversation = helpButtonCv;
+                }
+                Debug.Log(choice);
             }
-            else if (choice == 3)
-            {
-                Debug.Log("Choice 3 set");
-                activeConversation = helpButtonCv;
-            }
-            Debug.Log(choice);
         }
     }
 
