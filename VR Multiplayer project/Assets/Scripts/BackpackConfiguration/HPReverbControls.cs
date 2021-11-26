@@ -16,11 +16,24 @@ public class HPReverbControls : NetworkBehaviour
 
     int test;
 
-    ConversationManager conversationManager;
+    ConversationManager conversationManagerServer;
+    ConversationManager conversationManagerNurse;
+    ConversationManager conversationManagerAgressor;
 
     private void Start()
     {
-        conversationManager = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
+        if (this.isServer)
+        {
+            conversationManagerServer = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
+        }
+        if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse")
+        {
+            conversationManagerNurse = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
+        }
+        if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor")
+        {
+            conversationManagerAgressor = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
+        }
     }
     public void PressTrigger(InputAction.CallbackContext context)
     {
@@ -149,8 +162,8 @@ public class HPReverbControls : NetworkBehaviour
     {
         if (gameObject.GetComponent<NetworkIdentity>().isServer)
         {
-            conversationManager.ActiveConversation = currentConversation;
-            Debug.Log(conversationManager.ActiveConversation);
+            conversationManagerServer.ActiveConversation = currentConversation;
+            Debug.Log(conversationManagerServer.ActiveConversation);
             RpcSetConversation(currentConversation);
         }
 
@@ -162,10 +175,18 @@ public class HPReverbControls : NetworkBehaviour
     [ClientRpc(includeOwner = true)]
     public void RpcSetConversation(int currentConversation)
     {
-        if (gameObject.GetComponent<NetworkIdentity>().isClient)
+        if (gameObject.GetComponent<NetworkIdentity>().isServer == false)
         {
-            conversationManager.ActiveConversation = currentConversation;
-            Debug.Log("cm acv: " + conversationManager.ActiveConversation);
+            if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse")
+            {
+                conversationManagerNurse.ActiveConversation = currentConversation;
+                Debug.Log("cvm n: " + conversationManagerNurse.ActiveConversation);
+            }
+            if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor")
+            {
+                conversationManagerAgressor.ActiveConversation = currentConversation;
+                Debug.Log("cvm a: " + conversationManagerAgressor.ActiveConversation);
+            }
         }
     }
 }
