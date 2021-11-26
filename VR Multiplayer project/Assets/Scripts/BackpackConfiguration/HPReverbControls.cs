@@ -146,7 +146,7 @@ public class HPReverbControls : NetworkBehaviour
             test = currentConversation;
             Debug.Log(test);
         }
-        //RpcSetConversation(currentConversation);
+        RpcSetConversation(currentConversation);
     }
 
 
@@ -155,10 +155,8 @@ public class HPReverbControls : NetworkBehaviour
     [ClientRpc(includeOwner = true)]
     public void RpcSetConversation(int currentConversation)
     {
-        if (test != -1)
-        {
+        
             test = currentConversation;
             Debug.Log(test);
-        }
     }
 }
