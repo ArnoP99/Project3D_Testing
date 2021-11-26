@@ -11,8 +11,8 @@ public class ConversationManager : NetworkBehaviour
     private static ConversationManager instance = null;
     private static readonly object padlock = new object();
 
-    private List<Conversation> allConversations;
-    private Conversation activeConversation;
+    private Conversation[] allConversations;
+    private int activeConversation;
     private List<GameObject> conversationParticipants = new List<GameObject>();
     private GameObject activeParticipant;
 
@@ -45,22 +45,26 @@ public class ConversationManager : NetworkBehaviour
     {
         DontDestroyOnLoad(gameObject);
 
-        if (this.isServer)
-        {
-            generalCheckUpCv = new Conversation();
-            timeForMedicationCv = new Conversation();
-            helpButtonCv = new Conversation();
-            activeConversation = new Conversation();
+        activeConversation = -1;
 
-            generalCheckUpCv.StartElement = ConversationElementInitializer.GeneralCheckupConversation();
-            generalCheckUpCv.ActiveElement = generalCheckUpCv.StartElement;
+        generalCheckUpCv = new Conversation();
+        timeForMedicationCv = new Conversation();
+        helpButtonCv = new Conversation();
 
-            timeForMedicationCv.StartElement = ConversationElementInitializer.TimeForMedicationConversation();
-            timeForMedicationCv.ActiveElement = timeForMedicationCv.StartElement;
+        generalCheckUpCv.StartElement = ConversationElementInitializer.GeneralCheckupConversation();
+        generalCheckUpCv.ActiveElement = generalCheckUpCv.StartElement;
 
-            helpButtonCv.StartElement = ConversationElementInitializer.HelpButtonConversation();
-            helpButtonCv.ActiveElement = helpButtonCv.StartElement;
-        }
+        timeForMedicationCv.StartElement = ConversationElementInitializer.TimeForMedicationConversation();
+        timeForMedicationCv.ActiveElement = timeForMedicationCv.StartElement;
+
+        helpButtonCv.StartElement = ConversationElementInitializer.HelpButtonConversation();
+        helpButtonCv.ActiveElement = helpButtonCv.StartElement;
+
+        allConversations[0] = generalCheckUpCv;
+        allConversations[1] = timeForMedicationCv;
+        allConversations[2] = helpButtonCv;
+
+
     }
 
     public void StartConversation(GameObject nurse)
@@ -89,34 +93,25 @@ public class ConversationManager : NetworkBehaviour
 
     public void Update()
     {
-        //Debug.Log(activeConversation.StartElement);
-        Debug.Log(activeConversation.StartElement.Text);
-        Debug.Log(generalCheckUpCv.StartElement.Text);
-        Debug.Log(timeForMedicationCv.StartElement.Text);
-        Debug.Log(helpButtonCv.StartElement.Text);
+        Debug.Log("Actv Cv: " + activeConversation);
     }
     public void SetConversation(int choice)
     {
         if (this.isServer)
         {
-            if (activeConversation == null)
+            if (activeConversation == -1)
             {
                 if (choice == 1)
                 {
-                    Debug.Log("Choice 1 set");
-                    activeConversation = generalCheckUpCv;
-
+                    activeConversation = 1;
                 }
                 else if (choice == 2)
                 {
-                    Debug.Log("Choice 2 set");
-                    activeConversation = timeForMedicationCv;
-
+                    activeConversation = 2;
                 }
                 else if (choice == 3)
                 {
-                    Debug.Log("Choice 3 set");
-                    activeConversation = helpButtonCv;
+                    activeConversation = 3;
                 }
                 Debug.Log(choice);
             }
@@ -142,7 +137,7 @@ public class ConversationManager : NetworkBehaviour
 
     //pass choice to server with an int and then from server to agressor
 
-    public Conversation ActiveConversation
+    public int ActiveConversation
     {
         get
         {
