@@ -12,7 +12,7 @@ public class InitializeConversation : NetworkBehaviour
     ConversationManager conversationManager;
     private void Start()
     {
-        conversationManager = new ConversationManager();
+        conversationManager = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
 
         tempPlayers = GameObject.FindGameObjectsWithTag("Player");
 

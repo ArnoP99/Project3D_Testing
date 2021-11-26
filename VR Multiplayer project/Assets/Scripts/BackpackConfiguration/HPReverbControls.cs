@@ -20,7 +20,7 @@ public class HPReverbControls : NetworkBehaviour
 
     private void Start()
     {
-        conversationManager = new ConversationManager();
+        conversationManager = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
     }
     public void PressTrigger(InputAction.CallbackContext context)
     {
