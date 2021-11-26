@@ -179,7 +179,9 @@ public class HPReverbControls : NetworkBehaviour
     public void TargetSetConversation(NetworkConnection target, int currentConversation)
     {
         Debug.Log("Dit is enkel op de client te zien");
-        Debug.Log(this.isClient + " ic     " + this.GetComponent<NetworkIdentity>().isLocalPlayer + "  ilp    " + this.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor");
+        Debug.Log(this.isClient);
+        Debug.Log(this.GetComponent<NetworkIdentity>().isLocalPlayer);
+        Debug.Log(this.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor");
         if (this.isClient && this.GetComponent<NetworkIdentity>().isLocalPlayer && this.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor")
         {
             Debug.Log("Agressor executed");
