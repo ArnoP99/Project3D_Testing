@@ -152,10 +152,10 @@ public class HPReverbControls : NetworkBehaviour
 
 
 
-    [ClientRpc(includeOwner = false)]
+    [ClientRpc(includeOwner = true)]
     public void RpcSetConversation(int currentConversation)
     {
-        if (test == null)
+        if (test != -1)
         {
             test = currentConversation;
             Debug.Log(test);
