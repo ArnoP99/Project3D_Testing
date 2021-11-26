@@ -172,19 +172,21 @@ public class HPReverbControls : NetworkBehaviour
 
 
 
-    [ClientRpc(includeOwner = true)]
+    [ClientRpc(includeOwner = false)]
     public void RpcSetConversation(int currentConversation)
     {
-        if (gameObject.GetComponent<NetworkIdentity>().isServer == true)
-        {
+
+
             if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse")
             {
+            conversationManagerNurse.GetComponent<NetworkIdentity>().AssignClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
                 conversationManagerNurse.ActiveConversation = currentConversation;
             }
             if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor")
             {
-                conversationManagerAgressor.ActiveConversation = currentConversation;
+            conversationManagerAgressor.GetComponent<NetworkIdentity>().AssignClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
+            conversationManagerAgressor.ActiveConversation = currentConversation;
             }
-        }
+        
     }
 }
