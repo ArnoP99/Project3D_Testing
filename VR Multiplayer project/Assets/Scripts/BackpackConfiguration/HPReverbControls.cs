@@ -175,6 +175,8 @@ public class HPReverbControls : NetworkBehaviour
     [ClientRpc(includeOwner = false)]
     public void RpcSetConversation(int currentConversation)
     {
+        Debug.Log("Dit is enkel op de client te zien");
+
         if (this.isClient && this.GetComponent<NetworkIdentity>().isLocalPlayer && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse")
         {
             Debug.Log("Nurse executed");
