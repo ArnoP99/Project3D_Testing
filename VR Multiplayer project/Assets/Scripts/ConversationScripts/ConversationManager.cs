@@ -45,6 +45,8 @@ public class ConversationManager : NetworkBehaviour
     {
         DontDestroyOnLoad(gameObject);
 
+        allConversations = new Conversation[3];
+
         activeConversation = -1;
 
         generalCheckUpCv = new Conversation();
