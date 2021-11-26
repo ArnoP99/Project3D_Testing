@@ -175,7 +175,7 @@ public class HPReverbControls : NetworkBehaviour
     [ClientRpc(includeOwner = true)]
     public void RpcSetConversation(int currentConversation)
     {
-        if (gameObject.GetComponent<NetworkIdentity>().isServer == false)
+        if (gameObject.GetComponent<NetworkIdentity>().isServer == true)
         {
             if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse")
             {
