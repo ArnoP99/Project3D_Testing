@@ -48,6 +48,7 @@ public class ConversationManager : NetworkBehaviour
         generalCheckUpCv = new Conversation();
         timeForMedicationCv = new Conversation();
         helpButtonCv = new Conversation();
+        activeConversation = new Conversation();
 
         generalCheckUpCv.StartElement = ConversationElementInitializer.GeneralCheckupConversation();
         generalCheckUpCv.ActiveElement = generalCheckUpCv.StartElement;
@@ -87,7 +88,7 @@ public class ConversationManager : NetworkBehaviour
     public void Update()
     {
         //Debug.Log(activeConversation.StartElement);
-        Debug.Log(generalCheckUpCv.ToString());
+        Debug.Log(activeConversation.StartElement.Text);
     }
     public void SetConversation(int choice)
     {

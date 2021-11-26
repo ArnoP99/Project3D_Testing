@@ -27,6 +27,5 @@ public class InitializeConversation : NetworkBehaviour
         }
         Debug.Log("Nurse: " + nurse);
         Debug.Log("Agressor: " + agressor);
-
     }
 }
