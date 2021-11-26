@@ -89,6 +89,9 @@ public class ConversationManager : NetworkBehaviour
     {
         //Debug.Log(activeConversation.StartElement);
         Debug.Log(activeConversation.StartElement.Text);
+        Debug.Log(generalCheckUpCv.StartElement.Text);
+        Debug.Log(timeForMedicationCv.StartElement.Text);
+        Debug.Log(helpButtonCv.StartElement.Text);
     }
     public void SetConversation(int choice)
     {
@@ -97,17 +100,17 @@ public class ConversationManager : NetworkBehaviour
             if (choice == 1)
             {
                 activeConversation = generalCheckUpCv;
-                activeConversation.StartElement = generalCheckUpCv.StartElement;
+
             }
             else if (choice == 2)
             {
                 activeConversation = timeForMedicationCv;
-                activeConversation.StartElement = timeForMedicationCv.StartElement;
+
             }
             else if (choice == 3)
             {
                 activeConversation = helpButtonCv;
-                activeConversation.StartElement = helpButtonCv.StartElement;
+
             }
             Debug.Log(choice);
         }
