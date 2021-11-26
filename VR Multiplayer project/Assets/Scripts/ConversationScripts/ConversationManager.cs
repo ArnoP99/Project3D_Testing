@@ -77,7 +77,14 @@ public class ConversationManager : NetworkBehaviour
 
     public void Update()
     {
-        Debug.Log("Actv Cv: " + activeConversation);
+        if (this.isServer)
+        {
+            Debug.Log("Actv Cv s: " + activeConversation);
+        }
+        if (this.isClient && this.isServer == false)
+        {
+            Debug.Log("Actv Cv c: " + activeConversation);
+        }
     }
     public void SetConversation(int choice)
     {
