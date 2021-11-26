@@ -155,9 +155,10 @@ public class HPReverbControls : NetworkBehaviour
     [ClientRpc(includeOwner = false)]
     public void RpcSetConversation(int currentConversation)
     {
-        if (ConversationManager.Instance.activeConversation == -1)
+        if (test == null)
         {
-            ConversationManager.Instance.activeConversation = currentConversation;
+            test = currentConversation;
+            Debug.Log(test);
         }
     }
 }
