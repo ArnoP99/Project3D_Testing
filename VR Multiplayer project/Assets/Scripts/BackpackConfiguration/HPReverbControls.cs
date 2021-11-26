@@ -14,8 +14,14 @@ public class HPReverbControls : NetworkBehaviour
     public GameObject activeChoice;
     public bool triggerValue = true;
 
-
     int test;
+
+    ConversationManager conversationManager;
+
+    private void Start()
+    {
+        conversationManager = new ConversationManager();
+    }
     public void PressTrigger(InputAction.CallbackContext context)
     {
         Debug.Log("Trigger Pressed");
@@ -157,9 +163,9 @@ public class HPReverbControls : NetworkBehaviour
     public void RpcSetConversation(int currentConversation)
     {
         
-            test = currentConversation;
-        ConversationManager.Instance.ActiveConversation = test;
-        Debug.Log("cm acv: " + ConversationManager.Instance.ActiveConversation);
+        test = currentConversation;
+        conversationManager.ActiveConversation = test;
+        Debug.Log("cm acv: " + conversationManager.ActiveConversation);
         Debug.Log(test);
     }
 }
