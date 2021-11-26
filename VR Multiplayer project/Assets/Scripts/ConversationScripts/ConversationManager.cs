@@ -58,9 +58,8 @@ public class ConversationManager : NetworkBehaviour
 
         helpButtonCv.StartElement = ConversationElementInitializer.HelpButtonConversation();
         helpButtonCv.ActiveElement = helpButtonCv.StartElement;
-
-        activeConversation = generalCheckUpCv;
-        Debug.Log("local active cv: " + activeConversation.StartElement.Text);
+              
+        
 
     }
 
@@ -102,18 +101,20 @@ public class ConversationManager : NetworkBehaviour
         {
             if (choice == 1)
             {
+                Debug.Log("Choice 1 set");
                 activeConversation = generalCheckUpCv;
 
             }
             else if (choice == 2)
             {
+                Debug.Log("Choice 2 set");
                 activeConversation = timeForMedicationCv;
 
             }
             else if (choice == 3)
             {
+                Debug.Log("Choice 3 set");
                 activeConversation = helpButtonCv;
-
             }
             Debug.Log(choice);
         }
