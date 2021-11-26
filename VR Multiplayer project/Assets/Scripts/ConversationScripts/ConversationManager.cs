@@ -163,4 +163,16 @@ public class ConversationManager : NetworkBehaviour
         }
     }
 
+    public int ActiveConversation
+    {
+        get
+        {
+            return activeConversation;
+        }
+        set
+        {
+            activeConversation = value;
+        }
+    }
+
 }

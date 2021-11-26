@@ -158,8 +158,8 @@ public class HPReverbControls : NetworkBehaviour
     {
         
             test = currentConversation;
-        ConversationManager.Instance.activeConversation = test;
-        Debug.Log("cm acv: " + ConversationManager.Instance.activeConversation);
+        ConversationManager.Instance.ActiveConversation = test;
+        Debug.Log("cm acv: " + ConversationManager.Instance.ActiveConversation);
         Debug.Log(test);
     }
 }
