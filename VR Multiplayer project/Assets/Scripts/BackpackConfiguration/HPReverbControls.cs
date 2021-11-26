@@ -177,16 +177,16 @@ public class HPReverbControls : NetworkBehaviour
     {
 
 
-            if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse")
-            {
+        if (this.isClient && this.GetComponent<NetworkIdentity>().isLocalPlayer && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse")
+        {
             conversationManagerNurse.GetComponent<NetworkIdentity>().AssignClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
-                conversationManagerNurse.ActiveConversation = currentConversation;
-            }
-            if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor")
-            {
+            conversationManagerNurse.ActiveConversation = currentConversation;
+        }
+        if (this.isClient && this.GetComponent<NetworkIdentity>().isLocalPlayer && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor")
+        {
             conversationManagerAgressor.GetComponent<NetworkIdentity>().AssignClientAuthority(this.GetComponent<NetworkIdentity>().connectionToClient);
             conversationManagerAgressor.ActiveConversation = currentConversation;
-            }
-        
+        }
+
     }
 }
