@@ -149,11 +149,11 @@ public class HPReverbControls : NetworkBehaviour
     {
         if (gameObject.GetComponent<NetworkIdentity>().isServer)
         {
-            //ConversationManager.Instance.activeConversation = currentConversation;
-            test = currentConversation;
-            Debug.Log(test);
+            conversationManager.ActiveConversation = currentConversation;
+            Debug.Log(conversationManager.ActiveConversation);
+            RpcSetConversation(currentConversation);
         }
-        RpcSetConversation(currentConversation);
+
     }
 
 
@@ -162,10 +162,10 @@ public class HPReverbControls : NetworkBehaviour
     [ClientRpc(includeOwner = true)]
     public void RpcSetConversation(int currentConversation)
     {
-        
-        test = currentConversation;
-        conversationManager.ActiveConversation = test;
-        Debug.Log("cm acv: " + conversationManager.ActiveConversation);
-        Debug.Log(test);
+        if (gameObject.GetComponent<NetworkIdentity>().isClient)
+        {
+            conversationManager.ActiveConversation = currentConversation;
+            Debug.Log("cm acv: " + conversationManager.ActiveConversation);
+        }
     }
 }
