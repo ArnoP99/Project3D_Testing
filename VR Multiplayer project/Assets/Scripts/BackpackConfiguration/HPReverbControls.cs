@@ -36,8 +36,7 @@ public class HPReverbControls : NetworkBehaviour
         {
             Debug.Log(ex);
         }
-        ConversationManager.Instance.activeConversation = test;
-        Debug.Log("cm acv: " + ConversationManager.Instance.activeConversation);
+
     }
 
     public void Joystick(InputAction.CallbackContext context)
@@ -159,6 +158,8 @@ public class HPReverbControls : NetworkBehaviour
     {
         
             test = currentConversation;
-            Debug.Log(test);
+        ConversationManager.Instance.activeConversation = test;
+        Debug.Log("cm acv: " + ConversationManager.Instance.activeConversation);
+        Debug.Log(test);
     }
 }
