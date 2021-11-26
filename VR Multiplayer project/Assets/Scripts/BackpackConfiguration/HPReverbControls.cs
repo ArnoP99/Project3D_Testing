@@ -14,6 +14,8 @@ public class HPReverbControls : NetworkBehaviour
     public GameObject activeChoice;
     public bool triggerValue = true;
 
+
+    int test;
     public void PressTrigger(InputAction.CallbackContext context)
     {
         Debug.Log("Trigger Pressed");
@@ -140,9 +142,11 @@ public class HPReverbControls : NetworkBehaviour
     {
         if (gameObject.GetComponent<NetworkIdentity>().isServer)
         {
-            ConversationManager.Instance.activeConversation = currentConversation;
+            //ConversationManager.Instance.activeConversation = currentConversation;
+            test = currentConversation;
+            Debug.Log(test);
         }
-        RpcSetConversation(currentConversation);
+        //RpcSetConversation(currentConversation);
     }
 
 
