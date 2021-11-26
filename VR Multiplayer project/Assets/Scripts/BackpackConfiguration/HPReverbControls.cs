@@ -140,7 +140,7 @@ public class HPReverbControls : NetworkBehaviour
     {
         if (gameObject.GetComponent<NetworkIdentity>().isServer)
         {
-            ConversationManager.Instance.SetConversation(currentConversation);
+            ConversationManager.Instance.ActiveConversation = currentConversation;
         }
         RpcSetConversation(currentConversation);
     }
