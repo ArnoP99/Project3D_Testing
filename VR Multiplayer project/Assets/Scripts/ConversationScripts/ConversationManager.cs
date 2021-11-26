@@ -59,6 +59,9 @@ public class ConversationManager : NetworkBehaviour
         helpButtonCv.StartElement = ConversationElementInitializer.HelpButtonConversation();
         helpButtonCv.ActiveElement = helpButtonCv.StartElement;
 
+        activeConversation = generalCheckUpCv;
+        Debug.Log("local active cv: " + activeConversation.StartElement.Text);
+
     }
 
     public void StartConversation(GameObject nurse)
