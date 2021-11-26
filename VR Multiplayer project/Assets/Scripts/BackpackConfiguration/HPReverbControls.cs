@@ -180,12 +180,10 @@ public class HPReverbControls : NetworkBehaviour
             if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse")
             {
                 conversationManagerNurse.ActiveConversation = currentConversation;
-                Debug.Log("cvm n: " + conversationManagerNurse.ActiveConversation);
             }
             if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor")
             {
                 conversationManagerAgressor.ActiveConversation = currentConversation;
-                Debug.Log("cvm a: " + conversationManagerAgressor.ActiveConversation);
             }
         }
     }
