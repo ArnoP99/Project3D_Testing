@@ -166,35 +166,41 @@ public class HPReverbControls : NetworkBehaviour
             Debug.Log(conversationManagerServer.ActiveConversation);
             NetworkIdentity nurseID = GameObject.FindGameObjectWithTag("Nurse").transform.parent.transform.parent.gameObject.GetComponent<NetworkIdentity>();
             NetworkIdentity AgressorID = GameObject.FindGameObjectWithTag("Agressor").transform.parent.transform.parent.gameObject.GetComponent<NetworkIdentity>();
-            TargetSetConversation(nurseID.connectionToClient, currentConversation);
-            TargetSetConversation(AgressorID.connectionToClient, currentConversation);
+            TargetSetConversationNurse(nurseID.connectionToClient, currentConversation);
+            TargetSetConversationAgressor(AgressorID.connectionToClient, currentConversation);
         }
 
     }
 
 
 
-
+    //Agressor neemt dit script van op het nurse object op zijn client om een reden
+    //hieronder zoeken naar agressor een daarvan het script nemen dat op de agressor staat 'eventueel 2 aparte targetrpcs voor het invullen"
     [TargetRpc]
-    public void TargetSetConversation(NetworkConnection target, int currentConversation)
+    public void TargetSetConversationNurse(NetworkConnection target, int currentConversation)
     {
-        Debug.Log("Dit is enkel op de client te zien");
-        Debug.Log(this.isClient);
-        Debug.Log(this.GetComponent<NetworkIdentity>().isLocalPlayer);
-        Debug.Log(this.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor");
-        if (this.isClient && this.GetComponent<NetworkIdentity>().isLocalPlayer && this.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor")
-        {
-            Debug.Log("Agressor executed");
-            conversationManagerAgressor = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
-            conversationManagerAgressor.ActiveConversation = currentConversation;
-        }
-
         if (this.isClient && this.GetComponent<NetworkIdentity>().isLocalPlayer && this.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse")
         {
             Debug.Log("Nurse executed");
             conversationManagerNurse = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
             conversationManagerNurse.ActiveConversation = currentConversation;
         }
+    }
 
+    public void TargetSetConversationAgressor(NetworkConnection target, int currentConversation)
+    {
+        agressor = GameObject.FindGameObjectWithTag("Agressor").transform.parent.transform.parent.gameObject;
+        Debug.Log("Dit is enkel op de client te zien");
+        Debug.Log(agressor.GetComponent<NetworkIdentity>().isClient);
+        Debug.Log(agressor.GetComponent<NetworkIdentity>().isLocalPlayer);
+        Debug.Log(agressor.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor");
+        if (agressor.GetComponent<NetworkIdentity>().isClient && agressor.GetComponent<NetworkIdentity>().isLocalPlayer && agressor.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor")
+        {
+            Debug.Log("Agressor executed");
+            conversationManagerAgressor = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
+            conversationManagerAgressor.ActiveConversation = currentConversation;
+        }
     }
 }
+
+
