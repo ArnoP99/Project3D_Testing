@@ -210,6 +210,7 @@ public class HPReverbControls : NetworkBehaviour
         textPopUp = agressor.transform.parent.transform.GetChild(3).gameObject;
         List<ConversationElement> activeReactionElements = new List<ConversationElement>();
         activeReactionElements = conversationManagerAgressor.GetActiveConversation().activeElement.ReactionElements;
+        Debug.Log(activeReactionElements.Count);
         foreach (var element in activeReactionElements)
         {
             Debug.Log(element.Text);
