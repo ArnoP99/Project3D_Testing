@@ -14,7 +14,7 @@ public class HPReverbControls : NetworkBehaviour
     public GameObject activeChoice;
     public bool triggerValue = true;
 
-    public List<ConversationElement> activeReactionElements = new List<ConversationElement>();
+    public List<ConversationElement> activeReactionElements;
     int test;
 
     ConversationManager conversationManagerServer;
@@ -26,6 +26,8 @@ public class HPReverbControls : NetworkBehaviour
         conversationManagerAgressor = new ConversationManager();
         conversationManagerNurse = new ConversationManager();
         conversationManagerServer = new ConversationManager();
+
+        activeReactionElements = new List<ConversationElement>();
 
 
         if (this.isServer)
