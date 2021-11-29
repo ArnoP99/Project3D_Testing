@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConversationElement : MonoBehaviour
+public class ConversationElement
 {
     public enum ElementState
     {
