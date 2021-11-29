@@ -96,6 +96,7 @@ public class HPReverbControls : NetworkBehaviour
             textPopUp.SetActive(false);
             if (gameObject.GetComponent<NetworkIdentity>().isClient == true && GameObject.Find("ConversationManager").GetComponent<ConversationManager>().ActiveConversation == -1)
             {
+                Debug.Log("Executed setactivecv");
                 CmdSetConversation(1);
             }
             CmdUpdateAgressorText();

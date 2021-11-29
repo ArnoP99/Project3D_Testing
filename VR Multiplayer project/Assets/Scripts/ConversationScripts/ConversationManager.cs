@@ -47,6 +47,8 @@ public class ConversationManager : NetworkBehaviour
         allConversations[0] = generalCheckUpCv;
         allConversations[1] = timeForMedicationCv;
         allConversations[2] = helpButtonCv;
+
+        Debug.Log(generalCheckUpCv.ActiveElement.Text);
     }
 
     public void StartConversation(GameObject nurse)
