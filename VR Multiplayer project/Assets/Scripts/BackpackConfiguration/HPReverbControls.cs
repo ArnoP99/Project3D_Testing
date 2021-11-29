@@ -203,6 +203,11 @@ public class HPReverbControls : NetworkBehaviour
     [TargetRpc]
     public void TargetUpdateAgressorText(NetworkConnection target)
     {
+        UpdateAgressorText();
+    }
+
+    public void UpdateAgressorText()
+    {
         agressor = GameObject.FindGameObjectWithTag("Agressor").gameObject;
         textPopUp = agressor.transform.parent.transform.GetChild(3).gameObject;
         List<ConversationElement> activeReactionElements = new List<ConversationElement>();
