@@ -52,6 +52,7 @@ public class ConversationElementInitializer
 
         neutraal1B.AddElementToReactions(agressief1C2);
         neutraal1B.AddElementToReactions(neutraal1C2);
+        neutraal1B.AddElementToReactions(neutraal1D1); // voor te testen mag later verwijderd worden
 
         defensief1B.AddElementToReactions(agressief1C1);
         defensief1B.AddElementToReactions(defensief1C1);
