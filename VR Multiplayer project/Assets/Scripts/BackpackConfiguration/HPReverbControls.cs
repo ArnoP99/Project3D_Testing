@@ -187,6 +187,7 @@ public class HPReverbControls : NetworkBehaviour
         }
     }
 
+    [TargetRpc]
     public void TargetSetConversationAgressor(NetworkConnection target, int currentConversation)
     {
         agressor = GameObject.FindGameObjectWithTag("Agressor").transform.parent.transform.parent.gameObject;
