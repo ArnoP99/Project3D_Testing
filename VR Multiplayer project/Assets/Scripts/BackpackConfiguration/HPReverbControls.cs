@@ -204,20 +204,21 @@ public class HPReverbControls : NetworkBehaviour
     [TargetRpc]
     public void TargetUpdateAgressorText(NetworkConnection target)
     {
+        agressor = GameObject.FindGameObjectWithTag("Agressor").gameObject;
+        textPopUp = agressor.transform.parent.transform.GetChild(3).gameObject;
+        List<ConversationElement> activeReactionElements = new List<ConversationElement>();
+        //Debug.Log(conversationManagerAgressor.GetActiveConversation().startElement/*.ToString().ReactionElements[0].Text*/);
+        activeReactionElements = conversationManagerServer.GetComponent<ConversationManager>().GetActiveConversation().ActiveElement.ReactionElements;
+        textPopUp.SetActive(true);
+        textPopUp.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = activeReactionElements[0].ToString();
+        textPopUp.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text = activeReactionElements[1].ToString();
+        textPopUp.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = activeReactionElements[2].ToString();
         UpdateAgressorText();
     }
 
     public void UpdateAgressorText()
     {
-        agressor = GameObject.FindGameObjectWithTag("Agressor").gameObject;
-        textPopUp = agressor.transform.parent.transform.GetChild(3).gameObject;
-        List<ConversationElement> activeReactionElements = new List<ConversationElement>();
-        Debug.Log(conversationManagerAgressor.GetActiveConversation().startElement/*.ToString().ReactionElements[0].Text*/);
-        //activeReactionElements = GameObject.Find("ConversationManager").GetComponent<ConversationManager>().GetActiveConversation().ActiveElement.ReactionElements;
-        textPopUp.SetActive(true);
-        textPopUp.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = "blabla";
-        //textPopUp.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text = activeReactionElements[1].ToString();
-        //textPopUp.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = activeReactionElements[2].ToString();
+        
     }
 }
 
