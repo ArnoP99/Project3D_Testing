@@ -47,8 +47,6 @@ public class ConversationManager : NetworkBehaviour
         allConversations[0] = generalCheckUpCv;
         allConversations[1] = timeForMedicationCv;
         allConversations[2] = helpButtonCv;
-
-
     }
 
     public void StartConversation(GameObject nurse)
@@ -77,15 +75,8 @@ public class ConversationManager : NetworkBehaviour
 
     public void Update()
     {
-        if (this.isServer)
-        {
-            Debug.Log("Actv Cv s: " + activeConversation);
-        }
-        if (this.isClient && this.isServer == false)
-        {
-            Debug.Log("Actv Cv c: " + activeConversation);
-        }
     }
+
     public void SetConversation(int choice)
     {
         if (this.isServer)
@@ -109,7 +100,24 @@ public class ConversationManager : NetworkBehaviour
         }
     }
 
+    public Conversation GetActiveConversation()
+    {
+        if (activeConversation == 1)
+        {
+            return generalCheckUpCv;
+        }
+        else if (activeConversation == 2)
+        {
+            return timeForMedicationCv;
+        }
+        else if (activeConversation == 3)
+        {
+            return helpButtonCv;
+        }
 
+        Debug.Log("No active conversation found.");
+        return generalCheckUpCv;
+    }
 
     //[Command(requiresAuthority = false)]
     //public void CmdStartConversation(GameObject nurse)

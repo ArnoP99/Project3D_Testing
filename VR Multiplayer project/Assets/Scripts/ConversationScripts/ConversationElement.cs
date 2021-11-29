@@ -59,4 +59,13 @@ public class ConversationElement : MonoBehaviour
             return text;
         }
     }
+
+    public List<ConversationElement> ReactionElements
+    {
+        get
+        {
+            return reactionElements;
+        }
+    }
+
 }
