@@ -212,7 +212,7 @@ public class HPReverbControls : NetworkBehaviour
         agressor = GameObject.FindGameObjectWithTag("Agressor").gameObject;
         textPopUp = agressor.transform.parent.transform.GetChild(3).gameObject;
         List<ConversationElement> activeReactionElements = new List<ConversationElement>();
-        Debug.Log(conversationManagerAgressor/*.GetActiveConversation().ToString().ReactionElements[0].Text*/);
+        Debug.Log(conversationManagerAgressor.activeConversation/*.GetActiveConversation().ToString().ReactionElements[0].Text*/);
         //activeReactionElements = GameObject.Find("ConversationManager").GetComponent<ConversationManager>().GetActiveConversation().ActiveElement.ReactionElements;
         textPopUp.SetActive(true);
         textPopUp.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = "blabla";
