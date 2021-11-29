@@ -169,6 +169,7 @@ public class HPReverbControls : NetworkBehaviour
             textPopUp.SetActive(false);
             if (gameObject.GetComponent<NetworkIdentity>().isClient == true)
             {
+                Debug.Log(activeReactionElements.Count);
                 CmdUpdateActiveElement(1); 
                 CmdUpdateNurseText();
             }
@@ -179,6 +180,7 @@ public class HPReverbControls : NetworkBehaviour
             textPopUp.SetActive(false);
             if (gameObject.GetComponent<NetworkIdentity>().isClient == true)
             {
+                Debug.Log(activeReactionElements.Count);
                 CmdUpdateActiveElement(2); 
                 CmdUpdateNurseText();
             }
@@ -189,6 +191,7 @@ public class HPReverbControls : NetworkBehaviour
             textPopUp.SetActive(false);
             if (gameObject.GetComponent<NetworkIdentity>().isClient == true)
             {
+                Debug.Log(activeReactionElements.Count);
                 CmdUpdateActiveElement(3); 
                 CmdUpdateNurseText();
             }
@@ -294,7 +297,7 @@ public class HPReverbControls : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdUpdateActiveElement(int activeChoice)
     {
-        Debug.Log(activeReactionElements.Count);
+
         if (activeChoice == 1)
         {
             conversationManagerServer.GetActiveConversation().activeElement = activeReactionElements[0];
@@ -308,7 +311,7 @@ public class HPReverbControls : NetworkBehaviour
             conversationManagerServer.GetActiveConversation().activeElement = activeReactionElements[2];
         }
 
-        RpcUpdateActiveElement(activeChoice);
+        //RpcUpdateActiveElement(activeChoice);
     }
 
     [ClientRpc(includeOwner = false)]
