@@ -238,7 +238,7 @@ public class HPReverbControls : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdUpdateAgressorText()
     {
-        activeReactionElements = conversationManagerAgressor.GetActiveConversation().activeElement.ReactionElements;
+        activeReactionElements = conversationManagerServer.GetActiveConversation().activeElement.ReactionElements;
         NetworkIdentity AgressorID = GameObject.FindGameObjectWithTag("Agressor").transform.parent.transform.parent.gameObject.GetComponent<NetworkIdentity>();
         TargetUpdateAgressorText(AgressorID.connectionToClient);
     }
@@ -264,7 +264,7 @@ public class HPReverbControls : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdUpdateNurseText()
     {
-        activeReactionElements = conversationManagerNurse.GetActiveConversation().activeElement.ReactionElements;
+        activeReactionElements = conversationManagerServer.GetActiveConversation().activeElement.ReactionElements;
         NetworkIdentity nurseID = GameObject.FindGameObjectWithTag("Nurse").transform.parent.transform.parent.gameObject.GetComponent<NetworkIdentity>();
         TargetUpdateAgressorText(nurseID.connectionToClient);
     }
