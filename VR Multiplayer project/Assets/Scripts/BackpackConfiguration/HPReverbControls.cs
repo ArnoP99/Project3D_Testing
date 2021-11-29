@@ -294,6 +294,7 @@ public class HPReverbControls : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdUpdateActiveElement(int activeChoice)
     {
+        Debug.Log(activeReactionElements.Count);
         if (activeChoice == 1)
         {
             conversationManagerServer.GetActiveConversation().activeElement = activeReactionElements[0];
