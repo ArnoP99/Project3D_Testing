@@ -210,17 +210,13 @@ public class HPReverbControls : NetworkBehaviour
         textPopUp = agressor.transform.parent.transform.GetChild(3).gameObject;
         List<ConversationElement> activeReactionElements = new List<ConversationElement>();
         activeReactionElements = conversationManagerAgressor.GetActiveConversation().activeElement.ReactionElements;
-        Debug.Log(activeReactionElements.Count);
-        foreach (var element in activeReactionElements)
-        {
-            Debug.Log(element.Text);
-        }
+
         //Debug.Log(conversationManagerAgressor.GetActiveConversation().startElement/*.ToString().ReactionElements[0].Text*/);
         //Debug.Log(conversationManagerAgressor.GetComponent<ConversationManager>().GetActiveConversation()/*.ActiveElement.ReactionElements*/);
-        //textPopUp.SetActive(true);
-        //textPopUp.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = activeReactionElements[0].ToString();
-        //textPopUp.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text = activeReactionElements[1].ToString();
-        //textPopUp.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = activeReactionElements[2].ToString();
+        textPopUp.SetActive(true);
+        textPopUp.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = activeReactionElements[0].ToString();
+        textPopUp.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text = activeReactionElements[1].ToString();
+        textPopUp.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = activeReactionElements[2].ToString();
     }
 }
 
