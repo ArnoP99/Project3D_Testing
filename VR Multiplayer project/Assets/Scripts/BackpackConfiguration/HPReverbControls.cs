@@ -197,13 +197,6 @@ public class HPReverbControls : NetworkBehaviour
     public void CmdUpdateAgressorText()
     {
         NetworkIdentity AgressorID = GameObject.FindGameObjectWithTag("Agressor").transform.parent.transform.parent.gameObject.GetComponent<NetworkIdentity>();
-        TargetUpdateAgressorText(AgressorID.connectionToClient);
-
-    }
-
-    [TargetRpc]
-    public void TargetUpdateAgressorText(NetworkConnection target)
-    {
         agressor = GameObject.FindGameObjectWithTag("Agressor").gameObject;
         textPopUp = agressor.transform.parent.transform.GetChild(3).gameObject;
         List<ConversationElement> activeReactionElements = new List<ConversationElement>();
@@ -213,6 +206,14 @@ public class HPReverbControls : NetworkBehaviour
         textPopUp.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = activeReactionElements[0].ToString();
         textPopUp.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text = activeReactionElements[1].ToString();
         textPopUp.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = activeReactionElements[2].ToString();
+        //TargetUpdateAgressorText(AgressorID.connectionToClient);
+
+    }
+
+    [TargetRpc]
+    public void TargetUpdateAgressorText(NetworkConnection target)
+    {
+
         UpdateAgressorText();
     }
 
