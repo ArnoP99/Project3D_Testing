@@ -27,6 +27,8 @@ public class ConversationManager : NetworkBehaviour
     {
         DontDestroyOnLoad(gameObject);
 
+        ConversationElementInitializer.SetReactionElements();
+
         allConversations = new Conversation[3];
 
         activeConversation = -1;
