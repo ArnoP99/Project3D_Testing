@@ -47,22 +47,25 @@ public class HPReverbControls : NetworkBehaviour
     public void PressTrigger(InputAction.CallbackContext context)
     {
         Debug.Log("Trigger Pressed");
-        try
+        if (context.performed)
         {
-            GetAgressorActiveChoice();
-        }
-        catch (Exception ex)
-        {
-            Debug.Log(ex);
-        }
+            try
+            {
+                GetAgressorActiveChoice();
+            }
+            catch (Exception ex)
+            {
+                Debug.Log(ex);
+            }
 
-        try
-        {
-            GetNurseActiveChoice();
-        }
-        catch (Exception ex)
-        {
-            Debug.Log(ex);
+            try
+            {
+                GetNurseActiveChoice();
+            }
+            catch (Exception ex)
+            {
+                Debug.Log(ex);
+            }
         }
     }
 
@@ -108,7 +111,7 @@ public class HPReverbControls : NetworkBehaviour
                 CmdSetConversation(1);
             }
 
-            if (gameObject.GetComponent<NetworkIdentity>().isClient == true && firstTime == false) 
+            if (gameObject.GetComponent<NetworkIdentity>().isClient == true && firstTime == false)
             {
                 CmdUpdateActiveElement(1);
                 CmdUpdateAgressorText();
@@ -137,6 +140,7 @@ public class HPReverbControls : NetworkBehaviour
             else
             {
                 CmdUpdateAgressorText();
+                firstTime = false;
             }
         }
         else if (textPopUp.transform.GetChild(2).GetComponent<TextMeshPro>().color == Color.red && nurse.transform.parent.transform.parent.gameObject.GetComponent<NetworkIdentity>().isLocalPlayer)
@@ -157,6 +161,7 @@ public class HPReverbControls : NetworkBehaviour
             else
             {
                 CmdUpdateAgressorText();
+                firstTime = false;
             }
         }
         else

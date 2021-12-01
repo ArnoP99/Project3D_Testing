@@ -28,7 +28,5 @@ public class InitializeConversation : NetworkBehaviour
                 agressor = tempPlayer;
             }
         }
-        Debug.Log("Nurse: " + nurse);
-        Debug.Log("Agressor: " + agressor);
     }
 }
