@@ -262,6 +262,7 @@ public class HPReverbControls : NetworkBehaviour
         textPopUp = agressor.transform.parent.transform.GetChild(3).gameObject;
         Debug.Log(activeReactionElements.Count);
         activeReactionElements = conversationManagerAgressor.GetActiveConversation().activeElement.ReactionElements;
+        Debug.Log("Target UAT: " + activeReactionElements.Count);
         textPopUp.SetActive(true);
 
         // als er geen 3 reacties zijn ... -> hier moeten we nog op controleren
@@ -286,6 +287,7 @@ public class HPReverbControls : NetworkBehaviour
         textPopUp = nurse.transform.parent.transform.GetChild(3).gameObject;
         Debug.Log(activeReactionElements.Count);
         activeReactionElements = conversationManagerNurse.GetActiveConversation().activeElement.ReactionElements;
+        Debug.Log("Target UNT: " + activeReactionElements.Count);
         textPopUp.SetActive(true);
 
         // als er geen 3 reacties zijn ... -> hier moeten we nog op controleren
