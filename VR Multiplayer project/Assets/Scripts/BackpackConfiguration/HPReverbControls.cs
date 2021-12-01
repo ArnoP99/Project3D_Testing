@@ -9,9 +9,7 @@ using UnityEngine.InputSystem;
 public class HPReverbControls : NetworkBehaviour
 {
     public GameObject nurse;
-    public GameObject nursePlayer;
     public GameObject agressor;
-    public GameObject agressorPlayer;
     public GameObject textPopUp;
     public GameObject activeChoice;
     public bool triggerValue = true;
@@ -101,18 +99,15 @@ public class HPReverbControls : NetworkBehaviour
     public void GetNurseActiveChoice()
     {
         nurse = GameObject.FindGameObjectWithTag("Nurse");
-        nursePlayer = nurse.transform.parent.transform.parent.gameObject;
         textPopUp = nurse.transform.parent.transform.GetChild(3).gameObject;
 
-        if (textPopUp.transform.GetChild(0).GetComponent<TextMeshPro>().color == Color.red && nursePlayer.GetComponent<NetworkIdentity>().isLocalPlayer)
+        if (textPopUp.transform.GetChild(0).GetComponent<TextMeshPro>().color == Color.red)
         {
             activeChoice = textPopUp.transform.GetChild(0).gameObject;
             textPopUp.SetActive(false);
             if (gameObject.GetComponent<NetworkIdentity>().isClient == true && GameObject.Find("ConversationManager").GetComponent<ConversationManager>().ActiveConversation == -1)
             {
                 CmdSetConversation(1);
-                conversationManager = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
-                activeReactionElements = conversationManager.GetActiveConversation().activeElement.ReactionElements;
             }
             if (gameObject.GetComponent<NetworkIdentity>().isClient == true && activeReactionElements.Count > 0)
             {
@@ -124,15 +119,13 @@ public class HPReverbControls : NetworkBehaviour
                 CmdUpdateAgressorText();
             }
         }
-        else if (textPopUp.transform.GetChild(1).GetComponent<TextMeshPro>().color == Color.red && nursePlayer.GetComponent<NetworkIdentity>().isLocalPlayer)
+        else if (textPopUp.transform.GetChild(1).GetComponent<TextMeshPro>().color == Color.red)
         {
             activeChoice = textPopUp.transform.GetChild(0).gameObject;
             textPopUp.SetActive(false);
             if (gameObject.GetComponent<NetworkIdentity>().isClient == true && GameObject.Find("ConversationManager").GetComponent<ConversationManager>().ActiveConversation == -1)
             {
                 CmdSetConversation(2);
-                conversationManager = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
-                activeReactionElements = conversationManager.GetActiveConversation().activeElement.ReactionElements;
             }
             if (gameObject.GetComponent<NetworkIdentity>().isClient == true && activeReactionElements.Count > 0)
             {
@@ -144,15 +137,13 @@ public class HPReverbControls : NetworkBehaviour
                 CmdUpdateAgressorText();
             }
         }
-        else if (textPopUp.transform.GetChild(2).GetComponent<TextMeshPro>().color == Color.red && nursePlayer.GetComponent<NetworkIdentity>().isLocalPlayer)
+        else if (textPopUp.transform.GetChild(2).GetComponent<TextMeshPro>().color == Color.red)
         {
             activeChoice = textPopUp.transform.GetChild(0).gameObject;
             textPopUp.SetActive(false);
             if (gameObject.GetComponent<NetworkIdentity>().isClient == true && GameObject.Find("ConversationManager").GetComponent<ConversationManager>().ActiveConversation == -1)
             {
                 CmdSetConversation(3);
-                conversationManager = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
-                activeReactionElements = conversationManager.GetActiveConversation().activeElement.ReactionElements;
             }
             if (gameObject.GetComponent<NetworkIdentity>().isClient == true && activeReactionElements.Count > 0)
             {
@@ -173,10 +164,9 @@ public class HPReverbControls : NetworkBehaviour
     public void GetAgressorActiveChoice()
     {
         agressor = GameObject.FindGameObjectWithTag("Agressor");
-        agressorPlayer = agressor.transform.parent.transform.parent.gameObject;
         textPopUp = agressor.transform.parent.transform.GetChild(3).gameObject;
 
-        if (textPopUp.transform.GetChild(0).GetComponent<TextMeshPro>().color == Color.red && agressorPlayer.GetComponent<NetworkIdentity>().isLocalPlayer)
+        if (textPopUp.transform.GetChild(0).GetComponent<TextMeshPro>().color == Color.red)
         {
             activeChoice = textPopUp.transform.GetChild(0).gameObject;
             textPopUp.SetActive(false);
@@ -187,7 +177,7 @@ public class HPReverbControls : NetworkBehaviour
                 CmdUpdateNurseText();
             }
         }
-        else if (textPopUp.transform.GetChild(1).GetComponent<TextMeshPro>().color == Color.red && agressorPlayer.GetComponent<NetworkIdentity>().isLocalPlayer)
+        else if (textPopUp.transform.GetChild(1).GetComponent<TextMeshPro>().color == Color.red)
         {
             activeChoice = textPopUp.transform.GetChild(1).gameObject;
             textPopUp.SetActive(false);
@@ -198,7 +188,7 @@ public class HPReverbControls : NetworkBehaviour
                 CmdUpdateNurseText();
             }
         }
-        else if (textPopUp.transform.GetChild(2).GetComponent<TextMeshPro>().color == Color.red && agressorPlayer.GetComponent<NetworkIdentity>().isLocalPlayer)
+        else if (textPopUp.transform.GetChild(2).GetComponent<TextMeshPro>().color == Color.red)
         {
             activeChoice = textPopUp.transform.GetChild(2).gameObject;
             textPopUp.SetActive(false);
@@ -259,10 +249,6 @@ public class HPReverbControls : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdUpdateAgressorText()
     {
-        if (this.isServer)
-        {
-            Debug.Log("first command"  + activeReactionElements.Count);
-        }
         conversationManager = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
         activeReactionElements = conversationManager.GetActiveConversation().activeElement.ReactionElements;
         Debug.Log(activeReactionElements.Count);
