@@ -15,7 +15,7 @@ public class HPReverbControls : NetworkBehaviour
     public bool triggerValue = true;
 
     public List<ConversationElement> activeReactionElements;
-    bool firstTime = true;
+    bool firstTime;
 
     ConversationManager conversationManagerServer;
     ConversationManager conversationManagerNurse;
@@ -28,6 +28,8 @@ public class HPReverbControls : NetworkBehaviour
         conversationManagerServer = new ConversationManager();
 
         activeReactionElements = new List<ConversationElement>();
+
+        firstTime = true;
 
         if (this.isServer)
         {
@@ -261,7 +263,7 @@ public class HPReverbControls : NetworkBehaviour
         agressor = GameObject.FindGameObjectWithTag("Agressor").gameObject;
         textPopUp = agressor.transform.parent.transform.GetChild(3).gameObject;
         Debug.Log(activeReactionElements.Count);
-        Debug.Log(conversationManagerAgressor.GetActiveConversation().activeElement);
+        Debug.Log(conversationManagerAgressor.GetActiveConversation().activeElement.Text);
         activeReactionElements = conversationManagerAgressor.GetActiveConversation().activeElement.ReactionElements;
         Debug.Log("Target UAT: " + activeReactionElements.Count);
         textPopUp.SetActive(true);
