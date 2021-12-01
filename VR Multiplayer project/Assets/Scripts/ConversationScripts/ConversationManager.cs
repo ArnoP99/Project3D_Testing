@@ -77,7 +77,6 @@ public class ConversationManager : NetworkBehaviour
 
     public void Update()
     {
-        Debug.Log(generalCheckUpCv);
     }
 
     public void SetConversation(int choice)
