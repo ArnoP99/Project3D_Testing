@@ -111,8 +111,6 @@ public class HPReverbControls : NetworkBehaviour
             if (gameObject.GetComponent<NetworkIdentity>().isClient == true && GameObject.Find("ConversationManager").GetComponent<ConversationManager>().ActiveConversation == -1)
             {
                 CmdSetConversation(1);
-                conversationManager = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
-                activeReactionElements = conversationManager.GetActiveConversation().activeElement.ReactionElements;
             }
             if (gameObject.GetComponent<NetworkIdentity>().isClient == true && activeReactionElements.Count > 0)
             {
@@ -121,6 +119,8 @@ public class HPReverbControls : NetworkBehaviour
             }
             else
             {
+                conversationManager = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
+                activeReactionElements = conversationManager.GetActiveConversation().activeElement.ReactionElements;
                 CmdUpdateAgressorText();
             }
         }
