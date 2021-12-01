@@ -261,6 +261,7 @@ public class HPReverbControls : NetworkBehaviour
         agressor = GameObject.FindGameObjectWithTag("Agressor").gameObject;
         textPopUp = agressor.transform.parent.transform.GetChild(3).gameObject;
         Debug.Log(activeReactionElements.Count);
+        Debug.Log(conversationManagerAgressor.GetActiveConversation().activeElement);
         activeReactionElements = conversationManagerAgressor.GetActiveConversation().activeElement.ReactionElements;
         Debug.Log("Target UAT: " + activeReactionElements.Count);
         textPopUp.SetActive(true);
