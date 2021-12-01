@@ -27,7 +27,13 @@ public class HPReverbControls : NetworkBehaviour
         conversationManagerNurse = new ConversationManager();
         conversationManagerServer = new ConversationManager();
 
-        activeReactionElements = new List<ConversationElement>();
+        if (activeReactionElements == null)
+        {
+            activeReactionElements = new List<ConversationElement>();
+        }
+        Debug.Log("Debug start ARE: " + activeReactionElements);
+        Debug.Log("Debug Start ARE count: " + activeReactionElements.Count);
+        //activeReactionElements = new List<ConversationElement>();
 
         firstTime = true;
 
