@@ -306,10 +306,8 @@ public class HPReverbControls : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdUpdateActiveElement(int activeChoice)
     {
-        Debug.Log("activeReactions: " + activeReactionElements.Count);
         if (this.isServer)
         {
-            Debug.Log("activeReactions: " + activeReactionElements.Count);
             conversationManager = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
 
             if (activeChoice == 1)
@@ -332,11 +330,9 @@ public class HPReverbControls : NetworkBehaviour
     [ClientRpc(includeOwner = false)]
     public void RpcUpdateActiveElement(int activeChoice)
     {
-        Debug.Log("activeReactions: " + activeReactionElements.Count);
         conversationManager = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
         if (conversationManager != null)
         {
-            Debug.Log("activeReactions: " + activeReactionElements.Count);
             if (activeChoice == 1)
             {
                 conversationManager.GetActiveConversation().activeElement = activeReactionElements[0];
