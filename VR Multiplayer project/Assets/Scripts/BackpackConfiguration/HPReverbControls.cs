@@ -34,7 +34,7 @@ public class HPReverbControls : NetworkBehaviour
 
         activeReactionElements = new List<ConversationElement>();
 
-
+        Debug.Log(activeReactionElements.Count + " before chossing text");
         //if (this.isServer)
         //{
         //    conversationManagerServer = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
@@ -120,6 +120,7 @@ public class HPReverbControls : NetworkBehaviour
             else
             {
                 conversationManager = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
+                Debug.Log("Active element nurse: " + conversationManager.GetActiveConversation().activeElement.Text);
                 activeReactionElements = conversationManager.GetActiveConversation().activeElement.ReactionElements;
                 CmdUpdateAgressorText();
             }
@@ -264,6 +265,7 @@ public class HPReverbControls : NetworkBehaviour
             Debug.Log("first command"  + activeReactionElements.Count);
         }
         conversationManager = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
+        Debug.Log("Active element server: " + conversationManager.GetActiveConversation().activeElement.Text);
         activeReactionElements = conversationManager.GetActiveConversation().activeElement.ReactionElements;
         Debug.Log(activeReactionElements.Count);
         NetworkIdentity AgressorID = GameObject.FindGameObjectWithTag("Agressor").transform.parent.transform.parent.gameObject.GetComponent<NetworkIdentity>();
