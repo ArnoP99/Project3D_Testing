@@ -188,6 +188,9 @@ public class HPReverbControls : NetworkBehaviour
             if (gameObject.GetComponent<NetworkIdentity>().isClient == true)
             {
                 Debug.Log("AgressorChoice ARE: " + activeReactionElements.Count);
+                Debug.Log(conversationManagerAgressor.GetActiveConversation().activeElement.Text);
+                activeReactionElements = conversationManagerAgressor.GetActiveConversation().activeElement.ReactionElements;
+                Debug.Log("AgressorChoice ARE: " + activeReactionElements.Count);
                 CmdUpdateActiveElement(1);
                 CmdUpdateNurseText();
             }
