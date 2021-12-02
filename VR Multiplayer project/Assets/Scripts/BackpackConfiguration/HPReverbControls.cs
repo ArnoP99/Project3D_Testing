@@ -37,15 +37,15 @@ public class HPReverbControls : NetworkBehaviour
 
         firstTime = true;
 
-        if (this.isServer)
+        if (this.isServer && conversationManagerServer == null)
         {
             conversationManagerServer = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
         }
-        if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse" && this.GetComponent<NetworkIdentity>().isLocalPlayer)
+        if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse" && this.GetComponent<NetworkIdentity>().isLocalPlayer && conversationManagerNurse == null)
         {
             conversationManagerNurse = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
         }
-        if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor" && this.GetComponent<NetworkIdentity>().isLocalPlayer)
+        if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor" && this.GetComponent<NetworkIdentity>().isLocalPlayer && conversationManagerAgressor == null)
         {
             conversationManagerAgressor = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
         }
@@ -295,7 +295,7 @@ public class HPReverbControls : NetworkBehaviour
         activeReactionElements = conversationManagerServer.GetActiveConversation().activeElement.ReactionElements;
         Debug.Log("Cmd UNT: " + activeReactionElements.Count);
         NetworkIdentity nurseID = GameObject.FindGameObjectWithTag("Nurse").transform.parent.transform.parent.gameObject.GetComponent<NetworkIdentity>();
-        TargetUpdateAgressorText(nurseID.connectionToClient);
+        TargetUpdateNurseText(nurseID.connectionToClient);
     }
 
     [TargetRpc]
@@ -343,6 +343,7 @@ public class HPReverbControls : NetworkBehaviour
     {
         if (conversationManagerAgressor != null)
         {
+            activeReactionElements = conversationManagerAgressor.GetActiveConversation().activeElement.ReactionElements;
             if (activeChoice == 1)
             {
                 conversationManagerAgressor.GetActiveConversation().activeElement = activeReactionElements[0];
@@ -359,6 +360,7 @@ public class HPReverbControls : NetworkBehaviour
 
         if (conversationManagerNurse != null)
         {
+            activeReactionElements = conversationManagerNurse.GetActiveConversation().activeElement.ReactionElements;
             if (activeChoice == 1)
             {
                 conversationManagerNurse.GetActiveConversation().activeElement = activeReactionElements[0];
