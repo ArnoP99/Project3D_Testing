@@ -319,6 +319,7 @@ public class HPReverbControls : NetworkBehaviour
     {
         if (this.isServer)
         {
+            activeReactionElements = conversationManagerServer.GetActiveConversation().activeElement.ReactionElements;
             Debug.Log("Cmd UAE: " + activeReactionElements.Count);
             if (activeChoice == 1)
             {
