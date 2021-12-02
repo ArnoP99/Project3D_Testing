@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class HPReverbControls : NetworkBehaviour
 {
@@ -37,21 +38,7 @@ public class HPReverbControls : NetworkBehaviour
 
         firstTime = true;
 
-        if (this.isServer && conversationManagerServer == null)
-        {
-            conversationManagerServer = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
-            Debug.Log("CVM Server set");
-        }
-        if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse" && this.GetComponent<NetworkIdentity>().isLocalPlayer && conversationManagerNurse == null)
-        {
-            conversationManagerNurse = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
-            Debug.Log("CVM Nurse set");
-        }
-        if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor" && this.GetComponent<NetworkIdentity>().isLocalPlayer && conversationManagerAgressor == null)
-        {
-            conversationManagerAgressor = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
-            Debug.Log("CVM Agressor set");
-        }
+
     }
     public void PressTrigger(InputAction.CallbackContext context)
     {
@@ -80,6 +67,23 @@ public class HPReverbControls : NetworkBehaviour
 
     private void Update()
     {
+        if (this.isServer && conversationManagerServer == null && SceneManager.GetActiveScene().name == "ZiekenhuisKamer")
+        {
+            conversationManagerServer = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
+            Debug.Log("CVM Server set");
+        }
+        if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse" && this.GetComponent<NetworkIdentity>().isLocalPlayer && conversationManagerNurse == null && SceneManager.GetActiveScene().name == "ZiekenhuisKamer")
+        {
+            conversationManagerNurse = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
+            Debug.Log("CVM Nurse set");
+        }
+        if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor" && this.GetComponent<NetworkIdentity>().isLocalPlayer && conversationManagerAgressor == null && SceneManager.GetActiveScene().name == "ZiekenhuisKamer")
+        {
+            conversationManagerAgressor = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
+            Debug.Log("CVM Agressor set");
+        }
+
+
         if (this.isServer && conversationManagerServer != null)
         {
             Debug.Log(conversationManagerServer.GetActiveConversation());
