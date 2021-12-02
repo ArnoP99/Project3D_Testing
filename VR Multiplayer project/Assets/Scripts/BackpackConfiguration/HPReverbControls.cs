@@ -40,14 +40,17 @@ public class HPReverbControls : NetworkBehaviour
         if (this.isServer && conversationManagerServer == null)
         {
             conversationManagerServer = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
+            Debug.Log("CVM Server set");
         }
         if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse" && this.GetComponent<NetworkIdentity>().isLocalPlayer && conversationManagerNurse == null)
         {
             conversationManagerNurse = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
+            Debug.Log("CVM Nurse set");
         }
         if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor" && this.GetComponent<NetworkIdentity>().isLocalPlayer && conversationManagerAgressor == null)
         {
             conversationManagerAgressor = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
+            Debug.Log("CVM Agressor set");
         }
     }
     public void PressTrigger(InputAction.CallbackContext context)
@@ -288,7 +291,10 @@ public class HPReverbControls : NetworkBehaviour
         agressor = GameObject.FindGameObjectWithTag("Agressor").transform.parent.transform.parent.gameObject;
         if (agressor.GetComponent<NetworkIdentity>().isClient && agressor.GetComponent<NetworkIdentity>().isLocalPlayer && agressor.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor")
         {
-            conversationManagerAgressor = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
+            if (conversationManagerNurse == null)
+            {
+                conversationManagerAgressor = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
+            }
             conversationManagerAgressor.ActiveConversation = currentConversation;
         }
     }
