@@ -247,8 +247,14 @@ public class HPReverbControls : NetworkBehaviour
     {
         if (this.isClient && this.GetComponent<NetworkIdentity>().isLocalPlayer && this.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse")
         {
-            conversationManagerNurse = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
+            if (conversationManagerNurse == null)
+            {
+                conversationManagerNurse = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
+            }
             conversationManagerNurse.ActiveConversation = currentConversation;
+            Debug.Log("Active conversation nurse set");
+            Debug.Log(conversationManagerNurse.GetActiveConversation());
+            Debug.Log(conversationManagerNurse.GetActiveConversation().ActiveElement.Text);
         }
     }
 
