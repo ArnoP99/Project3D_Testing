@@ -75,6 +75,22 @@ public class HPReverbControls : NetworkBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (this.isServer && conversationManagerServer != null)
+        {
+            Debug.Log(conversationManagerServer.GetActiveConversation());
+        }
+        if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse" && this.GetComponent<NetworkIdentity>().isLocalPlayer && conversationManagerNurse != null)
+        {
+            Debug.Log(conversationManagerNurse.GetActiveConversation());
+        }
+        if (this.isClient && gameObject.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor" && this.GetComponent<NetworkIdentity>().isLocalPlayer && conversationManagerAgressor != null)
+        {
+            Debug.Log(conversationManagerAgressor.GetActiveConversation());
+        }
+    }
+
     public void Joystick(InputAction.CallbackContext context)
     {
         //Debug.Log("Joystick");
@@ -203,6 +219,10 @@ public class HPReverbControls : NetworkBehaviour
             if (gameObject.GetComponent<NetworkIdentity>().isClient == true)
             {
                 Debug.Log("AgressorChoice ARE: " + activeReactionElements.Count);
+                Debug.Log("AgressorChoice CVM RE: " + conversationManagerAgressor.GetActiveConversation().activeElement.ReactionElements.Count);
+                Debug.Log(conversationManagerAgressor.GetActiveConversation().activeElement.Text);
+                activeReactionElements = conversationManagerAgressor.GetActiveConversation().activeElement.ReactionElements;
+                Debug.Log("AgressorChoice ARE: " + activeReactionElements.Count);
                 CmdUpdateActiveElement(2);
                 CmdUpdateNurseText();
             }
@@ -213,6 +233,10 @@ public class HPReverbControls : NetworkBehaviour
             textPopUp.SetActive(false);
             if (gameObject.GetComponent<NetworkIdentity>().isClient == true)
             {
+                Debug.Log("AgressorChoice ARE: " + activeReactionElements.Count);
+                Debug.Log("AgressorChoice CVM RE: " + conversationManagerAgressor.GetActiveConversation().activeElement.ReactionElements.Count);
+                Debug.Log(conversationManagerAgressor.GetActiveConversation().activeElement.Text);
+                activeReactionElements = conversationManagerAgressor.GetActiveConversation().activeElement.ReactionElements;
                 Debug.Log("AgressorChoice ARE: " + activeReactionElements.Count);
                 CmdUpdateActiveElement(3);
                 CmdUpdateNurseText();
