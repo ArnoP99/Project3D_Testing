@@ -122,7 +122,7 @@ public class ConversationManager : NetworkBehaviour
         }
 
         Debug.Log("No active conversation found.");
-        return generalCheckUpCv;
+        return null;
     }
 
     //[Command(requiresAuthority = false)]
