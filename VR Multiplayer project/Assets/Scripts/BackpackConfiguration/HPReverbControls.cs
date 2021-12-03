@@ -276,7 +276,9 @@ public class HPReverbControls : NetworkBehaviour
     [TargetRpc]
     public void TargetSetConversationNurse(NetworkConnection target, int currentConversation)
     {
-        if (this.isClient && this.GetComponent<NetworkIdentity>().isLocalPlayer && this.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse")
+        Debug.Log("hallo nurse");
+        nurse = GameObject.Find("Nurse").transform.gameObject.transform.parent.gameObject;
+        if (nurse.GetComponent<NetworkIdentity>().isClient && nurse.GetComponent<NetworkIdentity>().isLocalPlayer && nurse.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse")
         {
             conversationManagerNurse.ActiveConversation = currentConversation;
             Debug.Log("Active conversation nurse set");
@@ -286,8 +288,9 @@ public class HPReverbControls : NetworkBehaviour
     [TargetRpc]
     public void TargetSetConversationAgressor(NetworkConnection target, int currentConversation)
     {
+        Debug.Log("hallo agressor");
         agressor = GameObject.FindGameObjectWithTag("Agressor").transform.parent.transform.parent.gameObject;
-        if (this.isClient && this.GetComponent<NetworkIdentity>().isLocalPlayer && this.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor")
+        if (agressor.GetComponent<NetworkIdentity>().isClient && agressor.GetComponent<NetworkIdentity>().isLocalPlayer && agressor.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor")
         {
             conversationManagerAgressor.ActiveConversation = currentConversation;
             Debug.Log("Active conversation agressor set");
