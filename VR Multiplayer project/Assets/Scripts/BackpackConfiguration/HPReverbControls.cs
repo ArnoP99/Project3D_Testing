@@ -278,14 +278,8 @@ public class HPReverbControls : NetworkBehaviour
     {
         if (this.isClient && this.GetComponent<NetworkIdentity>().isLocalPlayer && this.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse")
         {
-            if (conversationManagerNurse == null)
-            {
-                conversationManagerNurse = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
-            }
             conversationManagerNurse.ActiveConversation = currentConversation;
             Debug.Log("Active conversation nurse set");
-            Debug.Log(conversationManagerNurse.GetActiveConversation());
-            Debug.Log(conversationManagerNurse.GetActiveConversation().ActiveElement.Text);
         }
     }
 
@@ -295,11 +289,8 @@ public class HPReverbControls : NetworkBehaviour
         agressor = GameObject.FindGameObjectWithTag("Agressor").transform.parent.transform.parent.gameObject;
         if (agressor.GetComponent<NetworkIdentity>().isClient && agressor.GetComponent<NetworkIdentity>().isLocalPlayer && agressor.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor")
         {
-            if (conversationManagerNurse == null)
-            {
-                conversationManagerAgressor = GameObject.Find("ConversationManager").gameObject.GetComponent<ConversationManager>();
-            }
             conversationManagerAgressor.ActiveConversation = currentConversation;
+            Debug.Log("Active conversation agressor set");
         }
     }
 
@@ -344,6 +335,9 @@ public class HPReverbControls : NetworkBehaviour
         nurse = GameObject.FindGameObjectWithTag("Nurse").gameObject;
         textPopUp = nurse.transform.parent.transform.GetChild(3).gameObject;
         Debug.Log(activeReactionElements.Count);
+        Debug.Log(conversationManagerNurse.GetActiveConversation());
+        Debug.Log(conversationManagerNurse.GetActiveConversation().activeElement.Text);
+        Debug.Log(conversationManagerNurse.GetActiveConversation().activeElement.ReactionElements.Count);
         activeReactionElements = conversationManagerNurse.GetActiveConversation().activeElement.ReactionElements;
         Debug.Log("Target UNT: " + activeReactionElements.Count);
         textPopUp.SetActive(true);
