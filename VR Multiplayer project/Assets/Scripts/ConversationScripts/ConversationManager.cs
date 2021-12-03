@@ -23,10 +23,8 @@ public class ConversationManager : NetworkBehaviour
 
 
     // Initialize different Conversations that will be used in the game
-    private void Awake()
+    private void Start()
     {
-        DontDestroyOnLoad(gameObject);
-
         ConversationElementInitializer.SetReactionElements();
 
         allConversations = new Conversation[3];
