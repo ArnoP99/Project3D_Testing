@@ -287,7 +287,7 @@ public class HPReverbControls : NetworkBehaviour
     public void TargetSetConversationAgressor(NetworkConnection target, int currentConversation)
     {
         agressor = GameObject.FindGameObjectWithTag("Agressor").transform.parent.transform.parent.gameObject;
-        if (agressor.GetComponent<NetworkIdentity>().isClient && agressor.GetComponent<NetworkIdentity>().isLocalPlayer && agressor.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor")
+        if (this.isClient && this.GetComponent<NetworkIdentity>().isLocalPlayer && this.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor")
         {
             conversationManagerAgressor.ActiveConversation = currentConversation;
             Debug.Log("Active conversation agressor set");
