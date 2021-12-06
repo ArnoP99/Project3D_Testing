@@ -26,7 +26,7 @@ public class ConversationElementInitializer
     private static ConversationElement agressief1D2 = new ConversationElement("Omdat ik het zeg!", ConversationElement.ElementState.Agressive, ConversationElement.UserState.Nurse);
     private static ConversationElement neutraal1D2 = new ConversationElement("U bent toch al wat beter een paar dagen extra ter controle zal nog wel lukken, toch?", ConversationElement.ElementState.Defensive, ConversationElement.UserState.Nurse);
 
-    private static  ConversationElement defensief1E = new ConversationElement("Oke, u hebt gelijk. Ik zal nog blijven.", ConversationElement.ElementState.Defensive, ConversationElement.UserState.Agressor);
+    private static ConversationElement defensief1E = new ConversationElement("Oke, u hebt gelijk. Ik zal nog blijven.", ConversationElement.ElementState.Defensive, ConversationElement.UserState.Agressor);
     private static ConversationElement agressief1E = new ConversationElement("Ik hoef geen controle meer, laat me gewoon vertrekken!", ConversationElement.ElementState.Agressive, ConversationElement.UserState.Agressor);
 
     private static ConversationElement startElement2 = new ConversationElement("Goedemidag, het is tijd voor uw medicatie.", ConversationElement.ElementState.Neutral, ConversationElement.UserState.Nurse);
@@ -50,12 +50,16 @@ public class ConversationElementInitializer
         defensief1A.AddElementToReactions(neutraal1B);
         defensief1A.AddElementToReactions(defensief1B);
 
+        //agressief1B --> einde conversatie
+
         neutraal1B.AddElementToReactions(agressief1C2);
         neutraal1B.AddElementToReactions(neutraal1C2);
-        neutraal1B.AddElementToReactions(neutraal1D1); // voor te testen mag later verwijderd worden
 
         defensief1B.AddElementToReactions(agressief1C1);
         defensief1B.AddElementToReactions(defensief1C1);
+
+        //agressief1C1 --> Over naar fase 2
+        //defensief1C1 --> Einde conversatie
 
         agressief1C2.AddElementToReactions(neutraal1D1);
         agressief1C2.AddElementToReactions(agressief1D1);
@@ -63,8 +67,16 @@ public class ConversationElementInitializer
         neutraal1C2.AddElementToReactions(agressief1D2);
         neutraal1C2.AddElementToReactions(neutraal1D2);
 
+        //neutraal1D1 --> Over naar fase 2
+        //agressief1D1 --> Einde conversatie
+
+        //agressief1D2 --> Over naar fase 2
+
         neutraal1D2.AddElementToReactions(defensief1E);
         neutraal1D2.AddElementToReactions(agressief1E);
+
+        //defensief1E --> Einde conversatie
+        //agressief1E --> Over naar fase 2
     }
 
     // Method used to send staring element to ConversationManager to initialize Conversation: GeneralCheckup
