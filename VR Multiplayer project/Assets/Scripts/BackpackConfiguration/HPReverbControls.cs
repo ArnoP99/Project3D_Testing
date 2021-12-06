@@ -37,22 +37,30 @@ public class HPReverbControls : NetworkBehaviour
         Debug.Log("Trigger Pressed");
         if (context.performed)
         {
-            try
+            if (this.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Agressor")
             {
-                GetAgressorActiveChoice();
-            }
-            catch (Exception ex)
-            {
-                Debug.Log(ex);
+                Debug.Log("Agressor kiest optie");
+                try
+                {
+                    GetAgressorActiveChoice();
+                }
+                catch (Exception ex)
+                {
+                    Debug.Log(ex);
+                }
             }
 
-            try
+            if (this.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse")
             {
-                GetNurseActiveChoice();
-            }
-            catch (Exception ex)
-            {
-                Debug.Log(ex);
+                Debug.Log("Nurse kiest optie");
+                try
+                {
+                    GetNurseActiveChoice();
+                }
+                catch (Exception ex)
+                {
+                    Debug.Log(ex);
+                }
             }
         }
     }
