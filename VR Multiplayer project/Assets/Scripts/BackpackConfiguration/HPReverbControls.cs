@@ -277,7 +277,7 @@ public class HPReverbControls : NetworkBehaviour
     public void TargetSetConversationNurse(NetworkConnection target, int currentConversation)
     {
         Debug.Log("hallo nurse");
-        nurse = GameObject.Find("Nurse").transform.gameObject.transform.parent.gameObject;
+        nurse = GameObject.Find("Nurse").transform.parent.transform.parent.gameObject;
         if (nurse.GetComponent<NetworkIdentity>().isClient && nurse.GetComponent<NetworkIdentity>().isLocalPlayer && nurse.transform.GetChild(0).transform.GetChild(2).gameObject.tag == "Nurse")
         {
             conversationManagerNurse.ActiveConversation = currentConversation;
