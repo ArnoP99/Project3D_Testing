@@ -67,7 +67,10 @@ public class HPReverbControls : NetworkBehaviour
 
     private void Update()
     {
-        Debug.Log(ConversationManager.Instance.GetActiveConversation());
+        if (ConversationManager.Instance != null)
+        {
+            Debug.Log(ConversationManager.Instance.GetActiveConversation());
+        }
     }
 
     public void Joystick(InputAction.CallbackContext context)
