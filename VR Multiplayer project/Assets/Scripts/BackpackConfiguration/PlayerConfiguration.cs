@@ -3,6 +3,7 @@ using UnityEngine;
 using Mirror;
 using UnityEngine.SpatialTracking;
 using UnityEngine.InputSystem;
+using System;
 
 public class PlayerConfiguration : NetworkBehaviour
 {
@@ -58,6 +59,8 @@ public class PlayerConfiguration : NetworkBehaviour
                 this.transform.GetChild(0).transform.GetChild(2).transform.GetChild(1).gameObject.SetActive(false);
                 this.transform.GetChild(0).transform.GetChild(2).transform.GetChild(2).gameObject.SetActive(false);
                 this.transform.GetChild(0).transform.GetChild(3).gameObject.SetActive(false);
+                CmdSetHandsAuthority(this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<NetworkIdentity>(), this.gameObject.GetComponent<NetworkIdentity>());
+                CmdSetHandsAuthority(this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(1).gameObject.GetComponent<NetworkIdentity>(), this.gameObject.GetComponent<NetworkIdentity>());
             }
             //When it is the local player and it is the server/PC enable the main camera
             else
@@ -84,6 +87,8 @@ public class PlayerConfiguration : NetworkBehaviour
             myCamera.enabled = false;
             myCamera.GetComponent<AudioListener>().enabled = false;
             this.transform.GetChild(0).transform.GetChild(3).gameObject.SetActive(false);
+            CmdSetHandsAuthority(this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).gameObject.GetComponent<NetworkIdentity>(), this.gameObject.GetComponent<NetworkIdentity>());
+            CmdSetHandsAuthority(this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(1).gameObject.GetComponent<NetworkIdentity>(), this.gameObject.GetComponent<NetworkIdentity>());
         }
 
         //Make server/PC player invisible and make hands invisible
@@ -135,5 +140,21 @@ public class PlayerConfiguration : NetworkBehaviour
         {
             this.GetComponent<PlayerInput>().enabled = true;
         }
+    }
+
+    [Command(requiresAuthority = false)]
+    public void CmdSetHandsAuthority(NetworkIdentity handID, NetworkIdentity playerID)
+    {
+        try
+        {
+            handID.RemoveClientAuthority();
+            handID.RemoveClientAuthority();
+        }
+        catch (Exception ex)
+        {
+            // Do nothing if hands don't have authority yet.
+        }
+        handID.AssignClientAuthority(playerID.connectionToClient);
+        handID.AssignClientAuthority(playerID.connectionToClient);
     }
 }
