@@ -50,6 +50,7 @@ public class PlayerConfiguration : NetworkBehaviour
             //When it is the local player and isn't the server/PC enable the camera, the tracked pose driver of the camera
             if (NetworkConfiguration.GameSettings.ID != 0)
             {
+                Debug.Log("LocalPlayer && != server");
                 syncRotation.enabled = true;
                 TrackedPoseDriver.enabled = true;
                 myCamera.enabled = true;
@@ -61,6 +62,7 @@ public class PlayerConfiguration : NetworkBehaviour
             //When it is the local player and it is the server/PC enable the main camera
             else
             {
+                Debug.Log("LocalPlayer && == server");
                 syncRotation.enabled = false;
                 controllersToHMDLocal.enabled = false;
                 myCamera.enabled = false;
@@ -76,6 +78,7 @@ public class PlayerConfiguration : NetworkBehaviour
         //When it isn't the local player dissable camera and audiolistener
         else
         {
+            Debug.Log("Not LocalPlayer");
             syncRotation.enabled = false;
             TrackedPoseDriver.enabled = false;
             myCamera.enabled = false;
