@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class ConversationManager : NetworkBehaviour
 {
+    private static ConversationManager instance = null;
+    private static readonly object padlock = new object();
+
     public Conversation[] allConversations;
     public int activeConversation;
     public List<GameObject> conversationParticipants = new List<GameObject>();
@@ -18,9 +21,22 @@ public class ConversationManager : NetworkBehaviour
 
     public ConversationManager()
     {
-
     }
 
+    public static ConversationManager Instance
+    {
+        get
+        {
+            lock (padlock)
+            {
+                if (instance == null)
+                {
+                    instance = new ConversationManager();
+                }
+                return instance;
+            }
+        }
+    }
 
     // Initialize different Conversations that will be used in the game
     private void Start()

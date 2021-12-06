@@ -45,6 +45,8 @@ public class PlayerConfiguration : NetworkBehaviour
         controllersToHMDLocal = this.GetComponentInChildren<ControllersToHMDLocal>();
         syncRotation = this.GetComponentInChildren<SyncRotation>();
 
+
+        // for hands, instantiate them with autohority after instantiating player (delete them from prefab, ...)
         if (isLocalPlayer)
         {
             //When it is the local player and isn't the server/PC enable the camera, the tracked pose driver of the camera
@@ -92,6 +94,8 @@ public class PlayerConfiguration : NetworkBehaviour
             this.GetComponentInChildren<MeshRenderer>().enabled = false;
             this.transform.GetChild(0).transform.GetChild(2).transform.GetChild(1).gameObject.SetActive(false);
             this.transform.GetChild(0).transform.GetChild(2).transform.GetChild(2).gameObject.SetActive(false);
+            this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).gameObject.SetActive(false);
+            this.transform.GetChild(0).transform.GetChild(1).transform.GetChild(1).gameObject.SetActive(false);
             this.transform.GetChild(0).transform.GetChild(3).gameObject.SetActive(false);
 
         }
