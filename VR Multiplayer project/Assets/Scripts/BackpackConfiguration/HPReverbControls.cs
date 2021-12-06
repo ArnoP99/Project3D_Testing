@@ -15,22 +15,11 @@ public class HPReverbControls : NetworkBehaviour
     public GameObject activeChoice;
     public bool triggerValue = true;
 
-    public List<ConversationElement> activeReactionElements;
     bool firstTime;
 
     private void Start()
     {
-        if (activeReactionElements == null)
-        {
-            activeReactionElements = new List<ConversationElement>();
-        }
-        Debug.Log("Debug start ARE: " + activeReactionElements);
-        Debug.Log("Debug Start ARE count: " + activeReactionElements.Count);
-        //activeReactionElements = new List<ConversationElement>();
-
         firstTime = true;
-
-
     }
     public void PressTrigger(InputAction.CallbackContext context)
     {
@@ -185,11 +174,11 @@ public class HPReverbControls : NetworkBehaviour
             textPopUp.SetActive(false);
             if (gameObject.GetComponent<NetworkIdentity>().isClient == true)
             {
-                Debug.Log("AgressorChoice ARE: " + activeReactionElements.Count);
+                Debug.Log("AgressorChoice ARE: " + ConversationManager.Instance.ActiveReactionElements.Count);
                 Debug.Log("AgressorChoice CVM RE: " + ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements.Count);
                 Debug.Log(ConversationManager.Instance.GetActiveConversation().activeElement.Text);
-                activeReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
-                Debug.Log("AgressorChoice ARE: " + activeReactionElements.Count);
+                ConversationManager.Instance.ActiveReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
+                Debug.Log("AgressorChoice ARE: " + ConversationManager.Instance.ActiveReactionElements.Count);
                 CmdUpdateActiveElement(1);
                 CmdUpdateNurseText();
             }
@@ -200,11 +189,11 @@ public class HPReverbControls : NetworkBehaviour
             textPopUp.SetActive(false);
             if (gameObject.GetComponent<NetworkIdentity>().isClient == true)
             {
-                Debug.Log("AgressorChoice ARE: " + activeReactionElements.Count);
+                Debug.Log("AgressorChoice ARE: " + ConversationManager.Instance.ActiveReactionElements.Count);
                 Debug.Log("AgressorChoice CVM RE: " + ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements.Count);
                 Debug.Log(ConversationManager.Instance.GetActiveConversation().activeElement.Text);
-                activeReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
-                Debug.Log("AgressorChoice ARE: " + activeReactionElements.Count);
+                ConversationManager.Instance.ActiveReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
+                Debug.Log("AgressorChoice ARE: " + ConversationManager.Instance.ActiveReactionElements.Count);
                 CmdUpdateActiveElement(2);
                 CmdUpdateNurseText();
             }
@@ -215,11 +204,11 @@ public class HPReverbControls : NetworkBehaviour
             textPopUp.SetActive(false);
             if (gameObject.GetComponent<NetworkIdentity>().isClient == true)
             {
-                Debug.Log("AgressorChoice ARE: " + activeReactionElements.Count);
+                Debug.Log("AgressorChoice ARE: " + ConversationManager.Instance.ActiveReactionElements.Count);
                 Debug.Log("AgressorChoice CVM RE: " + ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements.Count);
                 Debug.Log(ConversationManager.Instance.GetActiveConversation().activeElement.Text);
-                activeReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
-                Debug.Log("AgressorChoice ARE: " + activeReactionElements.Count);
+                ConversationManager.Instance.ActiveReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
+                Debug.Log("AgressorChoice ARE: " + ConversationManager.Instance.ActiveReactionElements.Count);
                 CmdUpdateActiveElement(3);
                 CmdUpdateNurseText();
             }
@@ -238,9 +227,9 @@ public class HPReverbControls : NetworkBehaviour
         if (gameObject.GetComponent<NetworkIdentity>().isServer)
         {
             ConversationManager.Instance.ActiveConversation = currentConversation;
-            activeReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
+            ConversationManager.Instance.ActiveReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
             Debug.Log(ConversationManager.Instance.ActiveConversation);
-            Debug.Log("Cmd SCV: " + activeReactionElements.Count);
+            Debug.Log("Cmd SCV: " + ConversationManager.Instance.ActiveReactionElements.Count);
             NetworkIdentity nurseID = GameObject.FindGameObjectWithTag("Nurse").transform.parent.transform.parent.gameObject.GetComponent<NetworkIdentity>();
             NetworkIdentity AgressorID = GameObject.FindGameObjectWithTag("Agressor").transform.parent.transform.parent.gameObject.GetComponent<NetworkIdentity>();
             TargetSetConversationNurse(nurseID.connectionToClient, currentConversation);
@@ -275,8 +264,8 @@ public class HPReverbControls : NetworkBehaviour
     [Command(requiresAuthority = false)]
     public void CmdUpdateAgressorText()
     {
-        activeReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
-        Debug.Log("Cmd UAT: " + activeReactionElements.Count);
+        ConversationManager.Instance.ActiveReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
+        Debug.Log("Cmd UAT: " + ConversationManager.Instance.ActiveReactionElements.Count);
         NetworkIdentity AgressorID = GameObject.FindGameObjectWithTag("Agressor").transform.parent.transform.parent.gameObject.GetComponent<NetworkIdentity>();
         TargetUpdateAgressorText(AgressorID.connectionToClient);
     }
@@ -286,23 +275,23 @@ public class HPReverbControls : NetworkBehaviour
     {
         agressor = GameObject.FindGameObjectWithTag("Agressor").gameObject;
         textPopUp = agressor.transform.parent.transform.GetChild(3).gameObject;
-        Debug.Log(activeReactionElements.Count);
+        Debug.Log(ConversationManager.Instance.ActiveReactionElements.Count);
         Debug.Log(ConversationManager.Instance.GetActiveConversation().activeElement.Text);
-        activeReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
-        Debug.Log("Target UAT: " + activeReactionElements.Count);
+        ConversationManager.Instance.ActiveReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
+        Debug.Log("Target UAT: " + ConversationManager.Instance.ActiveReactionElements.Count);
         textPopUp.SetActive(true);
 
         // als er geen 3 reacties zijn ... -> hier moeten we nog op controleren
-        textPopUp.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = activeReactionElements[0].Text;
-        textPopUp.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text = activeReactionElements[1].Text;
-        textPopUp.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = activeReactionElements[2].Text;
+        textPopUp.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[0].Text;
+        textPopUp.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[1].Text;
+        textPopUp.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[2].Text;
     }
 
     [Command(requiresAuthority = false)]
     public void CmdUpdateNurseText()
     {
-        activeReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
-        Debug.Log("Cmd UNT: " + activeReactionElements.Count);
+        ConversationManager.Instance.ActiveReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
+        Debug.Log("Cmd UNT: " + ConversationManager.Instance.ActiveReactionElements.Count);
         NetworkIdentity nurseID = GameObject.FindGameObjectWithTag("Nurse").transform.parent.transform.parent.gameObject.GetComponent<NetworkIdentity>();
         TargetUpdateNurseText(nurseID.connectionToClient);
     }
@@ -312,18 +301,18 @@ public class HPReverbControls : NetworkBehaviour
     {
         nurse = GameObject.FindGameObjectWithTag("Nurse").gameObject;
         textPopUp = nurse.transform.parent.transform.GetChild(3).gameObject;
-        Debug.Log(activeReactionElements.Count);
+        Debug.Log(ConversationManager.Instance.ActiveReactionElements.Count);
         Debug.Log(ConversationManager.Instance.GetActiveConversation());
         Debug.Log(ConversationManager.Instance.GetActiveConversation().activeElement.Text);
         Debug.Log(ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements.Count);
-        activeReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
-        Debug.Log("Target UNT: " + activeReactionElements.Count);
+        ConversationManager.Instance.ActiveReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
+        Debug.Log("Target UNT: " + ConversationManager.Instance.ActiveReactionElements.Count);
         textPopUp.SetActive(true);
 
         // als er geen 3 reacties zijn ... -> hier moeten we nog op controleren
-        textPopUp.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = activeReactionElements[0].Text;
-        textPopUp.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text = activeReactionElements[1].Text;
-        textPopUp.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = activeReactionElements[2].Text;
+        textPopUp.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[0].Text;
+        textPopUp.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[1].Text;
+        textPopUp.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[2].Text;
     }
 
     [Command(requiresAuthority = false)]
@@ -331,19 +320,19 @@ public class HPReverbControls : NetworkBehaviour
     {
         if (this.isServer)
         {
-            activeReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
-            Debug.Log("Cmd UAE: " + activeReactionElements.Count);
+            ConversationManager.Instance.ActiveReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
+            Debug.Log("Cmd UAE: " + ConversationManager.Instance.ActiveReactionElements.Count);
             if (activeChoice == 1)
             {
-                ConversationManager.Instance.GetActiveConversation().activeElement = activeReactionElements[0];
+                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[0];
             }
             if (activeChoice == 2)
             {
-                ConversationManager.Instance.GetActiveConversation().activeElement = activeReactionElements[1];
+                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[1];
             }
             if (activeChoice == 3)
             {
-                ConversationManager.Instance.GetActiveConversation().activeElement = activeReactionElements[2];
+                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[2];
             }
 
             RpcUpdateActiveElement(activeChoice);
@@ -355,35 +344,35 @@ public class HPReverbControls : NetworkBehaviour
     {
         if (ConversationManager.Instance != null)
         {
-            activeReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
+            ConversationManager.Instance.ActiveReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
             if (activeChoice == 1)
             {
-                ConversationManager.Instance.GetActiveConversation().activeElement = activeReactionElements[0];
+                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[0];
             }
             if (activeChoice == 2)
             {
-                ConversationManager.Instance.GetActiveConversation().activeElement = activeReactionElements[1];
+                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[1];
             }
             if (activeChoice == 3)
             {
-                ConversationManager.Instance.GetActiveConversation().activeElement = activeReactionElements[2];
+                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[2];
             }
         }
 
         if (ConversationManager.Instance != null)
         {
-            activeReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
+            ConversationManager.Instance.ActiveReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
             if (activeChoice == 1)
             {
-                ConversationManager.Instance.GetActiveConversation().activeElement = activeReactionElements[0];
+                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[0];
             }
             if (activeChoice == 2)
             {
-                ConversationManager.Instance.GetActiveConversation().activeElement = activeReactionElements[1];
+                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[1];
             }
             if (activeChoice == 3)
             {
-                ConversationManager.Instance.GetActiveConversation().activeElement = activeReactionElements[2];
+                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[2];
             }
         }
     }

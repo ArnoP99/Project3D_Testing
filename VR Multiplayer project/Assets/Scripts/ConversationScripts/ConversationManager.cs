@@ -14,6 +14,8 @@ public class ConversationManager : NetworkBehaviour
     public int activeConversation;
     public List<GameObject> conversationParticipants = new List<GameObject>();
     public GameObject activeParticipant;
+    public List<ConversationElement> activeReactionElements = new List<ConversationElement>();
+
 
     public Conversation generalCheckUpCv;
     public Conversation timeForMedicationCv;
@@ -21,6 +23,7 @@ public class ConversationManager : NetworkBehaviour
 
     public ConversationManager()
     {
+        
     }
 
     public static ConversationManager Instance
@@ -192,4 +195,15 @@ public class ConversationManager : NetworkBehaviour
         }
     }
 
+    public List<ConversationElement> ActiveReactionElements
+    {
+        get
+        {
+            return activeReactionElements;
+        }
+        set
+        {
+            activeReactionElements = value;
+        }
+    }
 }
