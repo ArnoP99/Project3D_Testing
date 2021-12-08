@@ -334,33 +334,20 @@ public class HPReverbControls : NetworkBehaviour
             {
                 ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[2];
             }
-
+            Debug.Log("Updated active element on clients");
             RpcUpdateActiveElement(activeChoice);
         }
     }
 
+
+    // mss aparte targetRPCs maken voor nurse en agressor zodat dit niet 2x wordt uitgevoerd op server
     [ClientRpc(includeOwner = false)]
     public void RpcUpdateActiveElement(int activeChoice)
     {
-        if (ConversationManager.Instance != null)
-        {
-            ConversationManager.Instance.ActiveReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
-            if (activeChoice == 1)
-            {
-                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[0];
-            }
-            if (activeChoice == 2)
-            {
-                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[1];
-            }
-            if (activeChoice == 3)
-            {
-                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[2];
-            }
-        }
 
         if (ConversationManager.Instance != null)
         {
+            Debug.Log("Updated active element on clients");
             ConversationManager.Instance.ActiveReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
             if (activeChoice == 1)
             {
