@@ -288,7 +288,7 @@ public class HPReverbControls : NetworkBehaviour
             textPopUp.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[1].Text;
             textPopUp.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[2].Text;
         }
-        else
+        else if (ConversationManager.Instance.ActiveReactionElements.Count == 2)
         {
             textPopUp.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[0].Text;
             textPopUp.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text = " ";
@@ -325,7 +325,7 @@ public class HPReverbControls : NetworkBehaviour
             textPopUp.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[1].Text;
             textPopUp.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[2].Text;
         }
-        else
+        else if (ConversationManager.Instance.ActiveReactionElements.Count == 2)
         {
             textPopUp.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[0].Text;
             textPopUp.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text = " ";
@@ -356,7 +356,7 @@ public class HPReverbControls : NetworkBehaviour
                     ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[2];
                 }
             }
-            else
+            else if (ConversationManager.Instance.ActiveReactionElements.Count == 2)
             {
                 if (activeChoice == 1)
                 {
@@ -395,7 +395,7 @@ public class HPReverbControls : NetworkBehaviour
                 ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[2];
             }
         }
-        else
+        else if (ConversationManager.Instance.ActiveReactionElements.Count == 2)
         {
             if (activeChoice == 1)
             {
@@ -428,7 +428,7 @@ public class HPReverbControls : NetworkBehaviour
                 ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[2];
             }
         }
-        else
+        else if(ConversationManager.Instance.ActiveReactionElements.Count == 2)
         {
             if (activeChoice == 1)
             {
