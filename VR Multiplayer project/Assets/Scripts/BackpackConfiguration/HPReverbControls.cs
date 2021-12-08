@@ -292,7 +292,7 @@ public class HPReverbControls : NetworkBehaviour
         {
             textPopUp.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[0].Text;
             textPopUp.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text = " ";
-            textPopUp.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[2].Text;
+            textPopUp.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[1].Text;
         }
     }
 
@@ -329,7 +329,7 @@ public class HPReverbControls : NetworkBehaviour
         {
             textPopUp.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[0].Text;
             textPopUp.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text = " ";
-            textPopUp.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[2].Text;
+            textPopUp.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[1].Text;
         }
 
     }
@@ -353,7 +353,7 @@ public class HPReverbControls : NetworkBehaviour
             {
                 ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[2];
             }
-            Debug.Log("Updated active element on clients");
+            Debug.Log("Updated active element on server");
             RpcUpdateActiveElement(activeChoice);
         }
     }
