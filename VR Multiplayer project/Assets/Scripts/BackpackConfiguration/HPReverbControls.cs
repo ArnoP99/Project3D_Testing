@@ -341,17 +341,31 @@ public class HPReverbControls : NetworkBehaviour
         {
             ConversationManager.Instance.ActiveReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
             Debug.Log("Cmd UAE: " + ConversationManager.Instance.ActiveReactionElements.Count);
-            if (activeChoice == 1)
+            if (ConversationManager.Instance.ActiveReactionElements.Count == 3)
             {
-                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[0];
+                if (activeChoice == 1)
+                {
+                    ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[0];
+                }
+                if (activeChoice == 2)
+                {
+                    ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[1];
+                }
+                if (activeChoice == 3)
+                {
+                    ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[2];
+                }
             }
-            if (activeChoice == 2)
+            else
             {
-                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[1];
-            }
-            if (activeChoice == 3)
-            {
-                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[2];
+                if (activeChoice == 1)
+                {
+                    ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[0];
+                }
+                if (activeChoice == 3)
+                {
+                    ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[1];
+                }
             }
             Debug.Log("Updated active element on server");
             RpcUpdateActiveElement(activeChoice);
@@ -364,21 +378,35 @@ public class HPReverbControls : NetworkBehaviour
     public void RpcUpdateActiveElement(int activeChoice)
     {
 
-        if (ConversationManager.Instance != null)
+        if (ConversationManager.Instance != null && this.isClient)
         {
             Debug.Log("Updated active element on clients");
             ConversationManager.Instance.ActiveReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
-            if (activeChoice == 1)
+            if (ConversationManager.Instance.ActiveReactionElements.Count == 3)
             {
-                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[0];
+                if (activeChoice == 1)
+                {
+                    ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[0];
+                }
+                if (activeChoice == 2)
+                {
+                    ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[1];
+                }
+                if (activeChoice == 3)
+                {
+                    ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[2];
+                }
             }
-            if (activeChoice == 2)
+            else
             {
-                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[1];
-            }
-            if (activeChoice == 3)
-            {
-                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[2];
+                if (activeChoice == 1)
+                {
+                    ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[0];
+                }
+                if (activeChoice == 3)
+                {
+                    ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[1];
+                }
             }
         }
     }
