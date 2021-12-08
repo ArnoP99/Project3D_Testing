@@ -282,9 +282,18 @@ public class HPReverbControls : NetworkBehaviour
         textPopUp.SetActive(true);
 
         // als er geen 3 reacties zijn ... -> hier moeten we nog op controleren
-        textPopUp.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[0].Text;
-        textPopUp.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[1].Text;
-        textPopUp.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[2].Text;
+        if (ConversationManager.Instance.ActiveReactionElements.Count == 3)
+        {
+            textPopUp.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[0].Text;
+            textPopUp.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[1].Text;
+            textPopUp.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[2].Text;
+        }
+        else
+        {
+            textPopUp.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[0].Text;
+            textPopUp.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text = " ";
+            textPopUp.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[2].Text;
+        }
     }
 
     [Command(requiresAuthority = false)]
@@ -310,9 +319,19 @@ public class HPReverbControls : NetworkBehaviour
         textPopUp.SetActive(true);
 
         // als er geen 3 reacties zijn ... -> hier moeten we nog op controleren
-        textPopUp.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[0].Text;
-        textPopUp.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[1].Text;
-        textPopUp.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[2].Text;
+        if (ConversationManager.Instance.ActiveReactionElements.Count == 3)
+        {
+            textPopUp.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[0].Text;
+            textPopUp.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[1].Text;
+            textPopUp.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[2].Text;
+        }
+        else
+        {
+            textPopUp.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[0].Text;
+            textPopUp.transform.GetChild(1).gameObject.GetComponent<TextMeshPro>().text = " ";
+            textPopUp.transform.GetChild(2).gameObject.GetComponent<TextMeshPro>().text = ConversationManager.Instance.ActiveReactionElements[2].Text;
+        }
+
     }
 
     [Command(requiresAuthority = false)]
