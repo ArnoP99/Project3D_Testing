@@ -368,45 +368,75 @@ public class HPReverbControls : NetworkBehaviour
                 }
             }
             Debug.Log("Updated active element on server");
-            RpcUpdateActiveElement(activeChoice);
+            NetworkIdentity nurseID = GameObject.FindGameObjectWithTag("Nurse").transform.parent.transform.parent.gameObject.GetComponent<NetworkIdentity>();
+            NetworkIdentity AgressorID = GameObject.FindGameObjectWithTag("Agressor").transform.parent.transform.parent.gameObject.GetComponent<NetworkIdentity>();
+            TargetUpdateActiveElementNurse(nurseID.connectionToClient, activeChoice);
+            TargetUpdateActiveElementAgressor(AgressorID.connectionToClient, activeChoice);
         }
     }
 
-
-    // mss aparte targetRPCs maken voor nurse en agressor zodat dit niet 2x wordt uitgevoerd op server
-    [ClientRpc(includeOwner = false)]
-    public void RpcUpdateActiveElement(int activeChoice)
+    [TargetRpc]
+    public void TargetUpdateActiveElementNurse(NetworkConnection target, int activeChoice)
     {
-
-        if (ConversationManager.Instance != null && this.isClient)
+        Debug.Log("Updated active element on nurse");
+        ConversationManager.Instance.ActiveReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
+        if (ConversationManager.Instance.ActiveReactionElements.Count == 3)
         {
-            Debug.Log("Updated active element on clients");
-            ConversationManager.Instance.ActiveReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
-            if (ConversationManager.Instance.ActiveReactionElements.Count == 3)
+            if (activeChoice == 1)
             {
-                if (activeChoice == 1)
-                {
-                    ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[0];
-                }
-                if (activeChoice == 2)
-                {
-                    ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[1];
-                }
-                if (activeChoice == 3)
-                {
-                    ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[2];
-                }
+                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[0];
             }
-            else
+            if (activeChoice == 2)
             {
-                if (activeChoice == 1)
-                {
-                    ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[0];
-                }
-                if (activeChoice == 3)
-                {
-                    ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[1];
-                }
+                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[1];
+            }
+            if (activeChoice == 3)
+            {
+                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[2];
+            }
+        }
+        else
+        {
+            if (activeChoice == 1)
+            {
+                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[0];
+            }
+            if (activeChoice == 3)
+            {
+                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[1];
+            }
+        }
+    }
+
+    [TargetRpc]
+    public void TargetUpdateActiveElementAgressor(NetworkConnection target, int activeChoice)
+    {
+        Debug.Log("Updated active element on agressor");
+        ConversationManager.Instance.ActiveReactionElements = ConversationManager.Instance.GetActiveConversation().activeElement.ReactionElements;
+        if (ConversationManager.Instance.ActiveReactionElements.Count == 3)
+        {
+            if (activeChoice == 1)
+            {
+                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[0];
+            }
+            if (activeChoice == 2)
+            {
+                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[1];
+            }
+            if (activeChoice == 3)
+            {
+                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[2];
+            }
+        }
+        else
+        {
+            if (activeChoice == 1)
+            {
+                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[0];
+            }
+            if (activeChoice == 3)
+            {
+                ConversationManager.Instance.GetActiveConversation().activeElement = ConversationManager.Instance.ActiveReactionElements[1];
             }
         }
     }
